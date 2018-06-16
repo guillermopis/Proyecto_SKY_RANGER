@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="c090c5e8-8ed6-4a00-87e9-4b29e5be128e"
+  name="diagrama de flujo" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="65f338f9-119f-4955-9076-ee7c550c4785">
+      <body>*ID
+*ID de lote
+*Marca
+*Modelo
+*IDSIS
+*IMEI
+*Numero de carcasa
+*version del FIRMWARE
+*Estado
+*ID de SIM</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="f6e348ad-16b2-4f38-bf2c-ef6d6b0f4fc9"
+          LastKnownName="INGRESAR INFORMACION DEL GPS:"
+          LastKnownLocation="diagrama de flujo.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="53c4b2f0-7992-4435-acd4-bab7966490d5">
+      <body>NO</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="bf98864c-d02c-425d-884b-b67fc330c37d"
+          LastKnownName="Decision1"
+          LastKnownLocation="diagrama de flujo.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="b96d4d1a-a05d-4899-8b3e-7ecb15b80077">
+      <body>SI</body>
+      <annotatedElements>
+        <decisionNodeMoniker
+          Id="bf98864c-d02c-425d-884b-b67fc330c37d"
+          LastKnownName="Decision1"
+          LastKnownLocation="diagrama de flujo.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="a426aca1-ae94-4aed-ac91-4de1508e3be2"
+        name="FLUJO"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="c5b7ac43-12fa-4223-af26-70e93668989f"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="76ad5f43-7c13-417e-8a58-a066c57ab0ec"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="006052c4-b3b0-435b-b6d6-371989d7fb95"
+                  LastKnownName="REGISTAR UN GPS AL SISTEMA"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="006052c4-b3b0-435b-b6d6-371989d7fb95"
+            name="REGISTAR UN GPS AL SISTEMA"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="01daff56-fabb-42f9-bd7f-1acdb2f0804a"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="bf98864c-d02c-425d-884b-b67fc330c37d"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="bf98864c-d02c-425d-884b-b67fc330c37d"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="661e7dab-f97d-4d4e-bb5c-9eaa400214bc"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="9490f753-dfe7-4867-b19c-89254c23eb3e"
+                  LastKnownName="REGISTRAR_NUEVO_LOTE"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="ac316e0c-4f19-43d0-ad7d-558953b34378"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f6e348ad-16b2-4f38-bf2c-ef6d6b0f4fc9"
+                  LastKnownName="INGRESAR INFORMACION DEL GPS:"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <sendSignalAction
+            Id="9490f753-dfe7-4867-b19c-89254c23eb3e"
+            name="REGISTRAR_NUEVO_LOTE"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e963520f-76e6-4f94-9525-877481cb8a91"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="f6e348ad-16b2-4f38-bf2c-ef6d6b0f4fc9"
+                  LastKnownName="INGRESAR INFORMACION DEL GPS:"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <opaqueAction
+            Id="f6e348ad-16b2-4f38-bf2c-ef6d6b0f4fc9"
+            name="INGRESAR INFORMACION DEL GPS:"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f3d46060-6172-4b95-8c1a-5097cbe2b2c8"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="9b4cb232-ee0b-4c20-98f8-ebd53a0027c4"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="diagrama de flujo.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <activityFinalNode
+            Id="9b4cb232-ee0b-4c20-98f8-ebd53a0027c4"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
