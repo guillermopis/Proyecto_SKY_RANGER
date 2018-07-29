@@ -4,6 +4,7 @@
         <field id="tpd3" name="Nombre" width="393" order="0"/>
         <field id="tpd4" name="Fecha de inicio" width="120" order="1"/>
         <field id="tpd5" name="Fecha de fin" width="98" order="2"/>
+        <option id="taskLabelRight" value="resources"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Nombre" width="210" order="0"/>
@@ -58,25 +59,30 @@
             <task id="11" name="Corrección y confirmación de requerimientos" meeting="false" start="2018-06-09" duration="1" complete="0" expand="true"/>
         </task>
         <task id="22" name="Definir herramientas para el desarrollo de software" meeting="false" start="2018-07-14" duration="8" complete="0" expand="true"/>
-        <task id="63" name="Finalización de modelado de software" meeting="false" start="2018-07-23" duration="6" complete="0" expand="true">
-            <task id="64" name="Diagrama de secuencia" meeting="false" start="2018-07-23" duration="2" complete="0" expand="true"/>
-            <task id="65" name="Diagrama de comportamiento" meeting="false" start="2018-07-25" duration="2" complete="0" expand="true"/>
-            <task id="66" name="Diagrama de colaboración" meeting="false" start="2018-07-27" duration="2" complete="0" expand="true"/>
+        <task id="63" name="Diseño de diagramas de comportamiento" meeting="false" start="2018-07-23" duration="8" complete="0" expand="true">
+            <task id="64" name="Diagrama de secuencia" meeting="false" start="2018-07-23" duration="8" complete="0" expand="true"/>
+            <task id="67" name="Diagrama de Casos de uso" meeting="false" start="2018-07-23" duration="8" complete="0" expand="true"/>
+            <task id="68" name="Diagrama de estados" meeting="false" start="2018-07-23" duration="8" complete="0" expand="true"/>
         </task>
-        <task id="44" name="Confirmación de requisitos de software" meeting="false" start="2018-07-23" duration="8" complete="0" expand="true"/>
-        <task id="45" name="Inicio de desarrollo" meeting="false" start="2018-07-31" duration="53" complete="0" expand="true">
-            <task id="50" name="Desarrollo de Login" meeting="false" start="2018-07-31" duration="4" complete="0" expand="true"/>
-            <task id="51" name="Dearrollo de módulo de proveedores" meeting="false" start="2018-08-05" duration="5" complete="0" expand="true"/>
-            <task id="53" name="Desarrollo de módulo de lotes" meeting="false" start="2018-08-10" duration="5" complete="0" expand="true"/>
-            <task id="54" name="Desarrollo de módulo de marcas" meeting="false" start="2018-08-15" duration="3" complete="0" expand="true"/>
-            <task id="55" name="Desarrollo de módulo de GPS" meeting="false" start="2018-08-19" duration="4" complete="0" expand="true"/>
-            <task id="56" name="Desarrollo de módulo de departamento de reparaciones" meeting="false" start="2018-08-23" duration="4" complete="0" expand="true"/>
-            <task id="57" name="Desarrollo de módulo de Clientes" meeting="false" start="2018-08-27" duration="4" complete="0" expand="true"/>
-            <task id="58" name="Desarrollo de módulo de Vehículos" meeting="false" start="2018-08-31" duration="5" complete="0" expand="true"/>
-            <task id="59" name="Desarrollo de módulo de SIM" meeting="false" start="2018-09-05" duration="3" complete="0" expand="true"/>
-            <task id="60" name="Desarrollo de módulo de Personal Admon." meeting="false" start="2018-09-09" duration="3" complete="0" expand="true"/>
-            <task id="61" name="Desarrollo de módulo de Pagos" meeting="false" start="2018-09-12" duration="5" complete="0" expand="true"/>
-            <task id="62" name="Desarrollo de módulo de Cobros" meeting="false" start="2018-09-17" duration="5" complete="0" expand="true"/>
+        <task id="69" name="Finalización de fase de diseño de diagramas" meeting="false" start="2018-07-30" duration="12" complete="0" expand="true">
+            <task id="66" name="Diagrama de colaboración" meeting="false" start="2018-07-30" duration="5" complete="0" expand="true"/>
+            <task id="70" name="Diagrama estructural" meeting="false" start="2018-07-30" duration="5" complete="0" expand="true"/>
+            <task id="71" name="Revisión y corrección de diagramas" meeting="false" start="2018-08-05" duration="6" complete="0" expand="true"/>
+        </task>
+        <task id="44" name="Confirmación de requisitos de software" meeting="false" start="2018-08-13" duration="3" complete="0" expand="true"/>
+        <task id="45" name="Inicio de desarrollo" meeting="false" start="2018-08-16" duration="54" complete="0" expand="true">
+            <task id="50" name="Desarrollo de Login" meeting="false" start="2018-08-16" duration="4" complete="0" expand="true"/>
+            <task id="51" name="Dearrollo de módulo de proveedores" meeting="false" start="2018-08-20" duration="5" complete="0" expand="true"/>
+            <task id="53" name="Desarrollo de módulo de lotes" meeting="false" start="2018-08-26" duration="5" complete="0" expand="true"/>
+            <task id="54" name="Desarrollo de módulo de marcas" meeting="false" start="2018-08-31" duration="4" complete="0" expand="true"/>
+            <task id="55" name="Desarrollo de módulo de GPS" meeting="false" start="2018-09-04" duration="4" complete="0" expand="true"/>
+            <task id="56" name="Desarrollo de módulo de departamento de reparaciones" meeting="false" start="2018-09-09" duration="4" complete="0" expand="true"/>
+            <task id="57" name="Desarrollo de módulo de Clientes" meeting="false" start="2018-09-13" duration="4" complete="0" expand="true"/>
+            <task id="58" name="Desarrollo de módulo de Vehículos" meeting="false" start="2018-09-17" duration="5" complete="0" expand="true"/>
+            <task id="59" name="Desarrollo de módulo de SIM" meeting="false" start="2018-09-23" duration="3" complete="0" expand="true"/>
+            <task id="60" name="Desarrollo de módulo de Personal Admon." meeting="false" start="2018-09-26" duration="3" complete="0" expand="true"/>
+            <task id="61" name="Desarrollo de módulo de Pagos" meeting="false" start="2018-09-30" duration="5" complete="0" expand="true"/>
+            <task id="62" name="Desarrollo de módulo de Cobros" meeting="false" start="2018-10-04" duration="5" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources>
@@ -84,6 +90,7 @@
         <resource id="1" name="David Vásquez" function="SoftwareDevelopment:9" contacts="" phone=""/>
         <resource id="2" name="Daniel Estupe" function="SoftwareDevelopment:8" contacts="" phone=""/>
         <resource id="3" name="Francisco Ramírez" function="SoftwareDevelopment:2" contacts="" phone=""/>
+        <resource id="4" name="Rogelio García" function="SoftwareDevelopment:3" contacts="" phone="47571794"/>
     </resources>
     <allocations/>
     <vacations/>
