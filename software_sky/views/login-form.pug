@@ -3,7 +3,6 @@ block content
     section(class=['app-login'])
         div.container
             h1= title
-            p Sube tu video para que el UMGteam vea tu trabajo!!
     div.container
         div.row
             div(class=['col-xs-12','col-sm-8','col-sm-offset-2','col-md-6','col-md-offset-3'])
@@ -24,10 +23,10 @@ block content
                     div.panel-body
                         form(method="post", action="/login")
                             div.form-group
-                                label Correo Electronico2:
+                                label Usuario:
                                 div.input-group
                                     span(class=['input-group-addon']) @
-                                    input(type="email", class=['form-control'], id="email", name="email", placeholder="Correo UMG", required)
+                                    input(type="text", class=['form-control'], id="usuario", name="usuario", placeholder="Ingrese usuario", required)
                             div.form-group
                                 label Contraseña:
                                 div.input-group
@@ -38,10 +37,6 @@ block content
                                         button(class=['btn', 'btn-default','active'], type="button", id="show_pass")
                                             span(class=['glyphicon','glyphicon-eye-open'], id="icon_eye")
 
-                            input(type="submit", id='btn_continue' disabled, class=['btn','btn-login'] value="Identificate")
-                    div.panel-footer
-                        span ¿No tienes una cuenta?
-                        a(href="/signin", class=['btn','btn-signin']) Crear Cuenta
+                            input(type="submit", id='btn_continue' disabled, class=['btn','btn-login'] value="ENTRAR")
+                    div.panel-footer            
     footer(class=['app-footer','navbar-fixed-bottom'])
-            div.container
-                p Derechos Reservados @TeamUMG
