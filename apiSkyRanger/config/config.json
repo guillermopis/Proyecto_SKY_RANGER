@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "maruntes",
+    "database": "SkyrangerDB",
+    "host": "192.168.43.29",
+    "dialect": "mssql"
+  },
+
+  "test": {
+
+  },
+  "production": {
+
+  }
+
+}
