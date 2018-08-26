@@ -1,0 +1,26 @@
+.form-container
+    // aqui se agrega un cuadro donde ira la informacion
+    p.text-center(style='margin-top: 17px')
+      img(src='assets/icons/skyranger2.jpeg', border='3', width='50%')
+    h4.text-center.all-tittles(style='margin-bottom: 30px;') Iniciar Sesion
+    form(method='post', action='login.php')
+      .group-material-login
+        input.material-login-control(type='text', name='usuarioE', required='', maxlength='70')
+        span.bar-login
+        // muestra linea en el cuadro de texto
+        label
+          i.zmdi.zmdi-account
+          |  &nbsp; Usuario
+      br
+      .group-material-login
+        input.material-login-control(type='password', name='contraseñaE', required='', maxlength='70')
+        span.highlight-login
+        span.bar-login
+        // muestra linea en el cuadro de texto
+        label
+          i.zmdi.zmdi-lock
+          |  &nbsp; Contrase&ntilde;a
+      br
+      button.btn-login(name='loginn', type='submit')
+        | Ingresar al Sistema &nbsp; 
+        i.zmdi.zmdi-arrow-right

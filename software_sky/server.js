@@ -12,9 +12,9 @@ const   express         = require('express'),
         //routes          = require('./routes/videos-router'),
         //serveFavicon    = require('serve-favicon')(`${__dirname}/public/image/favicon.png`),
         publicDir       = express.static(`${__dirname}/public`), //directorio de css y estilos.
-       
+
         viewDir         = `${__dirname}/views`, //directorio de las vistas
-       
+
         sessionMiddleware = session({
                 secret : 'shhhhhhh',
                 resave: true,
@@ -43,6 +43,18 @@ app
 
 app.locals.moment = require('moment');
 moment.locale('es');
+
+app.get('/login', function(req, res){
+  res.render('inicio/indexlogin',
+  {
+  });
+});
+
+app.get('/inicio', function(req, res){
+  res.render('inicio/indexinicio',
+  {
+  });
+});
 
 server.listen(app.get('port'), () => {
         console.log(`server run in port  ${app.get('port')}`);

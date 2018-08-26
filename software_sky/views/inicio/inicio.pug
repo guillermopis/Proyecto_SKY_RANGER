@@ -1,0 +1,73 @@
+.navbar-lateral.full-reset
+  .visible-xs.font-movile-menu.mobile-menu-button
+  .full-reset.container-menu-movile.custom-scroll-containers
+    .logo.full-reset.all-tittles(style='background-color: #021528')
+      | SKY-RANGER
+    .full-reset(style='background-color:#021528; padding: 10px 0; color:#fff;')
+      figure
+        img.img-responsive.center-box(src='assets/img/skyranger2.jpeg', style='width:70%;')
+      p.text-center(style='padding-top: 15px;') Sistema de GPS
+    .full-reset.nav-lateral-list-menu(style='background-color: #021528')
+      ul.list-unstyled
+        // sirve para alinear la liesta
+        // &nbsp significa espacio
+        li
+          .dropdown-menu-button
+            i.zmdi.zmdi-account.zmdi-hc-fw
+            | &nbsp;&nbsp; CLIENTES 
+            i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw
+          ul.list-unstyled(style='background-color: #2874A6')
+            li
+              a(href='trabajador-nuevo.php')
+                i.zmdi.zmdi-account-add.zmdi-hc-fw
+                | &nbsp;&nbsp; NUEVO CLIENTE
+            li
+              a(href='trabajador-reporte.php')
+                i.zmdi.zmdi-accounts.zmdi-hc-fw
+                | &nbsp;&nbsp; DAR DE BAJA
+        li
+          .dropdown-menu-button
+            i.zmdi.zmdi-accounts.zmdi-hc-fw
+            | &nbsp;&nbsp; PROVEEDORES 
+            i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw
+          ul.list-unstyled(style='background-color: #2874A6')
+            li
+              a(href='cliente-nuevo.php')
+                i.zmdi.zmdi-account-add.zmdi-hc-fw
+                | &nbsp;&nbsp; NUEVO PROVEEDOR
+            li
+              a(href='cliente-reporte.php')
+                i.zmdi.zmdi-accounts.zmdi-hc-fw
+                | &nbsp;&nbsp; Reporte PROVEEDOR
+        li
+          .dropdown-menu-button
+            i.zmdi.zmdi-accounts.zmdi-hc-fw
+            | &nbsp;&nbsp; VEHICULOS 
+            i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw
+          ul.list-unstyled(style='background-color: #2874A6')
+            li
+              a(href='proveedor-nuevo.php')
+                i.zmdi.zmdi-account-add.zmdi-hc-fw
+                | &nbsp;&nbsp; NUEVO VEHICULO
+            li
+              a(href='proveedor-reporte.php')
+                i.zmdi.zmdi-accounts.zmdi-hc-fw
+                | &nbsp;&nbsp; DAR DE BAJA
+// barra principal de arriba
+.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
+  nav.navbar-user-top.full-reset(style='background-color: #021528')
+    ul.list-unstyled.full-reset
+      figure
+        img.img-responsive.img-circle.center-box(src='assets/img/user01.png', alt='user-picture')
+      li(style='color:#fff; cursor:default;')
+        span.all-tittles
+      li.tooltips-general.exit-system-button(data-href='index.php', data-placement='bottom', title='Salir del sistema')
+        i.zmdi.zmdi-power
+      li.mobile-menu-button.visible-xs(style='float: left !important;')
+        i.zmdi.zmdi-menu
+  
+  section.full-reset.text-center(style='padding: 40px 0;')
+    font(face='Balmoral LET', size='6', color='red')
+      | SKY RANGER GUATEMALA
+      figure
+        img.img-responsive.center-box(src='assets/img/gps2.jpeg', style='width:70%;')
