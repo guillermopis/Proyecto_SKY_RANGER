@@ -7,6 +7,6 @@ const   authController      = require('../controllers/auth-controller'),
 
 router
     .get('/', ac.index)
-    
+
 
 module.exports = router;

@@ -19,7 +19,7 @@ class AuthController{
         if(request.session.username){
             response.redirect('/inicio');
         }else{
-            response.render('login-form',{ //renderizamos el formulario de login
+            response.render('inicio/indexlogin',{ //renderizamos el formulario de login
                 title: 'Iniciar sesión',
                 message: request.query.message,
                 error: request.query.error
@@ -48,12 +48,12 @@ class AuthController{
                     request.session.full_name = (data.length != 0) ? `${data[0].name} ${data[0].last_name}` : null;
                     request.session.avatar = (data.length != 0) ? `${data[0].avatar}` : null;
                     //console.log(request.session, '---', data);
-                    if(request.session.username){                        
-                        response.redirect('/inicio');                        
+                    if(request.session.username){
+                        response.redirect('/inicio');
                     }else{
                         response.redirect('/?error=Error en la autenticación verifique sus datos')
                     }
-                }else{                    
+                }else{
                     response.redirect('/?error=Error en la autenticación verifique sus datos');
                 }
             }
@@ -98,7 +98,7 @@ class AuthController{
             if(error){
                 errors.http500(request, response, next)
             }else{
-                response.redirect('/');                
+                response.redirect('/');
             }
         });
     }
