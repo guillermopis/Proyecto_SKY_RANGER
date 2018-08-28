@@ -1,3 +1,4 @@
+//barra del menu vertical
 .navbar-lateral.full-reset
   .visible-xs.font-movile-menu.mobile-menu-button
   .full-reset.container-menu-movile.custom-scroll-containers
@@ -54,6 +55,7 @@
               a(href='proveedor-reporte.php')
                 i.zmdi.zmdi-accounts.zmdi-hc-fw
                 | &nbsp;&nbsp; DAR DE BAJA
+
 // barra principal de arriba
 .content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
   nav.navbar-user-top.full-reset(style='background-color: #021528')
@@ -65,8 +67,56 @@
       li
         font(face='Balmoral LET', size='6', color='white' )
           | SKY RANGER GUATEMALA
+
+  //body page --------------------------------------------------------------------------------------------------------------
+  section.full-reset.text-center(style='padding: 10px;')
+      font(face="Balmoral LET", size="6", color="black")
+        | NUEVO CLIENTE
       
-  
-  section.full-reset.text-center(style='padding: 40px 0;')
-      figure
-        img.img-responsive.center-box(src='assets/img/gps2.jpeg', style='width:70%;')
+      form(class="container" style="border: 8px purple inset; width: 500px; text-align: center; font-family: bold")
+        .row
+          .col
+            .form-group(class="container")
+              label NOMBRE
+              input(type="text" class="form-control" id="nombre")          
+            .form-group(class="container")
+              label NIT
+              input(type="text" class="form-control" id="nit" )          
+            .form-group(class="container")
+              label DIRECCION
+              input(type="text" class="form-control" id="direccion")
+            .form-group(class="container")
+              label CORREO ELECTRONICO
+              input(type="text" class="form-control" id="correo" )
+            .form-group(class="container")
+              label DIRECCION DE FACTURACION
+              input(type="text" class="form-control" id="dirfact" )                
+            .form-group(class="container")                        
+              label ESTADO
+              select(id="estado" class="form-control")
+                option.select seleccionar estado
+                option.select ACTIVO
+                option.select DE BAJA            
+            .form-row
+              .form-group.col-md-6                
+                label TIPO DE PAGO
+                select(id="tipopago" class="form-control")
+                  option.select seleccionar tipo pago
+                  option.select ANTICIPADO
+                  option.select 30 DIAS
+                  option.select 60 DIAS
+                  option.select 90 DIAS              
+              .form-group.col-md-6
+                label TIPO DE SERVICIO
+                select(id="tiposervicio" class="form-control")
+                  option.select seleccionar tipo servicio
+                  option.select VENDIDO
+                  option.select RENTA                
+              .form-group(class="container")
+                button(type="button" class="btn btn-primary")
+                  |GUARDAR CLIENTE
+              
+                
+            
+            
+          
