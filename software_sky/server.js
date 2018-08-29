@@ -56,6 +56,23 @@ app.get('/clientes', function(req, res){
   });
 });
 
+app.get('/proveedor', function(req, res){
+  res.render('inicio/indexnuevoproveedor',
+  {
+  });
+});
+
+app.get('/modificarproveedor', function(req, res){
+  res.render('inicio/indexmodificarprov',
+  {
+  });
+});
+
+app.get('/bajacliente', function(req, res){
+  res.render('inicio/indexbajacliente',
+  {
+  });
+});
 
 server.listen(app.get('port'), () => {
         console.log(`server run in port  ${app.get('port')}`);
