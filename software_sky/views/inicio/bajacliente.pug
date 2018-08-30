@@ -1,4 +1,5 @@
 // barra principal de arriba
+
 .content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
   nav.navbar-user-top.full-reset(style='background-color: #021528')
     ul.list-unstyled.full-reset
@@ -15,6 +16,21 @@
       font(face="Balmoral LET", size="6", color="black")
         | CLIENTES
       br    
-  section(style="padding: 10px; background-color: #E4DCDC")
-    button(type="button" class="btn btn-primary"  id="nuevocliente" style="border: 2px blue outset")
+              
+  section(class="container")    
+    button(type="button" class="btn btn-primary"  id="btnnuevocliente" style="border: 2px blue outset")
       | NUEVO CLIENTE
+    
+    div(class="modal fade" id="modalnuevocliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+      div(class="modal-dialog" role="document")
+        div(class="modal-content")
+          div(class="modal-header")
+            h5(class="modal-title" id="exampleModalLabel") NUEVO CLIENTE 
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times
+          div(class="modal-body")
+            form
+              div(class="form-group")
+                label(for="recipient-name" class="col-form-label")
+                  | NOMBRE
+                input(type="text" class="form-control" id="recipient-name")    

@@ -50,6 +50,12 @@ app.get('/login', function(req, res){
   });
 });
 
+app.get('/inicio', function(req, res){
+  res.render('inicio/indexinicio',
+  {
+  });
+});
+
 app.get('/clientes', function(req, res){
   res.render('inicio/indexclientes',
   {
