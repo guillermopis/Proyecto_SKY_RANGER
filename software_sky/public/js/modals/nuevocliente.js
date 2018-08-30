@@ -12,7 +12,8 @@ var ModuloListado = function(){
 
 	_private.agregarEventoAbotonNuevo=function(){
 		$("#btnnuevocliente")[0].addEventListener('click', function(event) {
-			$('#modalnuevocliente').modal('show')
+			$('#modalnuevocliente').modal('show');
+			//$('#modalnuevocliente').on('shown.bs.modal');
 		});
 	}
 
