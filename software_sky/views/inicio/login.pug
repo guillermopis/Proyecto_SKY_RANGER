@@ -3,9 +3,9 @@
     p.text-center(style='margin-top: 17px')
       img(src='assets/icons/skyranger2.jpeg', border='3', width='50%')
     h4.text-center.all-tittles(style='margin-bottom: 30px;') Iniciar Sesion
-    form(method='post', action='login.php')
+    <form class="form-signin" id="formlogin">
       .group-material-login
-        input.material-login-control(type='text', name='usuarioE', required='', maxlength='70')
+        input.material-login-control(type='text' id='usuario' required='')
         span.bar-login
         // muestra linea en el cuadro de texto
         label
@@ -13,7 +13,7 @@
           |  &nbsp; Usuario
       br
       .group-material-login
-        input.material-login-control(type='password', name='contraseñaE', required='', maxlength='70')
+        input.material-login-control(type='password' id='contraseña', required='')
         span.highlight-login
         span.bar-login
         // muestra linea en el cuadro de texto
@@ -21,6 +21,5 @@
           i.zmdi.zmdi-lock
           |  &nbsp; Contrase&ntilde;a
       br
-      button.btn-login(name='loginn', type='submit')
-        | Ingresar al Sistema &nbsp; 
-        i.zmdi.zmdi-arrow-right
+      <button type="button" id="btnlogin" class="btn btn-primary">Entrar al sistema</button>
+      
