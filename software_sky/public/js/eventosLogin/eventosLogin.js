@@ -40,18 +40,27 @@ _private.enviarPeticionApiDeLogin = function(){
   var usuario= document.getElementById("usuario").value;
   var contraseña= document.getElementById("contraseña").value;
   $.ajax({
-      url: 'http://localhost:3000/usuario',
+      url: 'http://127.0.0.1:3000/usuario/',
       type: "POST",
       data: {
         usuario,
         contraseña
       }
     }).done(function(data){
-      //aca recibimos lo que la api devolvio.
-      var data= JSON.parse(body); //parseamos el body de la peticion
-      if(data.data.usuario == usuario && data.data.contraseña==contraseña){
-        alert("los datos son correctos");
-      }//fin del if
+      console.log("la api ya respondio");
+      //aca recibimos lo que la api devolvio.verificamos si la respuesta no trae error
+      if(data.error == false){
+        if(data.data.length == 1){
+          if(data.data[0].usuario == usuario && data.data[0].contraseña==contraseña){
+            console.log("los datos son correctos");
+            //alert("los datos son correctos");
+          }//find el if de comparacion de campos
+        }else{ console.log("datos ingresados son incorrectos");}//fin del if del length
+      }else{
+        //con esto podemos reaccionar un error de la API
+        console.log("datos incorrectos o ha ocurrido un error interno");
+      }//fin del if de comprobacion de errorr
+
     })
 }//fin de funcion de peticion a api.
 

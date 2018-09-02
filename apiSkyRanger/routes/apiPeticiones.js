@@ -19,7 +19,8 @@ router.post('/', function(req, res, next){
   )
     .then(apiPeticiones => res.json({
       error: false,
-      data: apiPeticiones
+      data: apiPeticiones,
+
     }))
     .catch(error => res.json({
       error: true,

@@ -9,6 +9,7 @@ const   express         = require('express'),
         session         = require('express-session'),
         errors          = require('./middlewares/errors'),
         moment          = require('moment'),
+        cors            = require('cors'),
         auth            = require('./routes/auth-router'), //manejador de peticiones
         //routes          = require('./routes/videos-router'),
         //serveFavicon    = require('serve-favicon')(`${__dirname}/public/image/favicon.png`),
@@ -39,6 +40,7 @@ app
        // .use(serveFavicon)
 
         .use(auth)
+        .use(cors({origin: '*'}))
        // .use(routes)
         //.use(errors.http404);
 
