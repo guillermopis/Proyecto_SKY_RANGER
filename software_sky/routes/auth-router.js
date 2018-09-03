@@ -3,10 +3,11 @@
 const   authController      = require('../controllers/auth-controller'),
         express             = require('express'),
         router              = express.Router(),
-        ac                  = new authController();
+        direcciones                  = new authController();
 
 router
-    .get('/', ac.index)
+    .get('/', direcciones.index)
+    .get('/inicio', direcciones.inicio)
 
 
 module.exports = router;

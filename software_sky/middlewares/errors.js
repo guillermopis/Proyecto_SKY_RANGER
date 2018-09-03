@@ -4,7 +4,7 @@ class Errors{
     http401(request, response, next) {
         let error = new Error();
         error.status = 401;
-        error.statusText = 'UNAUTHORIZED :(';
+        error.statusText = 'NO TIENES PERMISOS PARA VER ESTA PAGINA :(';
         response.render('error', {
                 error : error
         });

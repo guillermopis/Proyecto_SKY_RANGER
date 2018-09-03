@@ -4,10 +4,12 @@ const   express         = require('express'),
         http            = require('http'),
         //socketIO        = require('./routes/socket_server.js'),
         pug             = require('pug'),
+        cookieParser    = require('cookie-Parser'),
         bodyParser      = require('body-parser'),
         session         = require('express-session'),
         errors          = require('./middlewares/errors'),
         moment          = require('moment'),
+        cors            = require('cors'),
         auth            = require('./routes/auth-router'), //manejador de peticiones
         //routes          = require('./routes/videos-router'),
         //serveFavicon    = require('serve-favicon')(`${__dirname}/public/image/favicon.png`),
@@ -20,7 +22,7 @@ const   express         = require('express'),
                 resave: true,
                 saveUninitialized: false
         }),
-        port = (process.env.PORT || 8080);
+        port = (process.env.PORT || 8000);
 
 let app = express();
 let server = http.createServer(app);
@@ -30,7 +32,7 @@ app
         .set('views', viewDir) //directorio donde se encuentran los archivos de plantillas.
         .set('view engine', 'pug') //define el motor de plantillas pug.
         .set('port', port)
-
+        .use(cookieParser())
         .use(sessionMiddleware)
         .use(bodyParser.json())
         .use(bodyParser.urlencoded({ extended: false }))
@@ -38,23 +40,12 @@ app
        // .use(serveFavicon)
 
         .use(auth)
+        .use(cors({origin: '*'}))
        // .use(routes)
         //.use(errors.http404);
 
 app.locals.moment = require('moment');
 moment.locale('es');
-
-app.get('/login', function(req, res){
-  res.render('inicio/indexlogin',
-  {
-  });
-});
-
-app.get('/inicio', function(req, res){
-  res.render('inicio/indexinicio',
-  {
-  });
-});
 
 app.get('/clientes', function(req, res){
   res.render('inicio/indexclientes',

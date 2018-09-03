@@ -14,11 +14,12 @@ go
 use SkyrangerDB;
 go
 
+
 --four step, table user
 create table usuarios(
 	id int primary key not null identity,
 	usuario varchar(50),
-	contaseña varchar(100)
+	contraseña varchar(100)
 );
 go
 
