@@ -10,6 +10,7 @@ const   express         = require('express'),
         errors          = require('./middlewares/errors'),
         moment          = require('moment'),
         cors            = require('cors'),
+        Request         = require('request'),
         auth            = require('./routes/auth-router'), //manejador de peticiones
         //routes          = require('./routes/videos-router'),
         //serveFavicon    = require('serve-favicon')(`${__dirname}/public/image/favicon.png`),
@@ -27,13 +28,18 @@ const   express         = require('express'),
 let app = express();
 let server = http.createServer(app);
 //socketIO.handle(server, sessionMiddleware);
+app.use(session({
+  secret: "Shh",
+  resave: true,
+  saveUninitialized: false
+}));
 
 app
         .set('views', viewDir) //directorio donde se encuentran los archivos de plantillas.
         .set('view engine', 'pug') //define el motor de plantillas pug.
         .set('port', port)
         .use(cookieParser())
-        .use(sessionMiddleware)
+       // .use(sessionMiddleware)
         .use(bodyParser.json())
         .use(bodyParser.urlencoded({ extended: false }))
         .use(publicDir)

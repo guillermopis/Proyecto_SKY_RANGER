@@ -6,8 +6,13 @@ const   authController      = require('../controllers/auth-controller'),
         direcciones                  = new authController();
 
 router
+//peticiones get
     .get('/', direcciones.index)
     .get('/inicio', direcciones.inicio)
+//peticiones POST
+    .post('/login', direcciones.login)
+
+  
 
 
 module.exports = router;
