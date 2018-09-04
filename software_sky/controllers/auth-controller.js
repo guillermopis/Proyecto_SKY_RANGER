@@ -6,24 +6,6 @@ let authModel = require('../models/auth-model'),
     crypto = require('crypto');
 
 
-function consultar(user, pass) {
-    console.log(user);
-    console.log(pass);
-  requestt.post('http://127.0.0.1:3000/usuario/',
-  { json: { usuario: user, contraseña: pass}},
-  function (error,response, body) {
-        if(body.error == false){
-          if(body.data.length == 1){
-            if(body.data[0].usuario == user && body.data[0].contraseña==pass){
-              console.log("los datos son correctos");
-            }//find el if de comparacion de campos
-          }else{ console.log("datos ingresados son incorrectos");}//fin del if del length
-        }else{
-          //con esto podemos reaccionar un error de la API
-          console.log("datos incorrectos o ha ocurrido un error interno");
-        }//fin del if de comprobacion de errorr
-  });
-}// fin de funcion consultar
 
 class AuthController{
 
@@ -70,7 +52,10 @@ class AuthController{
                     }
               }else{ //los datos son incorrectos
                   if(!request.session.username){
-                    response.redirect('/?error=Error en la autenticación verifique sus datos');
+var html='<script type="text/javascript">alert("Error en la autenticacion, intente de nuevo"); location.href = "http://localhost:8000/"; </script>';
+                    response.writeHead(200,{"Content-Type":"text/html"})
+                    response.write(html);
+                    response.end();
                   }
               }//fin del if del length
             }else{
