@@ -14,7 +14,7 @@ class AuthController{
         console.log("el nombre del usuario logeado: ");
         console.log(request.session.username);
         if(request.session.username){
-            response.render('inicio/indexinicio',{ //renderizamos el formulario de login
+            response.render('inicio/indexinicio',{
                 title: 'Sky Ranger'
             });
         }else{
