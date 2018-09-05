@@ -10,6 +10,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var peticionesDeApi = require('./routes/apiPeticiones');
+var clientes  = require('./routes/peticionesClientes');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use(cors({origin: '*'}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/usuario/', peticionesDeApi);
+app.use('/clientes/', clientes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
