@@ -1,44 +1,41 @@
-// barra principal de arriba
-.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
-  nav.navbar-user-top.full-reset(style='background-color: #021528')
-    ul.list-unstyled.full-reset
-      li(style='color:#fff; cursor:default;')
-        span.all-tittles
-      li.tooltips-general.exit-system-button(data-href='', data-placement='bottom', title='Salir del sistema')
-        i.zmdi.zmdi-power
-      li
-        font(face='Balmoral LET', size='6', color='white' )
-          | SKY RANGER GUATEMALA
-  
-  //body page --------------------------------------------------------------------------------------------------------------
-  section.full-reset.text-center(style='padding: 10px; background-color: #E4DCDC')
-      font(face="Balmoral LET", size="6", color="black")
-        | CLIENTES
-  section.full-reset(style="padding: 10px; background-color: #E4DCDC")
-    button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="btn btn-primary" style="border: 2px blue outset")      
-      |NUEVO
-    table(class="table table-hover table-dark")
-      thead
+//body page --------------------------------------------------------------------------------------------------------------
+section.full-reset.text-center(style='padding: 10px; background-color: #E4DCDC')
+    font(face="Balmoral LET", size="6", color="black")
+      | CLIENTES
+section.full-reset(style="padding: 10px; background-color: #ffffff")  
+  button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
+    span(class="fas fa-user-plus")
+    
+  br
+  br  
+  font(face="Balmoral LET", size="2", color="black")        
+    table(class="table table-hover" style="text-align: center")
+      thead(class="thead-dark")
        tr
         th(scope='col') #
-        th(scope='col') Id
-        th(scope='col') Alumno
-        th(scope='col') Carnet
-        th(scope='col') Ciclo
-        th(scope='col') Facultad
-        th(scope='col') Evento
-        th(scope='col') Categoria
-        th(scope='col') Opciones
+        th(scope='col') NOMBRE
+        th(scope='col') NIT
+        th(scope='col') DIRECCION FISCAL
+        th(scope='col') TELEFONO
+        th(scope='col') ESTADO
+        th(scope='col') TIPO DE PAGO
+        th(scope='col') TIPO DE SERVICIO
+        th(scope='col') CORREO ELECTRONICO
+        th(scope='col') DIRECCION DE FACTURACION
+        th(scope='col') FECHA DE INGRESO
+        th(scope='col') TIPO DE MORA 
+        th(scope='col') SALDO Q
+        th(scope='col') ABONO
       tbody
        tr
          th(scope='row')
-         td #{"hola"}
-         td #{"hola"}
-         td #{"hola"}
-         td #{"hola"}
-         td #{"hola"}
-         td #{"hola"}
-         td #{"hola"}
+         td #{"1"}
+         td #{"Mario David Herrera Vasquez"}
+         td #{"2890-15-1486"}
+         td #{"8"}
+         td #{"Ingenieria en Sistemas"}
+         td #{"5k"}
+         td #{"No se"}
          td
-          button.btn.btn-primary(type='button') Editar
-          button.btn.btn-primary(type='button') Eliminar
+          button(type="button" class="buttonsmall hover")      
+            span(class="fas fa-user-times")                                 

@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*estilos generales */
+/* todas las clases*/
+.button {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.25em; /*em significa pixeles*/
+  padding: 10px 0px;
+  text-align: center;
+  width: 100px;
+  text-decoration: none;
+  box-shadow: 0px 3px 0px #373c3c;
+}
+
+
+.button.blue{
+  background:#102ED6;
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.buttonsmall{
+  background:#102ED6;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.25em;
+  padding: 5px 5px;
+  width: 80px;
+  text-decoration: none;
+  border: 2px black outset;
+}
+
+button.large{
+  width: 150px;
+}
+
+.button.radius{
+  border-radius: 50px;
+}
+
+.button:hover{
+  box-shadow: 0px 0px 0px;
+  padding-top: 10px;
+}
