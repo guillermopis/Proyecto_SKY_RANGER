@@ -71,8 +71,8 @@ app.get('/modificarproveedor', function(req, res){
   });
 });
 
-app.get('/menu2', function(req, res){
-  res.render('inicio/menu/menu2',
+app.get('/bajacliente', function(req, res){
+  res.render('inicio/bajacliente',
   {
   });
 });

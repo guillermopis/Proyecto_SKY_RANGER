@@ -1,13 +1,21 @@
 //body page --------------------------------------------------------------------------------------------------------------
-section.full-reset.text-center(style='padding: 10px; background-color: #E4DCDC')
-    font(face="Balmoral LET", size="6", color="black")
-      | CLIENTES
+nav(class="navbar navbar-light bg-light")
+  span
+    button(type="button" href="/bajacliente" id="btn-regresar" class="button blue radius hover" style="border: 2px black outset")        
+      span(class="fas fa-arrow-circle-left")    
+    button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
+      span(class="fas fa-user-plus")      
+    //li: a(href="/index") Nuevo
+  form(class="form-inline")
+    h(align="center" style="text:center" text="center")
+      font(face="Balmoral LET", size="6", color="black")
+        | CLIENTES    
+    input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
+    button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
+
+
+            
 section.full-reset(style="padding: 10px; background-color: #ffffff")  
-  button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
-    span(class="fas fa-user-plus")
-    
-  br
-  br  
   font(face="Balmoral LET", size="2", color="black")        
     table(class="table table-hover" style="text-align: center")
       thead(class="thead-dark")

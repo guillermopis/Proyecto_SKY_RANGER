@@ -18,6 +18,7 @@ var ModuloListado = function(){
 		});
 	}
 
+
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();

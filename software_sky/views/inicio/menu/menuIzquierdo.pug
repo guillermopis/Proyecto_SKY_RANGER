@@ -1,28 +1,2 @@
 body
-  nav.navbar
-    span.open-slide
-      a(href='#', onclick='openSlideMenu()')
-        svg(width='30', height='30')
-          path(d='M0,5 30,5', stroke='#fff', stroke-width='5')
-          path(d='M0,14 30,14', stroke='#fff', stroke-width='5')
-          path(d='M0,23 30,23', stroke='#fff', stroke-width='5')
-  font(face="Balmoral LET", size="3", color="black")       
-    #side-menu.side-nav
-      a.btn-close(href='#', onclick='closeSlideMenu()') &times;
-      button(type="button" id="" name="btnnuevocliente" class="buttonsmall blue large hover" style="border: 2px black outset")            
-        span(class="fas fa-user-plus")      
-      a(href='#') CLIENTES
-      a(href='#') PROVEEDORES
-      a(href='#') EMPLEADO
-      a(href='#') VEHICULOS
-        
-  script.
-    function openSlideMenu(){
-    document.getElementById('side-menu').style.width = '250px';
-    document.getElementById('main').style.marginLeft = '250px';
-    }
-    function closeSlideMenu(){
-    document.getElementById('side-menu').style.width = '0';
-    document.getElementById('main').style.marginLeft = '0';
-    }
     
