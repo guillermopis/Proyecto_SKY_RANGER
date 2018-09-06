@@ -19,7 +19,7 @@ go
 create table usuarios(
 	id int primary key not null identity,
 	usuario varchar(50),
-	contraseña varchar(100)
+	contraseÃ±a varchar(100)
 );
 go
 
@@ -67,3 +67,48 @@ create table clientes(
 go
 
 
+
+
+-- Modulo de seguridad
+create table Modulos (
+  id	    int		  identity	not null	primary key,
+  nombre    varchar(30)	  unique	not null 	
+)
+
+create table Formularios (
+  id		int		not null	identity	primary key,
+  nombre	varchar(30)	not null	unique,
+  ruta		varchar(100)			unique,
+  modulo	int		not null	foreign key references Modulos(id)
+)
+
+create table Roles (
+  id		int		not null	identity	primary key,
+  nombre	varchar(30)	not null	unique
+)
+
+create table Permisos (
+  id		int		not null	identity	primary key,
+  descripcion	varchar(30)	not null	unique
+)
+
+alter table usuarios 
+add rol int 
+
+alter table usuarios
+add foreign key (rol) references Roles(id)
+
+
+create table FormRoles (
+  id		int	not null	identity	primary key,
+  formulario	int	not null	foreign key	references Formularios(id),
+  rol		int		not null,
+  constraint	fk_rolformulario	foreign key (rol)	references Roles(id)
+)
+
+
+create table PermisoFormRoles (
+  id		int	not null	identity	primary key,
+  formrol	int	not null	foreign key references FormRoles(id),
+  permiso	int	not null	foreign key references Permisos(id)
+)
