@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "sa",
-    "password": "maruntes",
+    "password": "conexion1",
     "database": "SkyrangerDB",
-    "host": "192.168.43.29",
+    "host": "192.168.43.220",
     "dialect": "mssql"
   },
 
