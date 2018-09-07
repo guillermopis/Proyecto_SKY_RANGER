@@ -1,0 +1,76 @@
+extends layout
+block content
+    include templates/nav
+    a.button.add(href="/agregar")
+        div.floatbutton
+            p.text-center
+                span(class=['glyphicon glyphicon-upload floatbutton_icon'])
+                br
+                span video
+    div.container
+        br
+        div.row
+            div(class=['col-xs-12','col-sm-3','col-sm-push-9'])
+                div.panel.panel-primary
+                    div.panel-heading Categorías
+                    div.panel-body
+                        button(class="btn btn-info btn-block" data-toggle="portfilter" data-target="all") Todas
+                        each category in categorias
+                            button(class="btn btn-info btn-block" data-toggle="portfilter" data-target=category.descripcion) #{category.descripcion}
+            div(class=['col-xs-12','col-sm-9','col-sm-pull-3'])
+                div.input-group
+                    input(type="search", class=['search'], name="search", value=search, id="search" placeholder="Buscar...")
+                    div.input-group-btn
+                        button(type="button" name="btn_search" id="btn_search" class="btn btn-default search_btn") Buscar
+                br
+                div(class=['list-group'])
+                    if(data.length != 0)
+                        each video in data
+                            a(class=['list-group-item'], href="/detalles/"+video.id data-tag=video.categoria)
+                                div.row
+                                    div(class=['col-xs-12','col-sm-12','col-md-12'])
+                                        span Publicado:
+                                        span= moment(video.fecha_publicacion).fromNow()
+                                        br
+                                        br
+                                    div(class=['col-xs-12','col-sm-12','col-md-12'])
+                                        div(class=["col-xs-12", "col-sm-3"])
+                                            figure
+                                                img(src=`https://i.ytimg.com/vi/${video.url}/0.jpg`, width="150" alt="Portada", class=['media-object','img-responsive','app-img-centrar'])
+                                        div(class=["col-xs-12", "col-sm-9"])
+                                            div(class=['col-xs-12'])
+                                                span.glyphicon.glyphicon-tags
+                                                span
+                                                span.label.label-success #{video.categoria}
+                                                p(class=['app-justificar']) #{video.descripcion}
+                                            div(class=['col-xs-12','app-iconos'])
+                                                div(class=['col-xs-4'])
+                                                    p.text-center
+                                                        span(class=['glyphicon','glyphicon-eye-open','gl-vistas'])
+                                                        span.hidden-sm.hidden-xs  Vistas
+                                                        span(class=['badge']) #{video.visitas}
+                                                div(class=['col-xs-4'])
+                                                    p.text-center
+                                                        span(class=['glyphicon','glyphicon-comment','gl-comentarios'])
+                                                        span.hidden-sm.hidden-xs  Comentarios
+                                                        - var comentarios = video.comentarios
+                                                        if(comentarios == null)
+                                                            span(class=['badge']) 0
+                                                        else
+                                                            span(class=['badge']) #{video.comentarios}
+                                                div(class=['col-xs-4'])
+                                                    p.text-center
+                                                        span(class=['glyphicon','glyphicon-star','gl-votos'])
+                                                        span.hidden-sm.hidden-xs  Votos
+                                                        - var votos = video.votos
+                                                        if(votos == null)
+                                                            span(class=['badge']) 0
+                                                        else
+                                                            span(class=['badge']) #{video.votos}
+                                    div(class=['col-xs-12','app-etiquetas','text-center'])
+                                        span #{video.titulo}
+                    else
+                        div(role="alert").alert.alert-danger No hay registros en la base de datos.
+
+    script(src="/js/bootstrap-portfilter.min.js")
+    include templates/footer
