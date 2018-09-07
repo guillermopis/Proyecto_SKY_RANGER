@@ -66,8 +66,8 @@ app.get('/proveedores', function(req, res){
 });
 
 
-app.get('/bajacliente', function(req, res){
-  res.render('inicio/bajacliente',
+app.get('/inicio2', function(req, res){
+  res.render('inicio/indexinicio',
   {
   });
 });
