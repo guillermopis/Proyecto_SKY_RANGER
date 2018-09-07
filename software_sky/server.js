@@ -59,20 +59,21 @@ app.get('/clientes', function(req, res){
   });
 });
 
-app.get('/proveedor', function(req, res){
-  res.render('inicio/indexnuevoproveedor',
+app.get('/proveedores', function(req, res){
+  res.render('inicio/indexproveedores',
   {
   });
 });
 
-app.get('/modificarproveedor', function(req, res){
-  res.render('inicio/indexmodificarprov',
+
+app.get('/inicio2', function(req, res){
+  res.render('inicio/indexinicio',
   {
   });
 });
 
-app.get('/bajacliente', function(req, res){
-  res.render('inicio/bajacliente',
+app.get('/formulario', function(req, res){
+  res.render('inicio/indexformulario',
   {
   });
 });

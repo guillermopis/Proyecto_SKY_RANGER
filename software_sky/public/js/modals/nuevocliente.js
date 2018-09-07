@@ -8,16 +8,19 @@ var ModuloListado = function(){
 
 	_public.iniciar=function(){
 		_private.agregarEventoAbotonNuevo();
+		_private.editarcliente();
 	}
 
 	_private.agregarEventoAbotonNuevo=function(){
 		$("#btnnuevocliente")[0].addEventListener('click', function(event) {
 			$('#modalnuevocliente').modal('show');
-			//$('#modalnuevocliente').modal('handleUpdate');
-			//$('#modalnuevocliente').on('shown.bs.modal');
 		});
 	}
-
+	_private.editarcliente=function(){
+		$("#btneditarcliente")[0].addEventListener('click', function(event) {
+			$('#modaleditarcliente').modal('show');
+		});
+	}
 
 	return _public.__construct.apply(this, arguments);
 }

@@ -1,22 +1,60 @@
 doctype html
-head
-  title SKY RANGER
-  meta(charset='UTF-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1')
-  link(rel='Shortcut Icon', type='image/x-icon', href='assets/icons/skyranger.jpg')
-  script(src='js/sweet-alert.min.js')
-  link(rel='stylesheet', href='css/sweet-alert.css')
-  link(rel='stylesheet', href='css/material-design-iconic-font.min.css')
-  // nos muestra los iconos del menu y de arriba
-  link(rel='stylesheet', href='css/bootstrap.min.css')
-  link(rel='stylesheet', href='css/style.css')
-  link(rel='stylesheet', href='css/jquery.mCustomScrollbar.css')
-  // nos permite desplazarnos de arriba a abajo en el menu
-  // permite mostrar un menu en una opcion
-  <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script> <!--permite mostrar un menu en una opcion-->
-  script(src='js/bootstrap.min.js')
-  script(src='js/jquery.mCustomScrollbar.concat.min.js')
-  script(src='js/main.js')
+html(lang="es")
+  head
+    title SKY RANGER
+    meta(charset='UTF-8')
+    meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='Shortcut Icon', type='image/x-icon', href='assets/icons/skyranger.jpg')
+    script(src='js/sweet-alert.min.js')
+    link(rel='stylesheet', href='css/sweet-alert.css')
+    link(rel='stylesheet', href='css/material-design-iconic-font.min.css')    
+    // nos muestra los iconos del menu y de arriba
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel="stylesheet", href="css/estilos2.css")
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/jquery.mCustomScrollbar.css')
+    link(rel="stylesheet", href="css/diseño.css")
+    link(rel="stylesheet", href="css/estiloform.css")
+    // nos permite desplazarnos de arriba a abajo en el menu
+    // permite mostrar un menu en una opcion
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script> <!--permite mostrar un menu en una opcion-->
+    script(src='js/bootstrap.min.js')
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
+    script(src='js/jquery.mCustomScrollbar.concat.min.js')
+    script(src='js/main.js')
+      
 
-body
+
+  body
+  //barra del menu vertical
+  .navbar-lateral.full-reset
+    .visible-xs.font-movile-menu.mobile-menu-button
+    .full-reset.container-menu-movile.custom-scroll-containers
+      .logo.full-reset.all-tittles(style='background-color: #021528')
+        | SKY-RANGER
+      .full-reset(style='background-color:#021528; padding: 5px 0; color:#fff;')
+        figure(class="container" align="middle")
+          img.img-responsive.center-box(src='assets/img/skyranger2.jpeg', style='width: 60%')
+        p.text-center(style='padding-top: 10px;') 
+          |Sistema de GPS
+      .full-reset.nav-lateral-list-menu(style='background-color: #021528')        
+        ul.list-unstyled
+          // sirve para alinear la liesta
+          // &nbsp significa espacio
+          font(face="Balmoral LET")
+            li
+              a(href='/clientes')
+                i(class="fas fa-users")
+                | &nbsp;&nbsp; CLIENTES
+            li
+              a(href='/proveedores')
+                i(class="fas fa-users")
+                | &nbsp;&nbsp; PROVEEDORES
+            li
+              a(href="/")
+                i.zmdi.zmdi-accounts.zmdi-hc-fw
+                | &nbsp;&nbsp; VEHICULOS
+                
+
 block content
