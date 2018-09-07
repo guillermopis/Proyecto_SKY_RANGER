@@ -72,6 +72,12 @@ app.get('/inicio2', function(req, res){
   });
 });
 
+app.get('/formulario', function(req, res){
+  res.render('inicio/indexformulario',
+  {
+  });
+});
+
 server.listen(app.get('port'), () => {
         console.log(`server run in port  ${app.get('port')}`);
 });
