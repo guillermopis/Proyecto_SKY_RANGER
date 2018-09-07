@@ -1,10 +1,10 @@
 //body page --------------------------------------------------------------------------------------------------------------
-nav(class="navbar navbar-light bg-light")
+nav(class="navbar navbar-light bg-light")  
   span
     button(type="button" href="/bajacliente" id="btn-regresar" class="button blue radius hover" style="border: 2px black outset")        
       span(class="fas fa-arrow-circle-left")    
     button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
-      span(class="fas fa-user-plus")      
+      span(class="fas fa-user-plus")
     //li: a(href="/index") Nuevo
   form(class="form-inline")
     h(align="center" style="text:center" text="center")
@@ -12,38 +12,44 @@ nav(class="navbar navbar-light bg-light")
         | CLIENTES    
     input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
     button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
-
-
+      
             
 section.full-reset(style="padding: 10px; background-color: #ffffff")  
-  font(face="Balmoral LET", size="2", color="black")        
+  font(face="Balmoral LET", size="2.5", color="black")        
     table(class="table table-hover" style="text-align: center")
       thead(class="thead-dark")
        tr
         th(scope='col') #
         th(scope='col') NOMBRE
+        th(scope='col') DIRECCION
+        th(scope='col') CORREO ELECTRONICO
+        th(scope='col') DIRECCION DE FACTURACION
         th(scope='col') NIT
-        th(scope='col') DIRECCION FISCAL
         th(scope='col') TELEFONO
         th(scope='col') ESTADO
         th(scope='col') TIPO DE PAGO
         th(scope='col') TIPO DE SERVICIO
-        th(scope='col') CORREO ELECTRONICO
-        th(scope='col') DIRECCION DE FACTURACION
         th(scope='col') FECHA DE INGRESO
-        th(scope='col') TIPO DE MORA 
+        th(scope='col') TIPO DE MORA
         th(scope='col') SALDO Q
         th(scope='col') ABONO
+        th(scope='col') OPCIONES
       tbody
-       tr
-         th(scope='row')
-         td #{"1"}
+       tr         
+         td #{"1"}          
          td #{"Mario David Herrera Vasquez"}
-         td #{"2890-15-1486"}
-         td #{"8"}
-         td #{"Ingenieria en Sistemas"}
-         td #{"5k"}
-         td #{"No se"}
+         td #{"NO SE"}
+         td #{"HOLA@GMAIL.COM"}
+         td #{"no se"}
+         td #{"123456-1"}
+         td #{"12345678"}
+         td #{"activo"}
+         td #{"anticipado"}
+         td #{"no se"}
+         td #{"27/8/18"}
+         td #{"no se"}
+         td #{"1000"}
+         td #{"500"}
          td
-          button(type="button" class="buttonsmall hover")      
-            span(class="fas fa-user-times")                                 
+          button(type="button" class="buttonsmall hover" id="btneditarcliente" name="btneditarcliente")      
+            span(class="fas fa-user-edit")                                 
