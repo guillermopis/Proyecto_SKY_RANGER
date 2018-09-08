@@ -70,6 +70,7 @@ router.put('/:id', function (req, res, next) {
         }));
 });
 
+/*
 //metodo actualizar solo para estado 
 router.put('/:id', function (req, res, next) {
     const todos = req.params.id;
@@ -89,5 +90,5 @@ router.put('/:id', function (req, res, next) {
             error: true,
             error: error
         }));
-});
+});*/
 module.exports = router;

@@ -6,16 +6,16 @@ if db_id('SkyrangerDB') is not null begin
    drop database SkyrangerDB;
 end
 
---second step
+--second step creacion de base de datos
 create database SkyrangerDB;
 go
 
---third step
+--third step usamos la base de datos
 use SkyrangerDB;
 go
 
 
---four step, table user
+--four step, tabla usuario
 create table usuarios(
 	id int primary key not null identity,
 	usuario varchar(50),
@@ -23,28 +23,39 @@ create table usuarios(
 );
 go
 
---five step
+--five step proveedores
+create table proveedores(
+	id int primary key not null identity,
+	nombre varchar(50),
+	nit varchar(30),
+	direccion varchar(60),
+	telefono varchar(50),
+	estado varchar(25)
+);
+go
+
+--six step tipo de pago
 create table tipo_de_pago(
 	id int primary key not null identity,
 	nombre varchar(50)
 );
 go
 
---six step
+--seven step creacion tipo de mora
 create table tipo_mora(
 	id int primary key not null identity,
 	descripcion varchar(50),
 	porcentaje int not null
 );
 go
--- seven step
+-- eight step tipo de servicio  
 create table tipo_servicio(
 	id int primary key not null identity,
 	nombre varchar(50),
 );
 go
 
--- eight step
+-- nine step tabla clientes
 create table clientes(
 	id int primary key not null identity,
 	nombre varchar(50),
@@ -67,6 +78,49 @@ create table clientes(
 go
 
 
+
+--ten step tabla marcas
+create table marcas(
+	id int primary key not null identity,
+	nombre varchar(50),
+	descripcion varchar(100)
+);go
+
+--tabla lote
+create table lotes(
+	id int primary key not null identity,
+	codigo_lote varchar(40),
+	fecha_compra date,
+	precio_total float,
+	precio_unitario float,
+	id_proveedor int,
+	numero_dispositivos int,
+	duracion_plan_datos varchar(50),
+	fecha_vencimiento_plan date
+);
+go 
+
+
+--eleven step tabla sims
+create table sims(
+	id int primary key not null identity,
+	id_marca int,
+	compania_telefonica varchar(70),
+	plan_de_datos varchar(50),
+	fecha_vencimiento_plan date,
+	fecha_inicio_plan date,
+	precio_del_plan float,
+	numero_telefono varchar(25),
+	iccid varchar(50),
+	apn varchar(60),
+	imei varchar(60),
+	id_lote varchar(30),
+	estado varchar(35)
+
+);
+go
+
+select *from usuarios
 
 
 -- Modulo de seguridad
