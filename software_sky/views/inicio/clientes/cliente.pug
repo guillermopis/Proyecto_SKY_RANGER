@@ -15,41 +15,56 @@ nav(class="navbar navbar-light bg-light")
       
             
 section.full-reset(style="padding: 10px; background-color: #ffffff")  
-  font(face="Balmoral LET", size="2.5", color="black")        
+  font(face="Balmoral LET", size="2.5", color="black")   
+  <h1 align="center"></H1>
+  <div class="table-responsive">
     table(class="table table-hover" style="text-align: center")
       thead(class="thead-dark")
-       tr
-        th(scope='col') #
-        th(scope='col') NOMBRE
-        th(scope='col') DIRECCION
-        th(scope='col') CORREO ELECTRONICO
-        th(scope='col') DIRECCION DE FACTURACION
-        th(scope='col') NIT
-        th(scope='col') TELEFONO
-        th(scope='col') ESTADO
-        th(scope='col') TIPO DE PAGO
-        th(scope='col') TIPO DE SERVICIO
-        th(scope='col') FECHA DE INGRESO
-        th(scope='col') TIPO DE MORA
-        th(scope='col') SALDO Q
-        th(scope='col') ABONO
-        th(scope='col') OPCIONES
-      tbody
-       tr         
-         td #{"1"}          
-         td #{"Mario David Herrera Vasquez"}
-         td #{"NO SE"}
-         td #{"HOLA@GMAIL.COM"}
-         td #{"no se"}
-         td #{"123456-1"}
-         td #{"12345678"}
-         td #{"activo"}
-         td #{"anticipado"}
-         td #{"no se"}
-         td #{"27/8/18"}
-         td #{"no se"}
-         td #{"1000"}
-         td #{"500"}
-         td
-          button(type="button" class="buttonsmall hover" id="btneditarcliente" name="btneditarcliente")      
-            span(class="fas fa-user-edit")                                 
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">NIT</th>
+          <th scope="col">DIRECCION FISCAL</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col">DIRECCION DE FACTURACION</th>
+          <th scope="col">CORREO ELECTRONICO</th>
+          <th scope="col">TIPO DE PAGO</th>
+          <th scope="col">TIPO DE SERVICIO</th>
+          <th scope="col">PORCENTJE DE MORA</th>
+          <th scope="col">FECHA DE INGRESO</th>
+          <th scope="col">SALDO_Q</th>
+          <th scope="col">ANTICIPO</th>
+          <th scope="col">ESTADO</th>
+          <th scope="col">Opciones disponibles</th>
+        </tr>
+      </thead> 
+      <tbody>
+      for cliente in data.data
+        <tr>
+          <th scope="row"></th>
+          <td>#{cliente.nombre}</td>
+          <td>#{cliente.nit}</td>
+          <td>#{cliente.direccion_fiscal}</td>
+          <td>#{cliente.telefono}</td>
+          <td>#{cliente.direccion_facturacion}</td>
+          <td>#{cliente.correo}</td>
+          <td>#{cliente.tipo_pago}</td>
+          <td>#{cliente.tipo_servicio}</td>
+          <td>#{cliente.tipo_mora}</td>
+          <td>#{cliente.fecha_ingreso}</td>
+          <td>#{cliente.saldo_Q}</td>
+          <td>#{cliente.anticipo}</td>
+          <td>#{cliente.estado}</td>
+          <td>
+          <div class="input-group">
+          <div class="input-group-append" id="button-addon4">
+            button(type="button" class="buttonsmall hover" onClick="actualizar(#{cliente.id})")      
+              span(class="fas fa-user-edit")
+            button(type="button" class="buttonsmall hover")      
+              span(class="fas fa-user-edit")
+          </div>
+        </div>
+          </td>
+        </tr>
+      </tbody>     
+    </div>                

@@ -9,6 +9,7 @@ router
 //peticiones get
     .get('/', direcciones.index)
     .get('/inicio', direcciones.inicio)
+    .get('/clientes', direcciones.clientes)
 //peticiones POST
     .post('/login', direcciones.login)
 

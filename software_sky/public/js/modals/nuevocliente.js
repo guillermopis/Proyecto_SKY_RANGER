@@ -8,7 +8,7 @@ var ModuloListado = function(){
 
 	_public.iniciar=function(){
 		_private.agregarEventoAbotonNuevo();
-		_private.editarcliente();
+		//_private.editarcliente();
 	}
 
 	_private.agregarEventoAbotonNuevo=function(){
@@ -16,12 +16,13 @@ var ModuloListado = function(){
 			$('#modalnuevocliente').modal('show');
 		});
 	}
+	/*
 	_private.editarcliente=function(){
 		$("#btneditarcliente")[0].addEventListener('click', function(event) {
 			$('#modaleditarcliente').modal('show');
 		});
 	}
-
+*/
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();

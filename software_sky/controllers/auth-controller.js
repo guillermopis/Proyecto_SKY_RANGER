@@ -65,5 +65,23 @@ var html='<script type="text/javascript">alert("Error en la autenticacion, inten
       });
     }//fi de login
 
-}
-module.exports = AuthController;
+//para responder a /clientes
+clientes(request, response, next){
+  if(request.session.username){
+    requestt.get("http://localhost:3000/clientes/null", (error, responsee, body) => {
+      if(error) {
+          return console.dir(error);
+      }
+      var data= JSON.parse(body);
+      console.log(data);
+      response.render('inicio/indexclientes',{
+        title: 'Clientes',
+        data
+      });
+    });
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion clientes
+
+}module.exports = AuthController;
