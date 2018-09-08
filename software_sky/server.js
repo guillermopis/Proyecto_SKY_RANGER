@@ -53,15 +53,6 @@ app
 app.locals.moment = require('moment');
 moment.locale('es');
 
-
-
-app.get('/proveedores', function(req, res){
-  res.render('inicio/indexproveedores',
-  {
-  });
-});
-
-
 app.get('/inicio2', function(req, res){
   res.render('inicio/indexinicio',
   {

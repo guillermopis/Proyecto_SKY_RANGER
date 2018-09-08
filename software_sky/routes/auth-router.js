@@ -10,10 +10,11 @@ router
     .get('/', direcciones.index)
     .get('/inicio', direcciones.inicio)
     .get('/clientes', direcciones.clientes)
+    .get('/proveedores', direcciones.proveedores)
 //peticiones POST
     .post('/login', direcciones.login)
 
-  
+
 
 
 module.exports = router;

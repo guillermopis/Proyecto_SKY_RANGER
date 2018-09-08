@@ -1,49 +1,61 @@
-//body
-nav(class="navbar navbar-light bg-light")  
-  span
-    button(type="button" id="btn-regresar" class="button blue radius hover" style="border: 2px black outset")        
-      span(class="fas fa-arrow-circle-left")    
-    button(type="button" id="btnnuevoproveedor" class="button blue radius hover" style="border: 2px black outset")            
-      span(class="fas fa-user-plus")
-    //li: a(href="/index") Nuevo
-  form(class="form-inline")
-    h(align="center" style="text:center" text="center")
-      font(face="Balmoral LET", size="6", color="black")
-        | PROVEEDORES    
-    input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
-    button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
-      
-            
-section.full-reset(style="padding: 10px; background-color: #ffffff")  
-  font(face="Calibri", size="3", color="black")        
-    table(class="table table-hover" style="text-align: center")
-      thead(class="thead-dark")
-       tr
-        th(scope='col') #
-        th(scope='col') NOMBRE DE LA EMPRESA
-        th(scope='col') DIRECCION
-        th(scope='col') NIT
-        th(scope='col') TELEFONO EMPRESA
-        th(scope='col') NUM DE EXTESION
-        th(scope='col') CORREO ELECTRONICO
-        th(scope='col') CONTACTO
-        th(scope='col') FECHA RELACION COMERCIAL
-        th(scope='col') ESTADO
-        th(scope='col') CORREO ELECTRONICO CONTACTO
-        th(scope='col') OPCIONES
-      tbody
-       tr         
-         td #{"1"}          
-         td #{"HACKEAME SI PUEDES"}
-         td #{"NO SE"}
-         td #{"123456-1"}
-         td #{"12345678"}
-         td #{"14868"}
-         td #{"HOLA@GMAIL.COM"}
-         td #{"SABER QUIEN"}
-         td #{"27/8/18"}
-         td #{"ACTIVO"}
-         td #{"HOLA22@GMAIL.COM"}
-         td
-          button(type="button" class="buttonsmall hover" id="btneditarprov")      
-            span(class="fas fa-user-edit")                                 
+// barra principal de arriba
+.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
+  nav.navbar-user-top.full-reset(style='background-color: #021528')
+    ul.list-unstyled.full-reset
+      li(style='color:#fff; cursor:default;')
+        span.all-tittles
+      li.tooltips-general.exit-system-button(data-href='/', data-placement='bottom', title='Salir del sistema')
+        i.zmdi.zmdi-power
+      li
+        font(face='Balmoral LET', size='6', color='white' )
+          | SKY RANGER GUATEMALA
+  
+  //body
+  nav(class="navbar navbar-light bg-light")  
+    span
+      button(type="button" id="btn-regresar" class="button blue radius hover" style="border: 2px black outset")        
+        span(class="fas fa-arrow-circle-left")    
+      button(type="button" id="btnnuevoproveedor" class="button blue radius hover" style="border: 2px black outset")            
+        span(class="fas fa-user-plus")
+      //li: a(href="/index") Nuevo
+    form(class="form-inline")
+      h(align="center" style="text:center" text="center")
+        font(face="Balmoral LET", size="6", color="black")
+          | PROVEEDORES    
+      input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
+      button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
+        
+              
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+    font(face="Calibri", size="3", color="black")        
+      table(class="table table-hover" style="text-align: center")
+        thead(class="thead-dark")
+         tr
+          th(scope='col') #
+          th(scope='col') NOMBRE DE LA EMPRESA
+          th(scope='col') DIRECCION
+          th(scope='col') NIT
+          th(scope='col') TELEFONO EMPRESA
+          th(scope='col') NUM DE EXTESION
+          th(scope='col') CORREO ELECTRONICO
+          th(scope='col') CONTACTO
+          th(scope='col') FECHA RELACION COMERCIAL
+          th(scope='col') ESTADO
+          th(scope='col') CORREO ELECTRONICO CONTACTO
+          th(scope='col') OPCIONES
+        tbody
+         tr         
+           td #{"1"}          
+           td #{"HACKEAME SI PUEDES"}
+           td #{"NO SE"}
+           td #{"123456-1"}
+           td #{"12345678"}
+           td #{"14868"}
+           td #{"HOLA@GMAIL.COM"}
+           td #{"SABER QUIEN"}
+           td #{"27/8/18"}
+           td #{"ACTIVO"}
+           td #{"HOLA22@GMAIL.COM"}
+           td
+            button(type="button" class="buttonsmall hover" id="btneditarprov")      
+              span(class="fas fa-user-edit")                                 

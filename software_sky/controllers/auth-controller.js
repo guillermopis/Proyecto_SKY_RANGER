@@ -83,5 +83,13 @@ clientes(request, response, next){
       errors.http401(request, response, next);
   }
 }//fin de funcion clientes
-
+proveedores(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexproveedores',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de proveedores
 }module.exports = AuthController;

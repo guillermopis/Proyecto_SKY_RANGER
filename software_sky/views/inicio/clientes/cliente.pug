@@ -1,70 +1,64 @@
-//body page --------------------------------------------------------------------------------------------------------------
-nav(class="navbar navbar-light bg-light")  
-  span
-    button(type="button" href="/bajacliente" id="btn-regresar" class="button blue radius hover" style="border: 2px black outset")        
-      span(class="fas fa-arrow-circle-left")    
-    button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
-      span(class="fas fa-user-plus")
-    //li: a(href="/index") Nuevo
-  form(class="form-inline")
-    h(align="center" style="text:center" text="center")
-      font(face="Balmoral LET", size="6", color="black")
-        | CLIENTES    
-    input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
-    button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
-      
-            
-section.full-reset(style="padding: 10px; background-color: #ffffff")  
-  font(face="Balmoral LET", size="2.5", color="black")   
-  <h1 align="center"></H1>
-  <div class="table-responsive">
-    table(class="table table-hover" style="text-align: center")
-      thead(class="thead-dark")
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">NOMBRE</th>
-          <th scope="col">NIT</th>
-          <th scope="col">DIRECCION FISCAL</th>
-          <th scope="col">TELEFONO</th>
-          <th scope="col">DIRECCION DE FACTURACION</th>
-          <th scope="col">CORREO ELECTRONICO</th>
-          <th scope="col">TIPO DE PAGO</th>
-          <th scope="col">TIPO DE SERVICIO</th>
-          <th scope="col">PORCENTJE DE MORA</th>
-          <th scope="col">FECHA DE INGRESO</th>
-          <th scope="col">SALDO_Q</th>
-          <th scope="col">ANTICIPO</th>
-          <th scope="col">ESTADO</th>
-          <th scope="col">Opciones disponibles</th>
-        </tr>
-      </thead> 
-      <tbody>
-      for cliente in data.data
-        <tr>
-          <th scope="row"></th>
-          <td>#{cliente.nombre}</td>
-          <td>#{cliente.nit}</td>
-          <td>#{cliente.direccion_fiscal}</td>
-          <td>#{cliente.telefono}</td>
-          <td>#{cliente.direccion_facturacion}</td>
-          <td>#{cliente.correo}</td>
-          <td>#{cliente.tipo_pago}</td>
-          <td>#{cliente.tipo_servicio}</td>
-          <td>#{cliente.tipo_mora}</td>
-          <td>#{cliente.fecha_ingreso}</td>
-          <td>#{cliente.saldo_Q}</td>
-          <td>#{cliente.anticipo}</td>
-          <td>#{cliente.estado}</td>
-          <td>
-          <div class="input-group">
-          <div class="input-group-append" id="button-addon4">
-            button(type="button" class="buttonsmall hover" onClick="actualizar(#{cliente.id})")      
-              span(class="fas fa-user-edit")
-            button(type="button" class="buttonsmall hover")      
-              span(class="fas fa-user-edit")
+// barra principal de arriba
+.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
+  nav.navbar-user-top.full-reset(style='background-color: #021528')
+    ul.list-unstyled.full-reset
+      li(style='color:#fff; cursor:default;')
+        span.all-tittles
+      li.tooltips-general.exit-system-button(data-href='/', data-placement='bottom', title='Salir del sistema')
+        i.zmdi.zmdi-power
+      li
+        font(face='Balmoral LET', size='6', color='white' )
+          | SKY RANGER GUATEMALA
+  
+  //body page --------------------------------------------------------------------------------------------------------------
+  nav(class="navbar navbar-light bg-light")  
+    span
+      button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
+        span(class="fas fa-user-plus")
+      //li: a(href="/index") Nuevo
+    form(class="form-inline")
+      h(align="center" style="text:center" text="center")
+        font(face="Balmoral LET", size="6", color="black")
+          | CLIENTES    
+      input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
+      button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
+        
+              
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+    font(face="Balmoral LET", size="2.5", color="black")   
+    <h1 align="center"></H1>
+    <div class="table-responsive">
+      table(class="table table-hover" style="text-align: center")
+        thead(class="thead-dark")
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">NIT</th>
+            <th scope="col">DIRECCION FISCAL</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">CORREO ELECTRONICO</th>
+            <th scope="col">Opciones disponibles</th>
+          </tr>
+        </thead> 
+        <tbody>
+        for cliente in data.data
+          <tr>
+            <th scope="row"></th>
+            <td>#{cliente.nombre}</td>
+            <td>#{cliente.nit}</td>
+            <td>#{cliente.direccion_fiscal}</td>
+            <td>#{cliente.telefono}</td>
+            <td>#{cliente.correo}</td>
+            <td>
+            <div class="input-group">
+            <div class="input-group-append" id="button-addon4">
+              button(type="button" class="buttonsmall hover" onClick="actualizar(#{cliente.id})")      
+                span(class="fas fa-user-edit")
+              button(type="button" class="buttonsmall hover")      
+                span(class="fas fa-user-times")
+            </div>
           </div>
-        </div>
-          </td>
-        </tr>
-      </tbody>     
-    </div>                
+            </td>
+          </tr>
+        </tbody>     
+      </div>                
