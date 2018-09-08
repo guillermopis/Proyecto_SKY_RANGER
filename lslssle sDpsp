@@ -1,0 +1,273 @@
+[33mcommit 3e5a5ad500ffe7e9ef817fcc8676224838ea9b70[m
+Merge: b627ea6 c6b5a54
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Sep 4 18:28:41 2018 -0600
+
+    Merge branch 'master' of https://github.com/guillermopis/Proyecto_SKY_RANGER
+
+[33mcommit b627ea6bccd88df9d3ffbfbecf7a4fbe191d99fd[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Sep 4 18:28:15 2018 -0600
+
+    agregue tabla de tipoMora, tipoPago, tipoServicio y Clientes
+
+[33mcommit c6b5a5454ee1ca3e716e67946e6c3216659ca53b[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Sep 4 15:42:12 2018 -0600
+
+    rediseñando
+
+[33mcommit 59ba8e00f0cd8d3da3cde53dc51bf3c8baa30af8[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Sep 3 21:33:08 2018 -0600
+
+    reodene las vistas y añadi la tabla de clientes a la vista
+
+[33mcommit 408136b1cb34120419b126e388b0e15ca75c44d1[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Sep 3 19:19:19 2018 -0600
+
+    agregue alert al login, cuando los datos son erroneos
+
+[33mcommit d38362942a9aa6036e9439dc3344b5dfdd8816a6[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Sep 3 18:04:33 2018 -0600
+
+    correccion de archivo login.pug
+
+[33mcommit e25897cc898d1870acfe36e377df4e10c7ba46b8[m
+Merge: 963f3fb dd4b708
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Sep 3 17:56:32 2018 -0600
+
+    login funcional2
+
+[33mcommit 963f3fb065a9ac049d21378acef16eab6e34eb42[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Sep 3 17:52:35 2018 -0600
+
+    login funcional
+
+[33mcommit dd4b708929222a79b1204d8d8125c435fedd5a74[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Mon Sep 3 12:38:52 2018 -0600
+
+    diseño modal
+
+[33mcommit af83b926c10af572b60f5ea95c7e057b8ce08cb8[m
+Merge: 8bd24e2 b703296
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Mon Sep 3 02:25:19 2018 -0600
+
+    .
+
+[33mcommit 8bd24e2a4c656ab314904e79aeefe92ab13e6cc7[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Mon Sep 3 02:22:42 2018 -0600
+
+    .
+
+[33mcommit b703296637f8f01d26bcde2b38596245e4989157[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Sun Sep 2 09:40:02 2018 -0600
+
+    contruccion de login log
+
+[33mcommit db9b177bbeeb8cb24a523918504f6328cf57df91[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Sun Sep 2 07:00:06 2018 -0600
+
+    construccion de login
+
+[33mcommit 5d28ea79ff3c67a3931b0593144d81d0b6bc254f[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Fri Aug 31 14:07:38 2018 -0600
+
+    .
+
+[33mcommit 000de80665a27f5a323a524b0204802db453c7a6[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Fri Aug 31 09:55:30 2018 -0600
+
+    no funciona el diseño del modal :(
+
+[33mcommit ff4d24074b24ad73b6afe54cabf3ae9c3d6f7e3f[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Thu Aug 30 06:22:57 2018 -0600
+
+    correccion de error en nuevocliente modal
+
+[33mcommit c3c5d3d75e948e3261d10142910ddad3ab0387ab[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Thu Aug 30 05:05:14 2018 -0600
+
+    diseño del modal
+
+[33mcommit f2ca9b1def01c5ff7a82fd8baaf90204f5717a4e[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Wed Aug 29 15:01:01 2018 -0600
+
+    diseño web
+
+[33mcommit da3470e4b0abe63e36fe3137e76ef5d6baa6a981[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Aug 28 14:56:52 2018 -0600
+
+    se agrego el diseño de nuevo cliente
+
+[33mcommit eb2fb5e50edb293a0a86d596a9fc332aeea01d4b[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Aug 28 14:49:00 2018 -0600
+
+    se agrego el diseño de nuevo cliente
+
+[33mcommit 7fc9c632014aea78fd362e1295e012298b4ac0b2[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Aug 28 12:57:01 2018 -0600
+
+    ..
+
+[33mcommit c94389011f156fd6f50df64309f1b77ff791dd5a[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Aug 28 03:38:17 2018 -0600
+
+    .
+
+[33mcommit 851c7d157a9b0a6bf3cebc3ea4aa4e5e3d2d0021[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Sun Aug 26 11:42:38 2018 -0600
+
+    mmm
+
+[33mcommit 326861533365c1a470a2804c9920f3efbff06853[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Sun Aug 26 10:40:17 2018 -0600
+
+    se agrego el diseño de login e inicio al proyecto de software
+
+[33mcommit 050874b01f8ceecf7e745703d8c5706747092a71[m
+Merge: 24fef91 27bd2cb
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Aug 21 20:33:05 2018 -0600
+
+    Merge branch 'master' of https://github.com/guillermopis/Proyecto_SKY_RANGER
+
+[33mcommit 24fef91f0825a660ef6714058dfaad2cbeaaf68c[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Aug 21 20:31:35 2018 -0600
+
+    agregue peticion get usuarios a API
+
+[33mcommit 27bd2cb9ef83fe4652876f374d89fe11ccbbd4d5[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Tue Aug 21 14:42:38 2018 -0600
+
+    se agrego diseño en html de login e inicio
+
+[33mcommit 291f9a29e43cc45fafb719d48850e6181fb43a22[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Aug 21 04:06:01 2018 -0600
+
+    add git ignore
+
+[33mcommit 884d25b6ca9b65db9ec0329e80be6f0731c9de99[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Sun Aug 19 12:31:04 2018 -0600
+
+    update repo
+
+[33mcommit d94931172b2ed1053ec0dc75809dc15bf5dcb485[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Wed Aug 1 04:33:13 2018 -0600
+
+    agregue diagramas de flujo
+
+[33mcommit 2bb3fb584b54d372f421d86c2d46fd9a36823750[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Tue Jul 31 20:10:52 2018 -0600
+
+    revision de diagramas
+
+[33mcommit d41dbbce9341f96d5108da183f73dbbcdf5fc804[m
+Merge: a4bd58d 8c0dfce
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Jul 30 20:22:14 2018 -0600
+
+    Merge branch 'master' of https://github.com/guillermopis/Proyecto_SKY_RANGER
+
+[33mcommit a4bd58dae98f91643a5f24e54aa4d63b32714bb0[m
+Author: guillermopis <guillermo.pisqui@gmail.com>
+Date:   Mon Jul 30 20:21:29 2018 -0600
+
+    modificaciones
+
+[33mcommit 8c0dfce2eda33f011f90632a2e37107dd5774773[m
+Author: Francisco Ramirez <ramirezfrancisco@users.noreply.github.com>
+Date:   Mon Jul 30 20:13:31 2018 -0600
+
+    Add files via upload
+
+[33mcommit 76c229106c37fcc9791fbf58dc2803ecf35f22cd[m
+Author: Francisco Ramirez <ramirezfrancisco@users.noreply.github.com>
+Date:   Mon Jul 30 20:12:48 2018 -0600
+
+    Add files via upload
+
+[33mcommit e5e3e920147cfdcd8f32040340034fc3e1919f8f[m
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Mon Jul 30 19:17:50 2018 -0600
+
+    presentación grupal
+
+[33mcommit 96ae2683cdb6a814aff2de72aead86684f193c31[m
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Sun Jul 29 07:49:23 2018 -0600
+
+    Modificaciones de fecha
+
+[33mcommit 2985970caf0fa5fd570d50d120345df89f416815[m
+Merge: d97f2ec 4cc0cf5
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Fri Jul 27 16:51:26 2018 -0600
+
+    Merge branch 'master' of https://github.com/guillermopis/Proyecto_SKY_RANGER
+
+[33mcommit d97f2ecf5d4f32248c8eff083c45f82c6b38bc14[m
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Fri Jul 27 16:51:18 2018 -0600
+
+    Corrección de enfoque en casos de uso
+
+[33mcommit 4cc0cf5f956aa55b008865ca30e05e571c387503[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Fri Jul 27 14:59:09 2018 -0600
+
+    se agregaron imagenes de diag. de actividades
+
+[33mcommit 5faea8006f346bda07510a80cdcb607d49613b1b[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Fri Jul 27 14:52:43 2018 -0600
+
+    se agregaron mas actividades
+
+[33mcommit df953057bda6abc9bed9fadff930280d9244dc29[m
+Author: David-Vasquez-96 <dv1617568@gmail.com>
+Date:   Fri Jul 27 14:06:03 2018 -0600
+
+    diagrama de actividades
+
+[33mcommit dffbb529086b51000f3d1ae05dba0066c69420d5[m
+Merge: f562bb0 cc1d0e8
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Fri Jul 27 12:21:37 2018 -0600
+
+    Merge branch 'master' of https://github.com/guillermopis/Proyecto_SKY_RANGER
+
+[33mcommit f562bb0d2056fc00b63ff265346650180a01c314[m
+Author: Daniel Estupe <kanvasgt@gmail.com>
+Date:   Fri Jul 27 12:21:28 2018 -0600
+
+    actualización casos de uso
+
+[33mcommit cc1d0e8b621890fd250863841d67ffa97555cf01[m
+Author: guillerm
