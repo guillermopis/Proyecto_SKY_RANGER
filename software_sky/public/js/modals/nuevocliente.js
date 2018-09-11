@@ -23,30 +23,7 @@ var ModuloListado = function(){
 		if(esvalido == true){
 			console.log("todo listo, guardemos la info");
 			if($("#bandera").val()	== "crear"){
-				//	_private.peticion("http://127.0.0.1:3000/clientes/","POST")
-				$.ajax({
-							url: "http://127.0.0.1:3000/clientes/",
-							type: "POST",
-							data: {
-								"nombre": document.getElementById("nombre").value,
-								"direccion": document.getElementById("direccion").value,
-								"correo": document.getElementById("correo").value,
-								"dirfact": document.getElementById("dirfact").value,
-								"nit": document.getElementById("nit").value,
-								"telefono": document.getElementById("telefono").value,
-								"estado": document.getElementById("estado").value,
-								"tipopago": document.getElementById("tipopago").value,
-								"tiposervicio": document.getElementById("tiposervicio").value,
-								"fecha": document.getElementById("fecha").value,
-								"tipomora": document.getElementById("tipoMora").value,
-								"saldo": document.getElementById("saldo").value,
-								"anticipo": document.getElementById("anticipo").value
-							}
-						}).done(function(data){
-							$('#modalnuevocliente').modal('hide')
-							alert("DATOS GUARDADOS CORRECTAMENTE ");
-							location.href = "http://localhost:8000/clientes";
-						})//fin de ajax
+					_private.peticion("http://127.0.0.1:3000/clientes/","POST");
 			}
 			//_private.EnviarDatosDeCliente();
 		}//fin del if
@@ -57,7 +34,29 @@ var ModuloListado = function(){
 	}//fin de funcion EnviarDatosDeCliente
 
 	_private.peticion=function(url,type){
-
+		$.ajax({
+					url: url,
+					type: type,
+					data: {
+						"nombre": document.getElementById("nombre").value,
+						"direccion": document.getElementById("direccion").value,
+						"correo": document.getElementById("correo").value,
+						"dirfact": document.getElementById("dirfact").value,
+						"nit": document.getElementById("nit").value,
+						"telefono": document.getElementById("telefono").value,
+						"estado": document.getElementById("estado").value,
+						"tipopago": document.getElementById("tipopago").value,
+						"tiposervicio": document.getElementById("tiposervicio").value,
+						"fecha": document.getElementById("fecha").value,
+						"tipomora": document.getElementById("tipoMora").value,
+						"saldo": document.getElementById("saldo").value,
+						"anticipo": document.getElementById("anticipo").value
+					}
+				}).done(function(data){
+					$('#modalnuevocliente').modal('hide')
+					alert("DATOS GUARDADOS CORRECTAMENTE ");
+					location.href = "http://localhost:8000/clientes";
+				})//fin de ajax
 	}//fnin de funcino peticion
 
 	_private.agregarEventoAbotonGuardar = function(){
