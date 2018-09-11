@@ -1,7 +1,7 @@
 function actualizar(id_registro){
   //alert("Estoy en funcion actualizar con el id:"+ id_registro );
   //abrimos el formulario modal
-  $('#modalnuevocliente').modal('show')
+  $('#modalnuevocliente').modal('show');
   //ahora hacemos la peticion get a la api segun el id que venga en id_registro
   /*
   $.ajax({

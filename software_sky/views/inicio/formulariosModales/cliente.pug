@@ -33,54 +33,51 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label TELEFONO
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset")          
               .form-group.col-md-3
                 .form-group(class="container")
                   label ESTADO
                   select(id="estado" class="form-control" style="border: 2px blue outset")
-                    option.select seleccionar
                     option.select ACTIVO
                     option.select DE BAJA                        
               .form-group.col-md-3
                 .form-group(class="container")                
                   label TIPO DE PAGO
-                  select(id="tipopago" class="form-control" style="border: 2px blue outset")
-                    option.select seleccionar
-                    option.select ANTICIPADO
-                    option.select 30 DIAS
-                    option.select 60 DIAS
-                    option.select 90 DIAS              
+                  <select id="tipopago" class="form-control" style="border: 2px blue outset">
+                  for tipo in datos.data
+                    <option value=#{tipo.id}>#{tipo.nombre}</option>  
+                  </select>
           .form-row
               .form-group.col-md-3             
                 .form-group(class="container")
                   label TIPO DE SERVICIO
-                  select(id="tiposervicio" class="form-control" style="border: 2px blue outset")
-                    option.select seleccionar
-                    option.select VENDIDO
-                    option.select RENTA  
+                  <select id="tiposervicio" class="form-control" style="border: 2px blue outset">
+                  for tipo2 in servicios.data
+                    <option value=#{tipo2.id}>#{tipo2.nombre}</option>
+                  </select>
               .form-group.col-md-3              
                 .form-group(class="container")
                   label FECHA INGRESO
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
-              .form-group.col-md-3              
+                  input(type="text" class="form-control" id="fecha" style="border: 2px blue outset")          
+              .form-group.col-md-4              
                 .form-group(class="container")
                   label TIPO DE MORA
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")                                                                                                
+                  <select id="tipoMora" neme="tipoMora" class="form-control" style="border: 2px blue outset">
+                  for tipo3 in moras.data
+                    <option value=#{tipo3.id}>#{tipo3.descripcion} #{tipo3.porcentaje}%</option>
+                  </select>                                                    
           .form-row
               .form-group.col-md-3              
                 .form-group(class="container")
                   label SALDO Q.
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="saldo" style="border: 2px blue outset")          
               .form-group.col-md-3              
                 .form-group(class="container")
-                  label ABONO Q.
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  label ANTICIPO Q.
+                  input(type="text" class="form-control" id="anticipo" style="border: 2px blue outset")
+                  <input type="text" id="bandera" name="bandera">
+                  <input type="text" id="id" name="id">          
       div(class="modal-footer")
-        form.was-validated
-          .custom-control.custom-checkbox.mb-3
-            input#check1.custom-control-input(type='checkbox', required='', name='check1')
-            label.custom-control-label(for='check1') MODIFICAR DATOS
-            .valid-feedback
-              button(type="button" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
-              button(button type="button" class="btn btn-primary" style="border: 2px black outset") GUARDAR
+              button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
+              button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR
             

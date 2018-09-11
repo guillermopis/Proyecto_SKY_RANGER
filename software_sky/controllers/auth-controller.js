@@ -3,8 +3,9 @@ var requestt = require('request');
 let authModel = require('../models/auth-model'),
     errors  = require('../middlewares/errors'),
     express = require('express'),
-    crypto = require('crypto');
-
+    crypto = require('crypto'),
+    peticiones     = require('../controllers/clasePeticionesAPI'),
+    peti = new peticiones();
 
 
 class AuthController{
@@ -68,21 +69,23 @@ var html='<script type="text/javascript">alert("Error en la autenticacion, inten
 //para responder a /clientes
 clientes(request, response, next){
   if(request.session.username){
-    requestt.get("http://localhost:3000/clientes/null", (error, responsee, body) => {
-      if(error) {
-          return console.dir(error);
-      }
-      var data= JSON.parse(body);
-      console.log(data);
-      response.render('inicio/indexclientes',{
-        title: 'Clientes',
-        data
-      });
-    });
+    peti.peticion("http://localhost:3000/clientes/null", function(data){
+      peti.peticion("http://localhost:3000/tipopago/", function(datos){
+        peti.peticion("http://localhost:3000/tiposervicio/", function(servicios){
+          peti.peticion("http://localhost:3000/tipomora/", function(moras){
+            response.render('inicio/indexclientes',{
+              title: 'Clientes',
+              data,datos,servicios,moras
+            });//fin  del response
+          })// fin de peticion a moras
+        })// fin de peticion a servicios
+      }); //fin de llamada a tipos de pagos
+    }); //fin del llamado a funcion peticion clientes
   }else{//si no tiene sesion activa
       errors.http401(request, response, next);
   }
 }//fin de funcion clientes
+
 proveedores(request,response, next){
   if(request.session.username){
     response.render('inicio/indexproveedores',

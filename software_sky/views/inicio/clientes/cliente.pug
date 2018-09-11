@@ -37,7 +37,7 @@
             <th scope="col">DIRECCION FISCAL</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">CORREO ELECTRONICO</th>
-            <th scope="col">Opciones disponibles</th>
+            <th scope="col">OPCIONES</th>
           </tr>
         </thead> 
         <tbody>
@@ -52,10 +52,9 @@
             <td>
             <div class="input-group">
             <div class="input-group-append" id="button-addon4">
-              button(type="button" class="buttonsmall hover" onClick="actualizar(#{cliente.id})")      
-                span(class="fas fa-user-edit")
-              button(type="button" class="buttonsmall hover")      
-                span(class="fas fa-user-times")
+              <button type="button" class="buttonsmall hover" onClick="actualizar(#{cliente.id})">
+              span(class="fas fa-user-edit")
+              </button>      
             </div>
           </div>
             </td>

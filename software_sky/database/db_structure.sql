@@ -24,21 +24,21 @@ create table usuarios(
 go
 
 --five step
-create table tipo_de_pago(
+create table tipo_de_pagos(
 	id int primary key not null identity,
 	nombre varchar(50)
 );
 go
 
 --six step
-create table tipo_mora(
+create table tipo_moras(
 	id int primary key not null identity,
 	descripcion varchar(50),
 	porcentaje int not null
 );
 go
 -- seven step
-create table tipo_servicio(
+create table tipo_servicios(
 	id int primary key not null identity,
 	nombre varchar(50),
 );
