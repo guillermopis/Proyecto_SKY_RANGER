@@ -13,6 +13,7 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
     }).then(function(data) {
       //TENEMOS LOS DATOS, AHORA SE LOS MANDAMOS AL FORMULARIO MODAL
       //alert((data.data[0].nombre));
+      //comentario
       document.getElementById("nombre").value = data.data[0].nombre;
       document.getElementById("direccion").value= data.data[0].direccion_fiscal;
       document.getElementById("dirfact").value = data.data[0].direccion_facturacion;
