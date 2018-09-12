@@ -6,7 +6,7 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center")
+        form(style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
@@ -78,6 +78,12 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
                   <input type="text" id="bandera" name="bandera">
                   <input type="text" id="id" name="id">          
       div(class="modal-footer")
-              button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
-              button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check1">
+          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+        </div>
+        <div class="form-group form-check">
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
+          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR
+        </div>      
             

@@ -30,5 +30,10 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
       //los datos ya estan en el formulario, esperamos que el usuario los modifique
       	$("#bandera").val("ver");
         $("#id").val(id_registro);
+        $('#formcliente').find('input, textarea, button, select').attr('disabled','disabled');
+        document.getElementById("check1").style.display="block";
+        document.getElementById("che").style.display="block";
+        document.getElementById("btnGuardar").disabled=true;
+
     });
 }//fin de funcion actualizar

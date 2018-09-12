@@ -10,12 +10,30 @@ var ModuloListado = function(){
 		_private.agregarEventoAbotonNuevo();
 		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
+		_private.agregarEventoACheck1();
 		//_private.agregarEventoAbotonCerrar();
-
-		//_private.editarcliente();
 	}
+
+	_private.agregarEventoACheck1=function(){
+		var check = $("#check1");
+		if(check.length==0){
+			console.log("el boton guardar no existe");
+			return;
+		}else{
+			check[0].addEventListener('click', function(event){
+				if($('#check1').prop('checked')){
+					$('#formcliente').find('input, button, select').attr('disabled', false);
+					document.getElementById("btnGuardar").disabled=false;
+				}else{
+					$('#formcliente').find('input, button, select').attr('disabled','disabled');
+					document.getElementById("btnGuardar").disabled=true;
+				}
+			});//fin de evento
+		}
+	}//fin de funcion agregarEventoACheck1
+
 	_private.limpiar=function(){
-		document.getElementaryById("modalnuevocliente").reset();
+		document.getElementById("formcliente").reset();
 	}//fin de limpiar
 
 	_private.validarFormulario=function(){
@@ -24,6 +42,9 @@ var ModuloListado = function(){
 			console.log("todo listo, guardemos la info");
 			if($("#bandera").val()	== "crear"){
 					_private.peticion("http://127.0.0.1:3000/clientes/","POST");
+			}
+			if($("#bandera").val()	== "ver"){//vamos actualizar la info
+				_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT");
 			}
 			//_private.EnviarDatosDeCliente();
 		}//fin del if
@@ -52,9 +73,9 @@ var ModuloListado = function(){
 						"saldo": document.getElementById("saldo").value,
 						"anticipo": document.getElementById("anticipo").value
 					}
-				}).done(function(data){
+				}).done(function(data,message){
 					$('#modalnuevocliente').modal('hide')
-					alert("DATOS GUARDADOS CORRECTAMENTE ");
+					alert(message);
 					location.href = "http://localhost:8000/clientes";
 				})//fin de ajax
 	}//fnin de funcino peticion
@@ -83,16 +104,14 @@ var ModuloListado = function(){
 	_private.agregarEventoAbotonNuevo=function(){
 		$("#btnnuevocliente")[0].addEventListener('click', function(event) {
 			$('#modalnuevocliente').modal('show')
+			_private.limpiar()
+			document.getElementById("btnGuardar").disabled=false;
+			document.getElementById("check1").style.display="none";
+			document.getElementById("che").style.display="none";
 			$("#bandera").val("crear");
 		});
 	}
-	/*
-	_private.editarcliente=function(){
-		$("#btneditarcliente")[0].addEventListener('click', function(event) {
-			$('#modaleditarcliente').modal('show');
-		});
-	}
-*/
+
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();
