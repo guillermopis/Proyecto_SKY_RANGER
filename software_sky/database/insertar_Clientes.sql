@@ -1,4 +1,5 @@
 --base de datos
+select * from usuarios
 use SkyrangerDB
 
 --insertar tipos de servicios
