@@ -156,6 +156,8 @@ var ModuloListado = function(){
 			document.getElementById("btnGuardar").disabled=false;
 			document.getElementById("check1").style.display="none";
 			document.getElementById("che").style.display="none";
+			$('#formcliente').find('input, button, select').attr('disabled', false);
+					document.getElementById("btnGuardar").disabled=false;
 			$("#bandera").val("crear");
 		});
 	}
