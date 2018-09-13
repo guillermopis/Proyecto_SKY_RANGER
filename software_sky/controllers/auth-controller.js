@@ -95,4 +95,15 @@ proveedores(request,response, next){
     errors.http401(request, response, next);
   }
 }//fin de proveedores
+
+usuario(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexusuario',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de usuarios
+
 }module.exports = AuthController;

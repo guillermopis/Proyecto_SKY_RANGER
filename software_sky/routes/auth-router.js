@@ -11,6 +11,7 @@ router
     .get('/inicio', direcciones.inicio)
     .get('/clientes', direcciones.clientes)
     .get('/proveedores', direcciones.proveedores)
+    .get('/usuario', direcciones.usuario)
 //peticiones POST
     .post('/login', direcciones.login)
 
