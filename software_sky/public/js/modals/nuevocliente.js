@@ -33,27 +33,28 @@ var ModuloListado = function(){
 						}).done(function(data,message){ //cargamos a la tabla
 							$("#tablita").remove();
 							var b = '<tbody id="tablita" '+
-											"</tbody>";
+										"</tbody>";
 							$("#tablaCliente").append(b);
 							for (var a = 0; a<data.data.length; a++){
 								//console.log(a);
 							var fila=
 							"<tr>"+
-								"<td>"+data.data[a].nombre+"<td>"+
-								"<td>"+data.data[a].nit+"<td>"+
-								"<td>"+data.data[a].direccion_fiscal+"<td>"+
-								"<td>"+data.data[a].telefono+"<td>"+
-								"<td>"+data.data[a].correo+"<td>"+
+								'<th scope="row"></th>'+
+								"<td>"+data.data[a].nombre+"</td>"+
+								"<td>"+data.data[a].nit+"</td>"+
+								"<td>"+data.data[a].direccion_fiscal+"</td>"+
+								"<td>"+data.data[a].telefono+"</td>"+
+								"<td>"+data.data[a].correo+"</td>"+
 								"<td>"+
 		            '<div class="input-group">'+
 		            '<div class="input-group-append" id="btnver">'+
-		              '<button type="button" class="buttonsmall hover"'+ 'onClick="ver(#{cliente.id})">'+
-		              'span(class="fas fa-user-edit")'+
-		              '</button>'+
+		              '<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
+		          		'<span class="fas fa-user-edit"></span>'+
+		              "</button>"+
 		            '</div>'+
 		          '</div>'+
 		            '</td>'+
-								"</tr>";
+							"</tr>";
 								$("#tablita").append(fila);
 							}//fin del for
 							//console.log(data);
@@ -121,9 +122,9 @@ var ModuloListado = function(){
 						"saldo": document.getElementById("saldo").value,
 						"anticipo": document.getElementById("anticipo").value
 					}
-				}).done(function(data,message){
+				}).done(function(data){
 					$('#modalnuevocliente').modal('hide')
-					alert(message);
+					alert(data.mensaje);
 					location.href = "http://localhost:8000/clientes";
 				})//fin de ajax
 	}//fnin de funcino peticion
