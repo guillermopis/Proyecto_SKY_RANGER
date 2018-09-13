@@ -13,10 +13,13 @@
   //body page --------------------------------------------------------------------------------------------------------------
   nav(class="navbar navbar-light bg-light")  
     span
-      button(type="button" id="btnnuevocliente" name="btnnuevocliente" class="button blue radius hover" style="border: 2px black outset")            
+      button(type="button" id="btnnuevousuario" name="btnnuevousuario" class="button blue radius hover")            
         span(class="fas fa-user-plus")
       //li: a(href="/index") Nuevo
-    form(class="form-inline")
-      h(align="center" style="text:center" text="center")
-        font(face="Balmoral LET", size="6", color="black")
-          | USUARIOS    
+    form(class="form-inline")      
+      font(face="Balmoral LET", size="6", color="black")
+        | USUARIOS    
+          
+    section.full-reset(style="padding: 10px; background-color: #ffffff")  
+      font(face="Balmoral LET", size="6", color="black")
+        | ADMINISTRADOR DE USUARIOS
