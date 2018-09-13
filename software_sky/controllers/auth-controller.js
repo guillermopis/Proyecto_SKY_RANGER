@@ -69,7 +69,7 @@ var html='<script type="text/javascript">alert("Error en la autenticacion, inten
 //para responder a /clientes
 clientes(request, response, next){
   if(request.session.username){
-    peti.peticion("http://localhost:3000/clientes/null", function(data){
+    peti.peticion('http://localhost:3000/clientes/{"id":"null","a":"0", "b":"5","texto":""}', function(data){
       peti.peticion("http://localhost:3000/tipopago/", function(datos){
         peti.peticion("http://localhost:3000/tiposervicio/", function(servicios){
           peti.peticion("http://localhost:3000/tipomora/", function(moras){

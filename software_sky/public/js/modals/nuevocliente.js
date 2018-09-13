@@ -25,11 +25,8 @@ var ModuloListado = function(){
 			//	alert('presiono una tecla');
 				//aca ira una llamada ajax a la base de datos
 				$.ajax({
-							url: "http://localhost:3000/filtrarClientes/",
-							type: "POST",
-							data: {
-								"texto": document.getElementById("buscarnombre").value,
-							}
+							url: 'http://localhost:3000/clientes/{"id":"null","a":"0", "b":"5","texto":"'+document.getElementById("buscarnombre").value+'"}',
+							type: "GET"
 						}).done(function(data,message){ //cargamos a la tabla
 							$("#tablita").remove();
 							var b = '<tbody id="tablita" '+
