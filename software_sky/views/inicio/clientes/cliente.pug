@@ -20,27 +20,28 @@
       h(align="center" style="text:center" text="center")
         font(face="Balmoral LET", size="6", color="black")
           | CLIENTES    
-      input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
-      button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR
-        
               
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="2.5", color="black")   
     <h1 align="center"></H1>
     <div class="table-responsive">
-      table(class="table table-hover" style="text-align: center")
+      table(class="table table-hover" style="text-align: center" id="tablaCliente")
         thead(class="thead-dark")
           <tr>
             <th scope="col">#</th>
-            <th scope="col">NOMBRE</th>
-            <th scope="col">NIT</th>
+            <th scope="col">NOMBRE
+            <br>
+            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
+            </th>
+            <th scope="col">NIT
+            </th>
             <th scope="col">DIRECCION FISCAL</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">CORREO ELECTRONICO</th>
             <th scope="col">OPCIONES</th>
           </tr>
         </thead> 
-        <tbody>
+        <tbody id="tablita">
         for cliente in data.data
           <tr>
             <th scope="row"></th>
@@ -60,4 +61,10 @@
             </td>
           </tr>
         </tbody>     
-      </div>                
+      </div>
+
+    nav(aria-label="Page navigation example")
+      ul(class="pagination")
+        li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
+        li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
+        li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente

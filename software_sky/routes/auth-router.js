@@ -13,6 +13,8 @@ router
     
     //realizamos la peticion del metodo de callback
     .get('/proveedores', direcciones.proveedores)
+    .get('/usuario', direcciones.usuario)
+    .get('/vehiculo', direcciones.vehiculo)
 //peticiones POST
     .post('/login', direcciones.login)
 
