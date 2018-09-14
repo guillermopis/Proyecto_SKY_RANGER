@@ -95,14 +95,12 @@ proveedores(request, response, next){
               data
             });//fin  del response
           });// fin de peticion a moras
-        
+
   }else{//si no tiene sesion activa
       errors.http401(request, response, next);
   }
-<<<<<<< HEAD
 }//fin de funcion proveedores
-=======
-}//fin de proveedores
+
 
 usuario(request,response, next){
   if(request.session.username){
@@ -124,6 +122,5 @@ vehiculo(request,response, next){
   }
 }//fin de vehiculos
 
->>>>>>> e2a1fc87b1b702320fb7d839296873d668160d4e
 
 }module.exports = AuthController;
