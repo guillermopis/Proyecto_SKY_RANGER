@@ -2,6 +2,8 @@
 var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
+	//_private.total=0;
+	var total =0;
 	_public.__construct = function() {
 		return _public;
 	};
@@ -12,10 +14,72 @@ var ModuloListado = function(){
 		_private.agregarEventoAbotonGuardar();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
+		_private.agregarEventoAanterior();
+		_private.agregarEventoASiguiente();
+		_private.traerTotal();
 		//_private.agregarEventoAbotonCerrar();
 	}
 
-	_private.agregarEventoAbuscarNombre= function(){
+	_private.traerTotal=function(){
+		$.ajax({
+					url: "http://127.0.0.1:3000/filtrarClientes/",
+					type: "GET"
+				}).done(function(data){
+					total = data.data.length;
+				})//fin de ajax
+	}//fin de funcion traerTotal
+
+	_private.agregarEventoASiguiente=function(){
+		var siguiente = $("#siguiente");
+		if(siguiente.length==0){
+			console.log("el boton siguiente no existe");	return;
+		}else{
+			siguiente[0].addEventListener('click', function(event){
+				var n = document.getElementById("pagina").value;
+				var nu = (n*5);
+				if(nu <= total){
+					if((nu+5) > total){ //predecimos si habra otra pagina
+						document.getElementById("siguiente").style.display="none";
+					}
+					document.getElementById("anterior").style.display="block";
+					$("#pagina").text(String(n+1));
+					document.getElementById("pagina").value=(n+1);
+					_private.hacerFiltro(nu);
+				}/*else{
+					_private.hacerFiltro(nu);
+					document.getElementById("pagina").value=(n+1);
+					$("#pagina").text(String(n+1));
+
+				}*/
+
+			});//fin de evento
+		}//fin de if
+	}// fin de funcion siguiente
+
+	_private.agregarEventoAanterior=function(){
+		document.getElementById("anterior").style.display="none";
+		var anterior = $("#anterior");
+		if(anterior.length==0){
+			console.log("el boton anterior no existe");
+			return;
+		}else{
+			anterior[0].addEventListener('click', function(event){
+			var n = document.getElementById("pagina").value;
+			if(n != 1){
+				if(n == 2){document.getElementById("anterior").style.display="none";};
+				$("#pagina").text(String(n-1));
+				document.getElementById("siguiente").style.display="block";
+				document.getElementById("pagina").value=(n-1);
+				var nu = ((n-2)*5);
+				_private.hacerFiltro(nu);
+			}else{
+				_private.hacerFiltro(0);
+			}//fin de if = 0
+			});//fin de evento
+		}//fin de if
+	}// fin de funcion siguiente
+
+	_private.agregarEventoAbuscarNombre= function(a){
 		var buscarn = $("#buscarnombre");
 		if(buscarn.length==0){
 			console.log("el campo buscarnombre no existe");
@@ -24,42 +88,51 @@ var ModuloListado = function(){
 			buscarn[0].addEventListener('keyup', function(event){
 			//	alert('presiono una tecla');
 				//aca ira una llamada ajax a la base de datos
-				$.ajax({
-							url: 'http://localhost:3000/clientes/{"id":"null","a":"0", "b":"5","texto":"'+document.getElementById("buscarnombre").value+'"}',
-							type: "GET"
-						}).done(function(data,message){ //cargamos a la tabla
-							$("#tablita").remove();
-							var b = '<tbody id="tablita" '+
-										"</tbody>";
-							$("#tablaCliente").append(b);
-							for (var a = 0; a<data.data.length; a++){
-								//console.log(a);
-							var fila=
-							"<tr>"+
-								'<th scope="row"></th>'+
-								"<td>"+data.data[a].nombre+"</td>"+
-								"<td>"+data.data[a].nit+"</td>"+
-								"<td>"+data.data[a].direccion_fiscal+"</td>"+
-								"<td>"+data.data[a].telefono+"</td>"+
-								"<td>"+data.data[a].correo+"</td>"+
-								"<td>"+
-		            '<div class="input-group">'+
-		            '<div class="input-group-append" id="btnver">'+
-		              '<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
-		          		'<span class="fas fa-user-edit"></span>'+
-		              "</button>"+
-		            '</div>'+
-		          '</div>'+
-		            '</td>'+
-							"</tr>";
-								$("#tablita").append(fila);
-							}//fin del for
-							//console.log(data);
-						})//fin de ajax
+				document.getElementById("anterior").style.display="none";
+				document.getElementById("siguiente").style.display="block";
+				document.getElementById("pagina").value=(1);
+				$("#pagina").text("1");
+				_private.hacerFiltro(0);
 			});//fin de evento
 		}
 	}// fin de funcion agregarEventoAbuscarNombre
 
+	_private.hacerFiltro=function(a){
+		//alert("estoy en AJAX");
+		$.ajax({
+					url: 'http://localhost:3000/clientes/{"id":"null","a":"'+a+'", "b":"5","texto":"'+document.getElementById("buscarnombre").value+'"}',
+					type: "GET"
+				}).done(function(data,message){ //cargamos a la tabla
+					//alert("AJAX ESTA RESPONDIENDO");
+					$("#tablita").remove();
+					var b = '<tbody id="tablita" '+
+								"</tbody>";
+					$("#tablaCliente").append(b);
+					for (var a = 0; a<data.data.length; a++){
+						//console.log(a);
+					var fila=
+					"<tr>"+
+						'<th scope="row"></th>'+
+						"<td>"+data.data[a].nombre+"</td>"+
+						"<td>"+data.data[a].nit+"</td>"+
+						"<td>"+data.data[a].direccion_fiscal+"</td>"+
+						"<td>"+data.data[a].telefono+"</td>"+
+						"<td>"+data.data[a].correo+"</td>"+
+						"<td>"+
+						'<div class="input-group">'+
+						'<div class="input-group-append" id="btnver">'+
+							'<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
+							'<span class="fas fa-user-edit"></span>'+
+							"</button>"+
+						'</div>'+
+					'</div>'+
+						'</td>'+
+					"</tr>";
+						$("#tablita").append(fila);
+					}//fin del for
+					//console.log(data);
+				})//fin de ajax
+	}//fin de funcion hacer filtro
 	_private.agregarEventoACheck1=function(){
 		var check = $("#check1");
 		if(check.length==0){
