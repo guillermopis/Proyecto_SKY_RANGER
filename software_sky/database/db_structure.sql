@@ -60,9 +60,9 @@ create table clientes(
 	tipo_mora int ,
 	saldo_Q float,
 	anticipo float,
-	constraint fk_tipoPago foreign key(tipo_pago) references tipo_de_pago(id),
-	constraint fk_tipoServicio foreign key(tipo_servicio) references tipo_servicio(id),
-	constraint fk_tipoMora foreign key(tipo_mora) references tipo_mora(id)
+	constraint fk_tipoPago foreign key(tipo_pago) references tipo_de_pagos(id),
+	constraint fk_tipoServicio foreign key(tipo_servicio) references tipo_servicios(id),
+	constraint fk_tipoMora foreign key(tipo_mora) references tipo_moras(id)
 );
 go
 

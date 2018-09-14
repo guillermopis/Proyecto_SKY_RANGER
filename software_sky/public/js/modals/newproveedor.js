@@ -1,4 +1,3 @@
-
 var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
@@ -15,17 +14,18 @@ var ModuloListado = function(){
 		//_private.editarcliente();
 	}
 	_private.limpiar=function(){
-		document.getElementaryById("modalnuevocliente").reset();
+		document.getElementaryById("modalnuevoproveedor").reset();
 	}//fin de limpiar
 
+	//validamos el formulario junto con la informacion de la api
 	_private.validarFormulario=function(){
-		var esvalido = _private.formulario.checkValidity();
-		if(esvalido == true){
-			console.log("todo listo, guardemos la info");
-			if($("#bandera").val()	== "crear"){
-					_private.peticion("http://127.0.0.1:3000/clientes/","POST");
-			}
-			//_private.EnviarDatosDeCliente();
+		var valido = _private.formulario.checkValidity();
+		if(valido == true){
+			console.log("todo listo para guardar");
+			//if($("#bandera").val()	== "crear"){
+			//	console.log('aquillego');
+				_private.peticion("http://127.0.0.1:3000/proveedores/","POST");
+			//}
 		}//fin del if
 	}//fin de funcion validar formulario
 
@@ -34,33 +34,33 @@ var ModuloListado = function(){
 	}//fin de funcion EnviarDatosDeCliente
 
 	_private.peticion=function(url,type){
+		//console.log('entraste a la peticion post');
 		$.ajax({
 					url: url,
 					type: type,
 					data: {
 						"nombre": document.getElementById("nombre").value,
-						"direccion": document.getElementById("direccion").value,
-						"correo": document.getElementById("correo").value,
-						"dirfact": document.getElementById("dirfact").value,
 						"nit": document.getElementById("nit").value,
+						"direccion": document.getElementById("direccion").value,
 						"telefono": document.getElementById("telefono").value,
+						"extension": document.getElementById("extension").value,
+						"correo_empresa": document.getElementById("correo_empresa").value,
 						"estado": document.getElementById("estado").value,
-						"tipopago": document.getElementById("tipopago").value,
-						"tiposervicio": document.getElementById("tiposervicio").value,
-						"fecha": document.getElementById("fecha").value,
-						"tipomora": document.getElementById("tipoMora").value,
-						"saldo": document.getElementById("saldo").value,
-						"anticipo": document.getElementById("anticipo").value
+						"contacto": document.getElementById("contacto").value,
+						"fecha_relacion": document.getElementById("fecha_relacion").value,
+						"correo_contacto": document.getElementById("correo_contacto").value						
 					}
 				}).done(function(data){
-					$('#modalnuevocliente').modal('hide')
+					$('#modalnuevoproveedor').modal('hide')
 					alert("DATOS GUARDADOS CORRECTAMENTE ");
-					location.href = "http://localhost:8000/clientes";
+					//volvemos a donde estabamos 
+					location.href = "http://localhost:8000/proveedores";
 				})//fin de ajax
 	}//fnin de funcino peticion
 
 	_private.agregarEventoAbotonGuardar = function(){
 		var botonGuardar = $("#btnGuardar");
+		console.log('el btnguardar si existe');
 		if(botonGuardar.length==0){
 			console.log("el boton guardar no existe");
 			return;
@@ -80,11 +80,12 @@ var ModuloListado = function(){
 		}
 	}// fin de funcion  asignarFormulario
 
-	//este boton es para abrir el modal de nuevo cliente
+	//este boton es para abrir el modal de nuevoprovedor
 	_private.agregarEventoAbotonNuevo=function(){
-		$("#btnnuevocliente")[0].addEventListener('click', function(event) {
-			$('#modalnuevocliente').modal('show')
+		$("#btnnuevoproveedor")[0].addEventListener('click', function(event) {
+			$('#modalnuevoproveedor').modal('show')
 			$("#bandera").val("crear");
+			console.log('bandera tiene valor de crea');
 		});
 	}
 	/*
@@ -92,8 +93,8 @@ var ModuloListado = function(){
 		$("#btneditarcliente")[0].addEventListener('click', function(event) {
 			$('#modaleditarcliente').modal('show');
 		});
-	}
-*/
+	}*/
+
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();

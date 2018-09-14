@@ -77,8 +77,8 @@ clientes(request, response, next){
               title: 'Clientes',
               data,datos,servicios,moras
             });//fin  del response
-          })// fin de peticion a moras
-        })// fin de peticion a servicios
+          });// fin de peticion a moras
+        });// fin de peticion a servicios
       }); //fin de llamada a tipos de pagos
     }); //fin del llamado a funcion peticion clientes
   }else{//si no tiene sesion activa
@@ -86,13 +86,19 @@ clientes(request, response, next){
   }
 }//fin de funcion clientes
 
-proveedores(request,response, next){
+//para responder a las peticiones de proveedores
+proveedores(request, response, next){
   if(request.session.username){
-    response.render('inicio/indexproveedores',
-    {
-    });
-  }else {
-    errors.http401(request, response, next);
+    peti.peticion("http://localhost:3000/proveedores/null", function(data){
+          response.render('inicio/indexproveedores',{
+              title: 'Proveedores',
+              data
+            });//fin  del response
+          });// fin de peticion a moras
+        
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
   }
-}//fin de proveedores
+}//fin de funcion proveedores
+
 }module.exports = AuthController;

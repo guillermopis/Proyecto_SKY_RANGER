@@ -10,6 +10,8 @@ router
     .get('/', direcciones.index)
     .get('/inicio', direcciones.inicio)
     .get('/clientes', direcciones.clientes)
+    
+    //realizamos la peticion del metodo de callback
     .get('/proveedores', direcciones.proveedores)
 //peticiones POST
     .post('/login', direcciones.login)

@@ -11,15 +11,21 @@ var ModuloListado = function(){
 		_private.editarproveedor();
 	}
 
-	_private.proveedornuevo=function(){
-		$("#btnnuevoproveedor")[0].addEventListener('click', function(event) {
-			$('#modalnuevopro').modal('show');
-		});
-	}
+	//peticion para enviar datos a la api
 
+
+	//agregamos evento para el modal de un new proveedor
+	/*_private.proveedornuevo=function(){
+		console.log('entraste botnnuevo');
+		$("#btnnuevoproveedor")[0].addEventListener('click', function(event) {
+			$('#modalnuevoproveedor').modal('show');
+		});
+	}*/
+
+	//evento abrir el modal de editar proveedor 
 	_private.editarproveedor=function(){
 		$("#btneditarprov")[0].addEventListener('click', function(event) {
-			$('#modaleditarprov').modal('show');
+			$('#modaleditarproveedor').modal('show');
 		});
 	}
 
