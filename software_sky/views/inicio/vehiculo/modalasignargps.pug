@@ -1,0 +1,46 @@
+div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+  div(class="modal-dialog modal-lg" role="document")
+    div(class="modal-content")
+      div(class="modal-header")
+        h5(class="modal-title" id="exampleModalLabel") ASIGNAR GPS A VEHICULO
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      div(class="modal-body")
+        form(style="border: 8px black inset; font-family: bold" align="center" id="formusuario")          
+          .form-row
+            .form-group.col-md-4
+              .form-group(class="container")
+                label ID DEL VEHICULO
+                input(type="text" class="form-control" id="idve" style="border: 2px blue solid" )    
+            .form-group.col-md-4
+              .form-group(class="container")
+                label FECHA
+                input(type="text" class="form-control" id="fechave" style="border: 2px blue solid" )    
+            .form-group.col-md-4
+              .form-group(class="container")
+                label TECNICO
+                input(type="text" class="form-control" id="tecnicove" style="border: 2px blue solid")          
+          .form-row  
+            .form-group.col-md-4
+              .form-group(class="container")
+                label ID GPS DE ENTRADA
+                input(type="text" class="form-control" id="idgpsenve" style="border: 2px blue solid")                        
+            .form-group.col-md-4
+              .form-group(class="container")
+                label ID GPS DE SALIDA
+                input(type="text" class="form-control" id="idgpssave" style="border: 2px blue solid")                        
+          .form-row
+            .form-group.col-md-12
+              .form-group(class="container")
+                label COMENTARIO
+                textarea(type="text" class="form-control" id="comentariove" style="border: 2px blue solid")                                       
+      div(class="modal-footer")
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check1">
+          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+        </div>
+        <div class="form-group form-check">
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
+          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary") GUARDAR          
+        </div>      
+        

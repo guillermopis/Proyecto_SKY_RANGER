@@ -7,6 +7,7 @@ var ModuloListado = function(){
 
 	_public.iniciar=function(){
 		_private.vehiculonuevo();
+		_private.asignargps();
 	}
 
 	_private.vehiculonuevo=function(){
@@ -15,6 +16,11 @@ var ModuloListado = function(){
 		});
 	}
 
+	_private.asignargps=function(){
+		$("#btnasignargps")[0].addEventListener('click', function(event) {
+			$('#modalasignargpsve').modal('show');
+		});
+	}
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();
