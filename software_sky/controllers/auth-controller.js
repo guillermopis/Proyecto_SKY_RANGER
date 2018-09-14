@@ -106,4 +106,15 @@ usuario(request,response, next){
   }
 }//fin de usuarios
 
+vehiculo(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexvehiculo',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de vehiculos
+
+
 }module.exports = AuthController;
