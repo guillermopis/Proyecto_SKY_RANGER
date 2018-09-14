@@ -39,19 +39,23 @@ html(lang="es")
         ul.list-unstyled
           // sirve para alinear la liesta
           // &nbsp significa espacio
-          font(face="Balmoral LET")
+          font(face="Balmoral LET", size="5")
             li
               a(href='/clientes')
-                i(class="fas fa-users")
+                i(class="fas fa-users fa-2x")
                 | &nbsp;&nbsp; CLIENTES
             li
               a(href='/proveedores')
-                i(class="fas fa-users")
+                i(class="fas fa-users fa-2x")
                 | &nbsp;&nbsp; PROVEEDORES
             li
               a(href="/usuario")
-                i(class="fas fa-users")
+                i(class="fas fa-users fa-2x")
                 | &nbsp;&nbsp; USUARIOS
+            li
+              a(href="/vehiculo")
+                i(class="fas fa-car fa-2x")
+                | &nbsp;&nbsp; VEHICULOS
                 
 
 block content
