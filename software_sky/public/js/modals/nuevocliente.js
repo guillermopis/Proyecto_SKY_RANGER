@@ -242,6 +242,8 @@ _private.validarFormulario=function(){
 
 	//este boton es para abrir el modal de nuevo cliente
 	_private.agregarEventoAbotonNuevo=function(){
+		document.getElementById("bandera").style.display="none"
+		document.getElementById("id").style.display="none"
 		var nuevo = $("#btnnuevocliente");
 		if(nuevo.length == 0){
 			console.log("boton nuevo no existe");
