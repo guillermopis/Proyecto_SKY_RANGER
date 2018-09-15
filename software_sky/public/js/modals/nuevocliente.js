@@ -26,6 +26,13 @@ var ModuloListado = function(){
 					type: "GET"
 				}).done(function(data){
 					total = data.data.length;
+					if(total <= 5){
+						document.getElementById("siguiente").style.display="none";
+						document.getElementById("pagina").style.display="none";
+					}else{
+						document.getElementById("siguiente").style.display="block";
+						document.getElementById("pagina").style.display="block";
+					}
 				})//fin de ajax
 	}//fin de funcion traerTotal
 
