@@ -227,6 +227,7 @@ var ModuloListado = function(){
 		}
 	}// fin de funcion  asignarFormulario
 
+	//este boton es para abrir el modal de nuevo cliente
 	_private.agregarEventoAbotonNuevo=function(){
 		$("#btnnuevocliente")[0].addEventListener('click', function(event) {
 			$('#modalnuevocliente').modal('show')

@@ -15,11 +15,43 @@
     span
       button(type="button" id="btnnuevovehiculo" name="btnnuevovehiculo" class="button blue radius hover")            
         span(class="fas fa-user-plus")
+      button(type="button" id="btnasignargps" name="btnasignargps" class="button blue radius hover")            
+        span(class="fas fa-map-marker-alt")
+        | 
+        span(class="fas fa-car")
+      
       //li: a(href="/index") Nuevo
     form(class="form-inline")      
       font(face="Balmoral LET", size="6", color="black")
         | VEHICULOS    
           
-    section.full-reset(style="padding: 10px; background-color: #ffffff")  
-      font(face="Balmoral LET", size="6", color="black")
-        | ADMINISTRADOR DE VEHICULOS
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+    font(face="Balmoral LET", size="6", color="black")
+      | ADMINISTRADOR DE VEHICULOS
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+    font(face="Balmoral LET", size="3", color="black")         
+      <div class="table-responsive">
+        table(class="table table-hover" style="text-align: center")
+          thead(class="thead-dark")
+            tr
+              th(scope="col") #
+              th(scope="col") CLIENTE
+              th(scope="col") MARCA
+              th(scope="col") MODELO
+              th(scope="col") COLOR
+              th(scope="col") TIPO
+              th(scope="col") PLACA
+              th(scope="col") ESTADO
+              th(scope="col") PRECIO SERVICIO
+              th(scope="col") FECHA INSTALACION
+              th(scope="col") OPCIONES
+          tbody           
+            tr
+              th(scope="row")
+              <td>DAVID</td>
+              <td>
+              <div class="input-group">
+              <div class="input-group-append" id="btneditarprov">
+                <button type="button" class="buttonsmall hover" onClick="">
+                span(class="fas fa-user-edit")
+          

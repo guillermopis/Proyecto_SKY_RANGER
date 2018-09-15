@@ -5,7 +5,7 @@ let errors  = require('../middlewares/errors'),
 class peticiones {
   peticion(url,callback) {
     setTimeout(function(){
-      requestt.get(url, (error, responsee, body) => {
+      requestt.get(url, (error, response, body) => {
         if(error) {
             return console.dir(error);
             //aca responderemos algo si se produce un error.
