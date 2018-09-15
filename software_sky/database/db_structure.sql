@@ -23,6 +23,24 @@ create table usuarios(
 );
 go
 
+--drop table proveedores
+--select *from proveedores
+--five step tabla proveedores
+create table proveedores(
+	id int primary key not null identity,
+	nombre varchar(50),
+	nit varchar(30),
+	direccion varchar(60),
+	telefono varchar(50),
+	extension int,
+	correo_empresa varchar(25),
+	estado varchar(25),
+	contacto varchar(50),
+	fecha_relacion date,
+	correo_contacto varchar(25)
+);
+go
+
 --five step
 create table tipo_de_pagos(
 	id int primary key not null identity,
@@ -63,6 +81,47 @@ create table clientes(
 	constraint fk_tipoPago foreign key(tipo_pago) references tipo_de_pagos(id),
 	constraint fk_tipoServicio foreign key(tipo_servicio) references tipo_servicios(id),
 	constraint fk_tipoMora foreign key(tipo_mora) references tipo_moras(id)
+);
+go
+
+--ten step tabla marcas
+create table marcas(
+	id int primary key not null identity,
+	nombre varchar(50),
+	descripcion varchar(100)
+);go
+
+--tabla lote
+create table lotes(
+	id int primary key not null identity,
+	codigo_lote varchar(40),
+	fecha_compra date,
+	precio_total float,
+	precio_unitario float,
+	id_proveedor int,
+	numero_dispositivos int,
+	duracion_plan_datos varchar(50),
+	fecha_vencimiento_plan date
+);
+go 
+
+
+--eleven step tabla sims
+create table sims(
+	id int primary key not null identity,
+	id_marca int,
+	compania_telefonica varchar(70),
+	plan_de_datos varchar(50),
+	fecha_vencimiento_plan date,
+	fecha_inicio_plan date,
+	precio_del_plan float,
+	numero_telefono varchar(25),
+	iccid varchar(50),
+	apn varchar(60),
+	id_lote int,
+	estado varchar(35),
+	constraint fk_idlote foreign key(id_lote) references lotes(id),
+	constraint fk_idmarca foreign key(id_marca)	references marcas(id)
 );
 go
 
