@@ -23,7 +23,7 @@ create table usuarios(
 );
 go
 
---five step proveedores
+--five step
 create table proveedores(
 	id int primary key not null identity,
 	nombre varchar(50),
@@ -34,22 +34,21 @@ create table proveedores(
 );
 go
 
---six step tipo de pago
-create table tipo_de_pago(
+create table tipo_de_pagos(
 	id int primary key not null identity,
 	nombre varchar(50)
 );
 go
 
---seven step creacion tipo de mora
-create table tipo_mora(
+--six step
+create table tipo_moras(
 	id int primary key not null identity,
 	descripcion varchar(50),
 	porcentaje int not null
 );
 go
--- eight step tipo de servicio  
-create table tipo_servicio(
+-- seven step
+create table tipo_servicios(
 	id int primary key not null identity,
 	nombre varchar(50),
 );
@@ -71,9 +70,9 @@ create table clientes(
 	tipo_mora int ,
 	saldo_Q float,
 	anticipo float,
-	constraint fk_tipoPago foreign key(tipo_pago) references tipo_de_pago(id),
-	constraint fk_tipoServicio foreign key(tipo_servicio) references tipo_servicio(id),
-	constraint fk_tipoMora foreign key(tipo_mora) references tipo_mora(id)
+	constraint fk_tipoPago foreign key(tipo_pago) references tipo_de_pagos(id),
+	constraint fk_tipoServicio foreign key(tipo_servicio) references tipo_servicios(id),
+	constraint fk_tipoMora foreign key(tipo_mora) references tipo_moras(id)
 );
 go
 
@@ -98,7 +97,7 @@ create table lotes(
 	duracion_plan_datos varchar(50),
 	fecha_vencimiento_plan date
 );
-go 
+go
 
 
 --eleven step tabla sims
@@ -126,7 +125,7 @@ select *from usuarios
 -- Modulo de seguridad
 create table Modulos (
   id	    int		  identity	not null	primary key,
-  nombre    varchar(30)	  unique	not null 	
+  nombre    varchar(30)	  unique	not null
 )
 
 create table Formularios (
@@ -146,8 +145,8 @@ create table Permisos (
   descripcion	varchar(30)	not null	unique
 )
 
-alter table usuarios 
-add rol int 
+alter table usuarios
+add rol int
 
 alter table usuarios
 add foreign key (rol) references Roles(id)

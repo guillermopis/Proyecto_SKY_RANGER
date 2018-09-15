@@ -1,8 +1,8 @@
-div(class="modal fade bd-example-modal-lg" id="modalnuevopro" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+div(class="modal fade bd-example-modal-lg" id="modalnuevoproveedor" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
   div(class="modal-dialog modal-lg" role="document")
     div(class="modal-content")
       div(class="modal-header")
-        h5(class="modal-title" id="exampleModalLabel") NUEVO PROVEEDOR
+        h5(class="modal-title" id="exampleModalLabel") NUEVO PROVEEDOR1
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
@@ -24,15 +24,15 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevopro" tabindex="-1" role
               .form-group.col-md-3              
                 .form-group(class="container")
                   label TEL EMPRESA
-                  input(type="text" class="form-control" id="telefonoempresa" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset")          
               .form-group.col-md-2
                 .form-group(class="container")
                   label EXTENSION
-                  input(type="text" class="form-control" id="numextension" style="border: 2px blue outset")                        
+                  input(type="text" class="form-control" id="extension" style="border: 2px blue outset")                        
               .form-group.col-md-4
                 .form-group(class="container")
                   label CORREO ELECTRONICO
-                  input(type="text" class="form-control" id="correo" style="border: 2px blue outset")                        
+                  input(type="text" class="form-control" id="correo_empresa" style="border: 2px blue outset")                        
           .form-row
               .form-group.col-md-3
                 .form-group(class="container")
@@ -41,19 +41,18 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevopro" tabindex="-1" role
               .form-group.col-md-5              
                 .form-group(class="container")
                   label FECHA RELACION COMERCIAL
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="fecha_relacion" style="border: 2px blue outset")          
               .form-group.col-md-3              
                 .form-group(class="container")
                   label ESTADO
                   select(id="estado" class="form-control" style="border: 2px blue outset")
                     option.select seleccionar
                     option.select ACTIVO
-                    option.select DE BAJA    
+                    option.select INACTIVO    
           .form-group.col-md-5
               .form-group
                 label CORREO ELECTRONICO
-                input(type="text" class="form-control" id="correo" style="border: 2px blue outset")                        
+                input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue outset") 
       div(class="modal-footer")
-        button(type="button" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
-        button(button type="button" class="btn btn-primary" style="border: 2px black outset") GUARDAR
-        
+            button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
+              button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR   

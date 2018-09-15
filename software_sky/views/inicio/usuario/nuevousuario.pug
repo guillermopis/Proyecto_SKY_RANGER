@@ -1,0 +1,63 @@
+div(class="modal fade bd-example-modal-lg" id="modalnuevousuario" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+  div(class="modal-dialog modal-lg" role="document")
+    div(class="modal-content")
+      div(class="modal-header")
+        h5(class="modal-title" id="exampleModalLabel") NUEVO USUARIO
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      div(class="modal-body")
+        form(style="border: 8px black inset; font-family: bold" align="center" id="formusuario")          
+          .form-row
+            .form-group.col-md-5
+              .form-group(class="container")
+                label DPI
+                input(type="text" class="form-control" id="dpiu" style="border: 2px blue solid" )    
+          .form-row
+            .form-group.col-md-6
+              .form-group(class="container")
+                label NOMBRE
+                input(type="text" class="form-control" id="nombreu" style="border: 2px blue solid" )    
+            .form-group.col-md-6
+              .form-group(class="container")
+                label APELLIDO
+                input(type="text" class="form-control" id="apellidou" style="border: 2px blue solid")          
+          .form-row
+            .form-group.col-md-12
+              .form-group(class="container")
+                label DIRECCION
+                input(type="text" class="form-control" id="direccionu" style="border: 2px blue solid" )    
+          .form-row  
+            .form-group.col-md-6
+              .form-group(class="container")
+                label TELEFONO
+                input(type="text" class="form-control" id="telefonou" style="border: 2px blue solid")                        
+            .form-group.col-md-6
+              .form-group(class="container")
+                label E-MAIL
+                input(type="text" class="form-control" id="emailu" style="border: 2px blue solid")                          
+          .form-row
+              .form-group.col-md-4              
+                .form-group(class="container")
+                  label USUARIO
+                  input(type="text" class="form-control" id="usuariou" style="border: 2px blue solid")          
+              .form-group.col-md-4              
+                .form-group(class="container")
+                  label CONTRASEÑA
+                  input(type="text" class="form-control" id="contraseñau" style="border: 2px blue solid")          
+              .form-group.col-md-4
+                .form-group(class="container")
+                  label ROL
+                  select(id="rolu" class="form-control" style="border: 2px blue solid")
+                    option.select ADMINISTRADOR
+                    option.select SECRETARIA                        
+                    option.select TECNICO
+      div(class="modal-footer")
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check1">
+          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+        </div>
+        <div class="form-group form-check">
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
+          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary") GUARDAR          
+        </div>      
+        

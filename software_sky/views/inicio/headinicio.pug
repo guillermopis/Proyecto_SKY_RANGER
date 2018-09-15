@@ -15,7 +15,6 @@ html(lang="es")
     link(rel='stylesheet', href='css/style.css')
     link(rel='stylesheet', href='css/jquery.mCustomScrollbar.css')
     link(rel="stylesheet", href="css/diseño.css")
-    link(rel="stylesheet", href="css/estiloform.css")
     // nos permite desplazarnos de arriba a abajo en el menu
     // permite mostrar un menu en una opcion
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script> <!--permite mostrar un menu en una opcion-->
@@ -23,9 +22,7 @@ html(lang="es")
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
     script(src='js/jquery.mCustomScrollbar.concat.min.js')
     script(src='js/main.js')
-      
-
-
+              
   body
   //barra del menu vertical
   .navbar-lateral.full-reset
@@ -42,18 +39,22 @@ html(lang="es")
         ul.list-unstyled
           // sirve para alinear la liesta
           // &nbsp significa espacio
-          font(face="Balmoral LET")
+          font(face="Balmoral LET", size="5")
             li
               a(href='/clientes')
-                i(class="fas fa-users")
+                i(class="fas fa-users fa-2x")
                 | &nbsp;&nbsp; CLIENTES
             li
               a(href='/proveedores')
-                i(class="fas fa-users")
+                i(class="fas fa-users fa-2x")
                 | &nbsp;&nbsp; PROVEEDORES
             li
-              a(href="/")
-                i.zmdi.zmdi-accounts.zmdi-hc-fw
+              a(href="/usuario")
+                i(class="fas fa-user-tie fa-2x")
+                | &nbsp;&nbsp; ADMINISTRADOR
+            li
+              a(href="/vehiculo")
+                i(class="fas fa-car fa-2x")
                 | &nbsp;&nbsp; VEHICULOS
                 
 

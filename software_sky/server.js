@@ -53,30 +53,12 @@ app
 app.locals.moment = require('moment');
 moment.locale('es');
 
-app.get('/clientes', function(req, res){
-  res.render('inicio/indexclientes',
-  {
-  });
-});
-
-app.get('/proveedores', function(req, res){
-  res.render('inicio/indexproveedores',
-  {
-  });
-});
-
-
 app.get('/inicio2', function(req, res){
   res.render('inicio/indexinicio',
   {
   });
 });
 
-app.get('/formulario', function(req, res){
-  res.render('inicio/indexformulario',
-  {
-  });
-});
 
 server.listen(app.get('port'), () => {
         console.log(`server run in port  ${app.get('port')}`);

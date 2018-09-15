@@ -1,7 +1,9 @@
-extends encabezados/head
+extends headinicio
 block content
+  include menu/menuIzquierdo
   include proveedores/proveedores
-  include proveedores/modalprov
+  include proveedores/nuevoproveedor
   include proveedores/modaleditarprov
 
+  script(src="js/modals/newproveedor.js")
   script(src="js/modals/proveedormodal.js")

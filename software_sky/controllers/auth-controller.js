@@ -3,8 +3,9 @@ var requestt = require('request');
 let authModel = require('../models/auth-model'),
     errors  = require('../middlewares/errors'),
     express = require('express'),
-    crypto = require('crypto');
-
+    crypto = require('crypto'),
+    peticiones     = require('../controllers/clasePeticionesAPI'),
+    peti = new peticiones();
 
 
 class AuthController{
@@ -65,5 +66,61 @@ var html='<script type="text/javascript">alert("Error en la autenticacion, inten
       });
     }//fi de login
 
-}
-module.exports = AuthController;
+//para responder a /clientes
+clientes(request, response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/clientes/{"id":"null","a":"0", "b":"5","texto":""}', function(data){
+      peti.peticion("http://localhost:3000/tipopago/", function(datos){
+        peti.peticion("http://localhost:3000/tiposervicio/", function(servicios){
+          peti.peticion("http://localhost:3000/tipomora/", function(moras){
+            response.render('inicio/indexclientes',{
+              title: 'Clientes',
+              data,datos,servicios,moras
+            });//fin  del response
+          });// fin de peticion a moras
+        });// fin de peticion a servicios
+      }); //fin de llamada a tipos de pagos
+    }); //fin del llamado a funcion peticion clientes
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion clientes
+
+//para responder a las peticiones de proveedores
+proveedores(request, response, next){
+  if(request.session.username){
+    peti.peticion("http://localhost:3000/proveedores/null", function(data){
+          response.render('inicio/indexproveedores',{
+              title: 'Proveedores',
+              data
+            });//fin  del response
+          });// fin de peticion a moras
+
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion proveedores
+
+
+usuario(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexusuario',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de usuarios
+
+vehiculo(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexvehiculo',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de vehiculos
+
+
+}module.exports = AuthController;
