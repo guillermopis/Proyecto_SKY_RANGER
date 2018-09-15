@@ -162,9 +162,28 @@ var ModuloListado = function(){
 		document.getElementById("formcliente").reset();
 	}//fin de limpiar
 
+	_private.validarCampos=function() {
+		 'use strict';
+	  /*window.addEventListener('load', function() {*/
+	    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	    var forms = document.getElementsByClassName('needs-validation');
+	    // Loop over them and prevent submission
+	    var validation = Array.prototype.filter.call(forms, function(form) {
+	      /*form.addEventListener('submit', function(event) {*/
+	        if (form.checkValidity() === false) {
+	          event.preventDefault();
+	          event.stopPropagation();
+	        }
+	        form.classList.add('was-validated');
+	     /* }, false);*/
+	    });
+	 /* }, false);*/
+}// fin de funcion validar campos
+
 	_private.validarFormulario=function(){
 		var esvalido = _private.formulario.checkValidity();
 		if(esvalido == true){
+			alert("formulario valido");
 			console.log("todo listo, guardemos la info");
 			if($("#bandera").val()	== "crear"){
 					_private.peticion("http://127.0.0.1:3000/clientes/","POST");
@@ -173,7 +192,7 @@ var ModuloListado = function(){
 				_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT");
 			}
 			//_private.EnviarDatosDeCliente();
-		}//fin del if
+		}else{alert("formulario invalido")}//fin del if
 	}//fin de funcion validar formulario
 
 	_private.EnviarDatosDeCliente=function(){
@@ -213,7 +232,8 @@ var ModuloListado = function(){
 			return;
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
-				_private.validarFormulario();
+			//	_private.validarFormulario();
+				//_private.validarCampos();
 			});//fin de evento
 		}
 	}// fin de funcion evento a boton guardar

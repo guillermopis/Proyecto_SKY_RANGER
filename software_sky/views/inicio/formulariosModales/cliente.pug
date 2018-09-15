@@ -6,12 +6,15 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
+        form(class="needs-validation" novalidate ,style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" )    
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" required)
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese nombre.!
+                </div>    
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
@@ -20,7 +23,7 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
             .form-group.col-md-6
               .form-group(class="container")
                 label CORREO ELECTRONICO
-                input(type="text" class="form-control" id="correo" style="border: 2px blue outset")                        
+                input(type="email" class="form-control" id="correo" style="border: 2px blue outset")                        
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION DE FACTURACION
