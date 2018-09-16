@@ -6,34 +6,52 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
+        form(class="needs-validation" novalidate ,style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" )    
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" required pattern="*.")
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese nombre.!
+                </div>    
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
-                input(type="text" class="form-control" id="direccion" style="border: 2px blue outset")          
+                input(type="text" class="form-control" id="direccion" style="border: 2px blue outset" required pattern="*.")
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese direccion.!
+                </div>           
           .form-row  
             .form-group.col-md-6
               .form-group(class="container")
                 label CORREO ELECTRONICO
-                input(type="text" class="form-control" id="correo" style="border: 2px blue outset")                        
+                input(type="email" class="form-control" id="correo" style="border: 2px blue outset" required pattern="*.")                        
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese Email valido!
+                </div> 
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION DE FACTURACION
-                input(type="text" class="form-control" id="dirfact" style="border: 2px blue outset")                          
+                input(type="text" class="form-control" id="dirfact" style="border: 2px blue outset" required pattern="*.")                          
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese direcccion de facturacion.!
+                </div> 
           .form-row
               .form-group.col-md-3              
                 .form-group(class="container")
                   label NIT
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset" required pattern="[0-9]{7}-[0-9]{1}") 
+                  <div class="invalid-tooltip">
+                  loo  Por favor ingrese NIT valido!
+                  </div>          
               .form-group.col-md-3              
                 .form-group(class="container")
                   label TELEFONO
-                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset" required pattern="[0-9]{4}-[0-9]{4}")
+                  <div class="invalid-tooltip">
+                  loo  Por favor ingrese TELEFONO valido.!
+                  </div>           
               .form-group.col-md-3
                 .form-group(class="container")
                   label ESTADO
@@ -58,7 +76,10 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label FECHA INGRESO
-                  input(type="text" class="form-control" id="fecha" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="fecha" style="border: 2px blue outset" required)          
+                  <div class="invalid-tooltip">
+                  loo  Por favor ingrese Fecha!
+                  </div> 
               .form-group.col-md-4              
                 .form-group(class="container")
                   label TIPO DE MORA
@@ -70,11 +91,17 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label SALDO Q.
-                  input(type="text" class="form-control" id="saldo" style="border: 2px blue outset")          
+                  input(type="number" class="form-control" id="saldo" style="border: 2px blue outset" step="0.01" required)          
+                  <div class="invalid-tooltip">
+                  loo  Por favor ingrese saldo!
+                  </div> 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label ANTICIPO Q.
-                  input(type="text" class="form-control" id="anticipo" style="border: 2px blue outset")
+                  input(type="number" class="form-control" id="anticipo" style="border: 2px blue outset" step="0.01" required)
+                  <div class="invalid-tooltip">
+                  loo  Por favor ingrese anticipo!
+                  </div> 
                   <input type="text" id="bandera" name="bandera">
                   <input type="text" id="id" name="id">          
       div(class="modal-footer")

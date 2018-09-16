@@ -9,10 +9,9 @@ var ModuloListado = function(){
 		_private.agregarEventoAbotonNuevo();
 		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
-		//_private.agregarEventoAbotonCerrar();
-
-		//_private.editarcliente();
 	}
+
+
 	_private.limpiar=function(){
 		document.getElementaryById("modalnuevoproveedor").reset();
 	}//fin de limpiar
@@ -22,16 +21,12 @@ var ModuloListado = function(){
 		var valido = _private.formulario.checkValidity();
 		if(valido == true){
 			console.log("todo listo para guardar");
-			//if($("#bandera").val()	== "crear"){
-			//	console.log('aquillego');
+			if($("#proveer").val()	== "crear"){
+			//console.log('aquillego');
 				_private.peticion("http://127.0.0.1:3000/proveedores/","POST");
 			//}
 		}//fin del if
 	}//fin de funcion validar formulario
-
-	_private.EnviarDatosDeCliente=function(){
-
-	}//fin de funcion EnviarDatosDeCliente
 
 	_private.peticion=function(url,type){
 		//console.log('entraste a la peticion post');
@@ -82,18 +77,13 @@ var ModuloListado = function(){
 
 	//este boton es para abrir el modal de nuevoprovedor
 	_private.agregarEventoAbotonNuevo=function(){
+		console.log('si exist btnnuevo');
 		$("#btnnuevoproveedor")[0].addEventListener('click', function(event) {
 			$('#modalnuevoproveedor').modal('show')
-			$("#bandera").val("crear");
-			console.log('bandera tiene valor de crea');
+			$("#proveer").val("crear");
+			console.log('proveer tiene valor de crea');
 		});
 	}
-	/*
-	_private.editarcliente=function(){
-		$("#btneditarcliente")[0].addEventListener('click', function(event) {
-			$('#modaleditarcliente').modal('show');
-		});
-	}*/
 
 	return _public.__construct.apply(this, arguments);
 }

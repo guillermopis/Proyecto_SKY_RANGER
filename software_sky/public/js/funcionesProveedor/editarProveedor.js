@@ -1,4 +1,4 @@
-function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mostramos todos los datos relacionados a ese cliente.
+/*function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mostramos todos los datos relacionados a ese cliente.
   //alert("Estoy en funcion actualizar con el id:"+ id_registro );
   //abrimos el formulario modal
   $('#modalnuevoproveedor').modal('show');
@@ -29,3 +29,4 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
         $("#id").val(id_registro);
     });
 }//fin de funcion actualizar
+*/
