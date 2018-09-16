@@ -22,7 +22,8 @@ html(lang="es")
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
     script(src='js/jquery.mCustomScrollbar.concat.min.js')
     script(src='js/main.js')
-              
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
   body
   //barra del menu vertical
   .navbar-lateral.full-reset
@@ -36,7 +37,7 @@ html(lang="es")
         p.text-center(style='padding-top: 10px;') 
           |Sistema de GPS
       .full-reset.nav-lateral-list-menu(style='background-color: #021528')        
-        ul.list-unstyled
+        ul
           // sirve para alinear la liesta
           // &nbsp significa espacio
           font(face="Balmoral LET", size="5")
@@ -56,6 +57,4 @@ html(lang="es")
               a(href="/vehiculo")
                 i(class="fas fa-car fa-2x")
                 | &nbsp;&nbsp; VEHICULOS
-                
-
 block content
