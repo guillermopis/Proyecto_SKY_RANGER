@@ -94,7 +94,10 @@ var ModuloListado = function(){
 				//	alert('presiono una tecla');
 					//aca ira una llamada ajax a la base de datos
 					document.getElementById("anterior").style.display="none";
+					if(total>5){
 					document.getElementById("siguiente").style.display="block";
+					}
+					document.getElementById("pagina").style.display="block";
 					document.getElementById("pagina").value=(1);
 					$("#pagina").text("1");
 					_private.hacerFiltro(0);
