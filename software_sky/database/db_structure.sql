@@ -176,7 +176,7 @@ create table PermisoFormRoles (
 --modulo de vehiculos
 
 -- crear tabla de vehiculos
-drop table vehiculos
+--drop table vehiculos
 go
 create table vehiculos(
 	id int not null identity primary key,
