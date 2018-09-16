@@ -46,3 +46,8 @@ button.large{
   box-shadow: 0px 0px 0px;
   padding-top: 10px;
 }
+
+.active{
+  font-weight: bold;
+  background-color: #E75A5A;
+}
