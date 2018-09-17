@@ -17,46 +17,49 @@
         span(class="fas fa-user-plus")
               
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
-    font(face="Balmoral LET", size="2.5", color="black")   
-    <h1 align="center"></H1>
-    <div class="table-responsive">
-      table(class="table table-hover" style="text-align: center" id="tablaCliente")
-        thead(class="thead-dark")
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">NOMBRE
-            <br>
-            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
-            </th>
-            <th scope="col">NIT
-            </th>
-            <th scope="col">DIRECCION FISCAL</th>
-            <th scope="col">TELEFONO</th>
-            <th scope="col">CORREO ELECTRONICO</th>
-            <th scope="col">OPCIONES</th>
-          </tr>
-        </thead> 
-        <tbody id="tablita">
-        for cliente in data.data
-          <tr>
-            <th scope="row"></th>
-            <td>#{cliente.nombre}</td>
-            <td>#{cliente.nit}</td>
-            <td>#{cliente.direccion_fiscal}</td>
-            <td>#{cliente.telefono}</td>
-            <td>#{cliente.correo}</td>
-            <td>
-            <div class="input-group">
-            <div class="input-group-append" id="btnver">
-              <button type="button" class="buttonsmall hover" onClick="ver(#{cliente.id})">
-              span(class="fas fa-user-edit")
-              </button>      
+    font(face="Balmoral LET", size="4", color="black")   
+      <h1 align="center"></H1>
+      <div class="table-responsive">
+        table(class="table table-hover" style="text-align: center" id="tablaCliente")
+          thead(class="thead-dark")
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">NOMBRE
+              <br>
+              <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
+              </th>
+              <th scope="col">NIT
+              </th>
+              <th scope="col">DIRECCION FISCAL</th>
+              <th scope="col">TELEFONO</th>
+              <th scope="col">CORREO ELECTRONICO</th>
+              <th scope="col">OPCIONES</th>
+            </tr>
+          </thead> 
+          <tbody id="tablita">
+          for cliente in data.data
+            <tr>
+              <th scope="row"></th>
+              <td>#{cliente.nombre}</td>
+              <td>#{cliente.nit}</td>
+              <td>#{cliente.direccion_fiscal}</td>
+              <td>#{cliente.telefono}</td>
+              <td>#{cliente.correo}</td>
+              <td>
+              <div class="input-group">
+              <div class="input-group-append" id="btnver">
+                <button type="button" class="buttonsmall hover" onClick="ver(#{cliente.id})">
+                  span(class="fas fa-user-edit")
+                </button>                                    
+                button(type="button" class="buttonsmall hover" onClick="")
+                  span(class="fas fa-plus-circle")              
+                  span(class="fas fa-car")
+              </div>
             </div>
-          </div>
-            </td>
-          </tr>
-        </tbody>     
-      </div>
+              </td>
+            </tr>
+          </tbody>     
+        </div>
 
     nav(aria-label="Page navigation example")
       ul(class="pagination")
