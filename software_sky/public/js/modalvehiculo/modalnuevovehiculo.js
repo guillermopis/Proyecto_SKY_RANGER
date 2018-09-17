@@ -52,6 +52,7 @@ var ModuloListado = function(){
 						document.getElementById("anterior").style.display="block";
 						$("#pagina").text(String(n+1));
 						document.getElementById("pagina").value=(n+1);
+						alert("estoy en siguiente n ="+	document.getElementById("pagina").value);
 						_private.hacerFiltro(nu,5);
 
 					}
@@ -68,15 +69,16 @@ var ModuloListado = function(){
 		}else{
 			anterior[0].addEventListener('click', function(event){
 			var n = document.getElementById("pagina").value;
+			alert("estoy en anterior n= "+n);
 			if(n != 1){
-				if(n == 2){document.getElementById("anterior").style.display="none";};
-				$("#pagina").text(String(n-1));
+				if(n == 2){document.getElementById("anterior").style.display="none";}
 				document.getElementById("siguiente").style.display="block";
+				$("#pagina").text(String(n-1));
 				document.getElementById("pagina").value=(n-1);
 				var nu = ((n-2)*5);
-				_private.hacerFiltro(nu);
+				_private.hacerFiltro(omitir,busque);
 			}else{
-				_private.hacerFiltro(0);
+				_private.hacerFiltro(omitir,busque);
 			}//fin de if = 0
 			});//fin de evento
 		}//fin de if
@@ -113,7 +115,8 @@ var ModuloListado = function(){
 			console.log("el campo buscar por cliente no existe");
 		}else{
 			buscarC[0].addEventListener('keyup',function(event){
-			//configuracion de la paginacion
+				document.getElementById("anterior").style.display="none";
+				$("#pagina").text("1");
 			_private.hacerFiltro(omitir,busque);
 		});//fin de evento keyup
 		}//fin de if
@@ -126,7 +129,15 @@ var ModuloListado = function(){
 				}).done(function(data,message){ //cargamos a la tabla
 					//alert("AJAX ESTA RESPONDIENDO");
 					var total = data.data.length;
-					if(total<=5){document.getElementById("siguiente").style.display="none";}else{document.getElementById("siguiente").style.display="block";}
+					alert("respondiendo");
+					if(total<=5){
+						document.getElementById("siguiente").style.display="none";
+						//document.getElementById("anterior").style.display="none";
+					//	$("#pagina").text("1");
+						//document.getElementById("pagina").value=(1);
+					}else{
+						document.getElementById("siguiente").style.display="block";
+					}
 					//alert("estoy en hacerFiltro total= "+total);
 					$("#tablita").remove();
 					var b = '<tbody id="tablita" '+
@@ -134,7 +145,11 @@ var ModuloListado = function(){
 					$("#tablaVehiculos").append(b);
 
 					//_private.configuracionDePaginacion(total);
-					for (var a = 0; a<5; a++){
+					var respuestaTotal=data.data.length;
+					//con este if obligo a que si la consulta trajo mas de 5 registros, solomuestre 5
+					if(respuestaTotal>5){respuestaTotal=5}
+					for (var a = 0; a<respuestaTotal; a++){
+						alert("respondiendo2");
 					var fila=
 					"<tr>"+
 						'<th scope="row"></th>'+
