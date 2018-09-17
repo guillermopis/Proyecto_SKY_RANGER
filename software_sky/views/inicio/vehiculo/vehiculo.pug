@@ -31,27 +31,36 @@
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="3", color="black")         
       <div class="table-responsive">
-        table(class="table table-hover" style="text-align: center")
+        table(id="tablaVehiculos" class="table table-hover" style="text-align: center")
           thead(class="thead-dark")
             tr
               th(scope="col") #
               th(scope="col") CLIENTE
+                <br>
+                <input class="form-control form-control-sm" id="buscarPorCliente" type="text" placeholder="Buscar...">
               th(scope="col") MARCA
+              th(scope="col") LINEA
               th(scope="col") MODELO
               th(scope="col") COLOR
-              th(scope="col") TIPO
               th(scope="col") PLACA
+                <br>
+                <input class="form-control form-control-sm" id="buscarPorPlaca" type="text" placeholder="Buscar...">
               th(scope="col") ESTADO
-              th(scope="col") PRECIO SERVICIO
-              th(scope="col") FECHA INSTALACION
               th(scope="col") OPCIONES
-          tbody           
+          <tbody id="tablita">
+          for vehiculo in datosV.data
             tr
               th(scope="row")
-              <td>DAVID</td>
+              <td>#{vehiculo.cliente.nombre}</td>
+              <td>#{vehiculo.marca}</td>
+              <td>#{vehiculo.linea}</td>
+              <td>#{vehiculo.modelo}</td>
+              <td>#{vehiculo.color}</td>
+              <td>#{vehiculo.placa}</td>
+              <td>#{vehiculo.estado}</td>
               <td>
               <div class="input-group">
-              <div class="input-group-append" id="btneditarprov">
-                <button type="button" class="buttonsmall hover" onClick="">
+              <div class="input-group-append" id="btnver">
+                <button type="button" class="buttonsmall hover" onClick="verVehiculo(#{vehiculo.id})">
                 span(class="fas fa-user-edit")
           
