@@ -11,6 +11,7 @@ var ModuloListado = function(){
 		_private.agregarEventoAbotonNuevo();
 		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
+		_private.agregarEventoAbotonGuardarV();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
 		_private.agregarEventoAanterior();
@@ -19,6 +20,17 @@ var ModuloListado = function(){
 		//_private.agregarEventoAbotonCerrar();
 	}// fin de iniciar
 
+	_private.agregarEventoAbotonGuardarV=function(){
+		var btnguardarv =$("#btnGuardarV");
+		if(btnguardarv.length == 0){
+			console.log("el botn guardar vehiculo no existe")
+		}else{
+			btnguardarv[0].addEventListener('click', function(event){
+				$("#bandera").val("nuevoVehiculo");
+				_private.validarCampos();
+			})//fin del evento
+		}
+	}//fin de funcion agregar evento a boton guardar vehiculo
 
 	_private.traerTotal=function(){
 			$.ajax({
@@ -174,6 +186,7 @@ var ModuloListado = function(){
 	    var forms = document.getElementsByClassName('needs-validation');
 	    var validation = Array.prototype.filter.call(forms, function(form) {
 	        if (form.checkValidity() === false) {
+					//	alert("el formulario es invalido");
 	          event.preventDefault();
 	          event.stopPropagation();
 	        }else{
@@ -192,6 +205,9 @@ _private.validarFormulario=function(esvalido){
 		}
 		if($("#bandera").val()	== "ver"){//vamos actualizar la info
 			_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT");
+		}
+		if($("#bandera").val() == "nuevoVehiculo"){
+			alert("vamos a guardar un vehiculo");
 		}
 		//_private.EnviarDatosDeCliente();
 	}//fin del if

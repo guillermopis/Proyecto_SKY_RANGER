@@ -39,6 +39,9 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
 
 function nuevoVehiculo(id_cliente, nombre_cliente){ //esta funcion ayuda a registrar un vehiculo nuevo al cliente seleccionado
   //alert("id="+id_cliente+" nombre= "+nombre_cliente);
-  $("#modalnuevovehiculo").modal('show');
   document.getElementById("dueñoV").value=nombre_cliente;
+  document.getElementById("check1V").style.display="none";
+  document.getElementById("cheV").style.display="none"; 
+  $("#modalnuevovehiculo").modal('show');
+
 }//fin de funciono nuevo vehiculo
