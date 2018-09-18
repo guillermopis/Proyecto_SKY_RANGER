@@ -4,7 +4,7 @@ let authModel = require('../models/auth-model'),
     errors  = require('../middlewares/errors'),
     express = require('express'),
     crypto = require('crypto'),
-    peticiones     = require('../controllers/clasePeticionesAPI'),
+    peticiones = require('../controllers/clasePeticionesAPI'),
     peti = new peticiones();
 
 
@@ -40,7 +40,7 @@ class AuthController{
     login(request,response,next){
       //aca se va hacer la petion a la API
       requestt.post('http://127.0.0.1:3000/usuario/',
-      { json: { usuario: request.body.usuario, contraseña: request.body.contraseña}},
+        { json: { usuario: request.body.usuario, contraseña: request.body.contraseña}},
       function (error,responsee, body,) {
             if(body.error == false){
               if(body.data.length == 1){
