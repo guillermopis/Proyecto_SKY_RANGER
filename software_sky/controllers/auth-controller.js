@@ -114,12 +114,15 @@ usuario(request,response, next){
 
 vehiculo(request,response, next){
   if(request.session.username){
-    response.render('inicio/indexvehiculo',
-    {
-    });
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":""}', function(datosV){
+      response.render('inicio/indexvehiculo',{
+        title: "vehiculos",
+        datosV
+      });//fin del response
+    });//fin de peticion oa vehiculo
   }else {
     errors.http401(request, response, next);
-  }
+  }//fin de if
 }//fin de vehiculos
 
 

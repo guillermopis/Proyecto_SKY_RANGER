@@ -171,3 +171,25 @@ create table PermisoFormRoles (
   formrol	int	not null	foreign key references FormRoles(id),
   permiso	int	not null	foreign key references Permisos(id)
 )
+
+
+--modulo de vehiculos
+
+-- crear tabla de vehiculos
+--drop table vehiculos
+go
+create table vehiculos(
+	id int not null identity primary key,
+	clienteId	int,
+	marca varchar(50),
+	linea varchar(50),
+	modelo varchar(50),
+	color varchar (50),
+	tipo varchar(50),
+	placa varchar(15),
+	estado varchar(20),
+	precio_servicio float,
+	fecha_instalacion date,
+	constraint fk_idcliente foreign key(clienteId) references clientes(id)
+);
+go

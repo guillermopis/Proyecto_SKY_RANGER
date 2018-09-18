@@ -1,9 +1,7 @@
 function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mostramos todos los datos relacionados a ese cliente.
-  //alert("Estoy en funcion actualizar con el id:"+ id_registro );
   //abrimos el formulario modal
   $('#modalnuevocliente').modal('show');
   //ahora hacemos la peticion get a la api segun el id que venga en id_registro
-
   $.ajax({
       url: 'http://localhost:3000/clientes/'+id_registro,
       type: "GET",
@@ -37,3 +35,10 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
 
     });
 }//fin de funcion actualizar
+
+
+function nuevoVehiculo(id_cliente, nombre_cliente){ //esta funcion ayuda a registrar un vehiculo nuevo al cliente seleccionado
+  //alert("id="+id_cliente+" nombre= "+nombre_cliente);
+  $("#modalnuevovehiculo").modal('show');
+  document.getElementById("dueñoV").value=nombre_cliente;
+}//fin de funciono nuevo vehiculo

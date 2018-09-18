@@ -19,6 +19,7 @@ var ModuloListado = function(){
 		//_private.agregarEventoAbotonCerrar();
 	}// fin de iniciar
 
+
 	_private.traerTotal=function(){
 			$.ajax({
 						url: "http://127.0.0.1:3000/filtrarClientes/",
@@ -94,7 +95,10 @@ var ModuloListado = function(){
 				//	alert('presiono una tecla');
 					//aca ira una llamada ajax a la base de datos
 					document.getElementById("anterior").style.display="none";
+					if(total>5){
 					document.getElementById("siguiente").style.display="block";
+					}
+					document.getElementById("pagina").style.display="block";
 					document.getElementById("pagina").value=(1);
 					$("#pagina").text("1");
 					_private.hacerFiltro(0);
@@ -114,6 +118,7 @@ var ModuloListado = function(){
 										"</tbody>";
 							$("#tablaCliente").append(b);
 							for (var a = 0; a<data.data.length; a++){
+								var nomC=("'"+data.data[a].nombre+"'");
 								//console.log(a);
 							var fila=
 							"<tr>"+
@@ -128,6 +133,10 @@ var ModuloListado = function(){
 								'<div class="input-group-append" id="btnver">'+
 									'<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
 									'<span class="fas fa-user-edit"></span>'+
+									"</button>"+
+									'<button type="button" class="buttonsmall hover"'+ 'onClick="nuevoVehiculo('+data.data[a].id+','+nomC+')">'+
+									'<span class="fas fa-plus-circle"></span>'+
+									'<span class="fas fa-car"></span>'+
 									"</button>"+
 								'</div>'+
 							'</div>'+
@@ -174,8 +183,8 @@ var ModuloListado = function(){
 	    });
 }// fin de funcion validar campos
 
-_private.validarFormulario=function(){
-	var esvalido = _private.formulario.checkValidity();
+_private.validarFormulario=function(esvalido){
+	//var esvalido = _private.formulario.checkValidity();
 	if(esvalido == true){
 		console.log("todo listo, guardemos la info");
 		if($("#bandera").val()	== "crear"){
@@ -186,6 +195,7 @@ _private.validarFormulario=function(){
 		}
 		//_private.EnviarDatosDeCliente();
 	}//fin del if
+	else{alert("formulario invalido");}
 }//fin de funcion validar formulario
 
 	_private.EnviarDatosDeCliente=function(){
@@ -242,6 +252,8 @@ _private.validarFormulario=function(){
 
 	//este boton es para abrir el modal de nuevo cliente
 	_private.agregarEventoAbotonNuevo=function(){
+		document.getElementById("bandera").style.display="none"
+		document.getElementById("id").style.display="none"
 		var nuevo = $("#btnnuevocliente");
 		if(nuevo.length == 0){
 			console.log("boton nuevo no existe");
