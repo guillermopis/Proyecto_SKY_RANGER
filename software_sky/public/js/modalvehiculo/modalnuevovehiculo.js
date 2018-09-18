@@ -69,7 +69,7 @@ var ModuloListado = function(){
 		}else{
 			anterior[0].addEventListener('click', function(event){
 			var n = document.getElementById("pagina").value;
-			alert("estoy en anterior n= "+n);
+			//alert("estoy en anterior n= "+n);
 			if(n != 1){
 				if(n == 2){document.getElementById("anterior").style.display="none";}
 				document.getElementById("siguiente").style.display="block";
@@ -129,12 +129,9 @@ var ModuloListado = function(){
 				}).done(function(data,message){ //cargamos a la tabla
 					//alert("AJAX ESTA RESPONDIENDO");
 					var total = data.data.length;
-					alert("respondiendo");
+					//alert("respondiendo");
 					if(total<=5){
 						document.getElementById("siguiente").style.display="none";
-						//document.getElementById("anterior").style.display="none";
-					//	$("#pagina").text("1");
-						//document.getElementById("pagina").value=(1);
 					}else{
 						document.getElementById("siguiente").style.display="block";
 					}
@@ -143,13 +140,10 @@ var ModuloListado = function(){
 					var b = '<tbody id="tablita" '+
 								"</tbody>";
 					$("#tablaVehiculos").append(b);
-
-					//_private.configuracionDePaginacion(total);
 					var respuestaTotal=data.data.length;
-					//con este if obligo a que si la consulta trajo mas de 5 registros, solomuestre 5
 					if(respuestaTotal>5){respuestaTotal=5}
 					for (var a = 0; a<respuestaTotal; a++){
-						alert("respondiendo2");
+						//alert("respondiendo2");
 					var fila=
 					"<tr>"+
 						'<th scope="row"></th>'+
@@ -175,11 +169,6 @@ var ModuloListado = function(){
 				})//fin de ajax
 	}//fin de funcion hacer filtro
 
-	_private.vehiculonuevo=function(){
-		$("#btnnuevovehiculo")[0].addEventListener('click', function(event) {
-			$('#modalnuevovehiculo').modal('show');
-		});
-	}
 
 	_private.asignargps=function(){
 		$("#btnasignargps")[0].addEventListener('click', function(event) {

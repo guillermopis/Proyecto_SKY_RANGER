@@ -19,6 +19,7 @@ var ModuloListado = function(){
 		//_private.agregarEventoAbotonCerrar();
 	}// fin de iniciar
 
+
 	_private.traerTotal=function(){
 			$.ajax({
 						url: "http://127.0.0.1:3000/filtrarClientes/",
@@ -117,6 +118,7 @@ var ModuloListado = function(){
 										"</tbody>";
 							$("#tablaCliente").append(b);
 							for (var a = 0; a<data.data.length; a++){
+								var nomC=("'"+data.data[a].nombre+"'");
 								//console.log(a);
 							var fila=
 							"<tr>"+
@@ -131,6 +133,10 @@ var ModuloListado = function(){
 								'<div class="input-group-append" id="btnver">'+
 									'<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
 									'<span class="fas fa-user-edit"></span>'+
+									"</button>"+
+									'<button type="button" class="buttonsmall hover"'+ 'onClick="nuevoVehiculo('+data.data[a].id+','+nomC+')">'+
+									'<span class="fas fa-plus-circle"></span>'+
+									'<span class="fas fa-car"></span>'+
 									"</button>"+
 								'</div>'+
 							'</div>'+
@@ -177,8 +183,8 @@ var ModuloListado = function(){
 	    });
 }// fin de funcion validar campos
 
-_private.validarFormulario=function(){
-	var esvalido = _private.formulario.checkValidity();
+_private.validarFormulario=function(esvalido){
+	//var esvalido = _private.formulario.checkValidity();
 	if(esvalido == true){
 		console.log("todo listo, guardemos la info");
 		if($("#bandera").val()	== "crear"){
@@ -189,6 +195,7 @@ _private.validarFormulario=function(){
 		}
 		//_private.EnviarDatosDeCliente();
 	}//fin del if
+	else{alert("formulario invalido");}
 }//fin de funcion validar formulario
 
 	_private.EnviarDatosDeCliente=function(){
