@@ -10,11 +10,23 @@
         font(face='Balmoral LET', size='6', color='white' )
           | SKY RANGER GUATEMALA
   
+  //body
   nav(class="navbar navbar-light bg-light")  
+    
     span
       button(type="button" id="btnnuevoproveedor" name="btnnuevoproveedor" class="button blue radius hover" style="border: 2px black outset")         
         span(class="fas fa-user-plus")      
+<<<<<<< HEAD:software_sky/views/inicio/proveedores/proveedor.pug
+    form(class="form-inline")
+      h(align="center" style="text:center" text="center")
+        font(face="Balmoral LET", size="6", color="black")
+          | PROVEEDORES    
+      input(class="form-control mr-sm-2" type="search" placeholder="BUSCAR" aria-label="Search")
+      button(class="btn btn-outline-success my-2 my-sm-0" type="submit") BUSCAR  
+          | PROVEEDORES                          
+=======
 
+>>>>>>> 4616a1c7bef2cca3fcc3b93fef134c7f31fc1665:software_sky/views/inicio/proveedores/proveedores.pug
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="2.5", color="black")   
     <h1 align="center"></H1>
@@ -23,14 +35,19 @@
         thead(class="thead-dark")
           <tr>
             <th scope="col">#</th>
-            <th scope="col">NOMBRE EMPRESA</th>
+            <th scope="col">NOMBRE EMPRESA
+            <br>
+            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
+            </th>
             <th scope="col">NIT</th>
             <th scope="col">DIRECCION</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">EXTENSION</th>
             <th scope="col">CORREO</th>
             <th scope="col">FECHA RELACION COMERCIAL</th>
-            <th scope="col">ESTADO</th>
+            <th scope="col">ESTADO
+            <input class="form-control form-control-sm" id="buscarestado" type="text" placeholder="Buscar...">
+            </th>
             <th scope="col">OPCIONES</th>
           </tr>
         </thead> 
@@ -48,8 +65,8 @@
             <td>#{proveedore.estado}</td>
             <td>
             <div class="input-group">
-            <div class="input-group-append" id="btneditarprov">
-              <button type="button" class="buttonsmall hover" onClick="ver(#{proveedore.id})">
+            <div class="input-group-append" id="btnver">
+            <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
               span(class="fas fa-user-edit")
               </button>      
             </div>
@@ -57,4 +74,4 @@
             </td>
           </tr>
         </tbody>     
-      </div>                                       
+      </div>          
