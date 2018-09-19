@@ -6,19 +6,19 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(class="needs-validation" novalidate ,style="border: 8px black inset; font-family: bold" align="center" id="formcliente")
+        form(class="needs-validation" novalidate ,style="border: 8px black solid; font-family: bold" align="center" id="formcliente")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" required pattern="*.")
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" required pattern="([A-Za-z]+).+")
                 <div class="invalid-tooltip">
                 loo  Por favor ingrese nombre.!
                 </div>    
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
-                input(type="text" class="form-control" id="direccion" style="border: 2px blue outset" required pattern="*.")
+                input(type="text" class="form-control" id="direccion" style="border: 2px blue outset" required pattern="([A-Za-z0-9]+).+")
                 <div class="invalid-tooltip">
                 loo  Por favor ingrese direccion.!
                 </div>           
@@ -26,14 +26,14 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
             .form-group.col-md-6
               .form-group(class="container")
                 label CORREO ELECTRONICO
-                input(type="email" class="form-control" id="correo" style="border: 2px blue outset" required pattern="*.")                        
+                input(type="email" class="form-control" id="correo" style="border: 2px blue solid" required pattern="*.")                        
                 <div class="invalid-tooltip">
                 loo  Por favor ingrese Email valido!
                 </div> 
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION DE FACTURACION
-                input(type="text" class="form-control" id="dirfact" style="border: 2px blue outset" required pattern="*.")                          
+                input(type="text" class="form-control" id="dirfact" style="border: 2px blue outset" required pattern="([A-Za-z0-9]+).+")                          
                 <div class="invalid-tooltip">
                 loo  Por favor ingrese direcccion de facturacion.!
                 </div> 
@@ -41,27 +41,27 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label NIT
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset" required pattern="[0-9]{7}-[0-9]{1}") 
+                  input(type="text" class="form-control" id="nit" style="border: 2px blue solid" required pattern="[0-9]{7}-[0-9]{1}") 
                   <div class="invalid-tooltip">
                   loo  Por favor ingrese NIT valido!
                   </div>          
               .form-group.col-md-3              
                 .form-group(class="container")
                   label TELEFONO
-                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset" required pattern="[0-9]{4}-[0-9]{4}")
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue solid" required pattern="[0-9]{4}-[0-9]{4}")
                   <div class="invalid-tooltip">
                   loo  Por favor ingrese TELEFONO valido.!
                   </div>           
               .form-group.col-md-3
                 .form-group(class="container")
                   label ESTADO
-                  select(id="estado" class="form-control" style="border: 2px blue outset")
+                  select(id="estado" class="form-control" style="border: 2px blue solid")
                     option.select ACTIVO
                     option.select DE BAJA                        
               .form-group.col-md-3
                 .form-group(class="container")                
                   label TIPO DE PAGO
-                  <select id="tipopago" class="form-control" style="border: 2px blue outset">
+                  <select id="tipopago" class="form-control" style="border: 2px blue solid">
                   for tipo in datos.data
                     <option value=#{tipo.id}>#{tipo.nombre}</option>  
                   </select>
@@ -69,21 +69,24 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3             
                 .form-group(class="container")
                   label TIPO DE SERVICIO
-                  <select id="tiposervicio" class="form-control" style="border: 2px blue outset">
+                  <select id="tiposervicio" class="form-control" style="border: 2px blue solid">
                   for tipo2 in servicios.data
                     <option value=#{tipo2.id}>#{tipo2.nombre}</option>
                   </select>
               .form-group.col-md-3              
                 .form-group(class="container")
                   label FECHA INGRESO
-                  input(type="text" class="form-control" id="fecha" style="border: 2px blue outset" required)          
-                  <div class="invalid-tooltip">
-                  loo  Por favor ingrese Fecha!
-                  </div> 
+                  div(class="input-group date fj-date")
+                    input(type="text" class="form-control" id="fecha" style="border: 2px blue solid" required)          
+                    span(class="input-group-addon")
+                    i(class="glyphicon glyphicon-th")
+                    <div class="invalid-tooltip">
+                    loo  Por favor ingrese Fecha!
+                    </div> 
               .form-group.col-md-4              
                 .form-group(class="container")
                   label TIPO DE MORA
-                  <select id="tipoMora" neme="tipoMora" class="form-control" style="border: 2px blue outset">
+                  <select id="tipoMora" neme="tipoMora" class="form-control" style="border: 2px blue solid">
                   for tipo3 in moras.data
                     <option value=#{tipo3.id}>#{tipo3.descripcion} #{tipo3.porcentaje}%</option>
                   </select>                                                    
@@ -91,14 +94,14 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label SALDO Q.
-                  input(type="number" class="form-control" id="saldo" style="border: 2px blue outset" step="0.01" required)          
+                  input(type="number" class="form-control" id="saldo" style="border: 2px blue solid" step="0.01" required)          
                   <div class="invalid-tooltip">
                   loo  Por favor ingrese saldo!
                   </div> 
               .form-group.col-md-3              
                 .form-group(class="container")
                   label ANTICIPO Q.
-                  input(type="number" class="form-control" id="anticipo" style="border: 2px blue outset" step="0.01" required)
+                  input(type="number" class="form-control" id="anticipo" style="border: 2px blue solid" step="0.01" required)
                   <div class="invalid-tooltip">
                   loo  Por favor ingrese anticipo!
                   </div> 
@@ -110,7 +113,7 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevocliente" tabindex="-1" 
           <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
         </div>
         <div class="form-group form-check">
-          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
-          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR
-        </div>      
-            
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black solid") CERRAR
+          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black solid") GUARDAR
+      </div>     
+      script(src="fecha/js/app.js")

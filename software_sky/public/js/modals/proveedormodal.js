@@ -7,7 +7,7 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
-		_private.proveedornuevo();
+		//_private.proveedornuevo();
 		_private.editarproveedor();
 	}
 
@@ -24,8 +24,8 @@ var ModuloListado = function(){
 
 	//evento abrir el modal de editar proveedor 
 	_private.editarproveedor=function(){
-		$("#btneditarprov")[0].addEventListener('click', function(event) {
-			$('#modaleditarproveedor').modal('show');
+		$("#btneditarproveedor")[0].addEventListener('click', function(event) {
+			$('#modalnuevoproveedor').modal('show');
 		});
 	}
 

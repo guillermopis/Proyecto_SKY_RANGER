@@ -3,6 +3,7 @@ var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
 	var total =0;
+	var datosPeticion="";
 	_public.__construct = function() {
 		return _public;
 	};
@@ -11,13 +12,38 @@ var ModuloListado = function(){
 		_private.agregarEventoAbotonNuevo();
 		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
+		_private.agregarEventoAbotonGuardarV();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
 		_private.agregarEventoAanterior();
 		_private.agregarEventoASiguiente();
 		_private.traerTotal();
-		//_private.agregarEventoAbotonCerrar();
+
 	}// fin de iniciar
+
+	_private.agregarEventoAbotonCerrar=function(){
+		btncerrar = $("#btnCerrar");
+		if(btncerrar.length == 0){
+			console.log("el botn cerrar de cliente no existe")
+		}else{
+			btncerrar[0].addEventListener('click', function(event){
+				_private.limpiar();
+				$("#modalnuevocliente").modal("hide");
+			})//fin del evento
+		}//fin del if
+	}//fin de la funcion btncerrar
+
+	_private.agregarEventoAbotonGuardarV=function(){
+		var btnguardarv =$("#btnGuardarV");
+		if(btnguardarv.length == 0){
+			console.log("el botn guardar vehiculo no existe")
+		}else{
+			btnguardarv[0].addEventListener('click', function(event){
+				$("#bandera").val("nuevoVehiculo");
+				_private.validarCampos();
+			})//fin del evento
+		}
+	}//fin de funcion agregar evento a boton guardar vehiculo
 
 	_private.traerTotal=function(){
 			$.ajax({
@@ -117,6 +143,7 @@ var ModuloListado = function(){
 										"</tbody>";
 							$("#tablaCliente").append(b);
 							for (var a = 0; a<data.data.length; a++){
+								var nomC=("'"+data.data[a].nombre+"'");
 								//console.log(a);
 							var fila=
 							"<tr>"+
@@ -131,6 +158,10 @@ var ModuloListado = function(){
 								'<div class="input-group-append" id="btnver">'+
 									'<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
 									'<span class="fas fa-user-edit"></span>'+
+									"</button>"+
+									'<button type="button" class="buttonsmall hover"'+ 'onClick="nuevoVehiculo('+data.data[a].id+','+nomC+')">'+
+									'<span class="fas fa-plus-circle"></span>'+
+									'<span class="fas fa-car"></span>'+
 									"</button>"+
 								'</div>'+
 							'</div>'+
@@ -166,54 +197,93 @@ var ModuloListado = function(){
 
 	_private.validarCampos=function() {
 	    var forms = document.getElementsByClassName('needs-validation');
+			//var forms=document.getElementById("formNuevoVehiculo");
 	    var validation = Array.prototype.filter.call(forms, function(form) {
 	        if (form.checkValidity() === false) {
+						//alert("el formulario es invalido");
 	          event.preventDefault();
 	          event.stopPropagation();
+						//return;
 	        }else{
-						_private.validarFormulario(form.checkValidity());
+						//alert(form.checkValidity());
+						_private.validarFormulario("true");
 					}
 	        form.classList.add('was-validated');
 	    });
 }// fin de funcion validar campos
 
-_private.validarFormulario=function(){
-	var esvalido = _private.formulario.checkValidity();
-	if(esvalido == true){
+_private.validarFormulario=function(esvalido){
+	//var esvalido = _private.formulario.checkValidity();
+	//alert("es valido= "+esvalido);
+	if(esvalido == "true"){
 		console.log("todo listo, guardemos la info");
 		if($("#bandera").val()	== "crear"){
-				_private.peticion("http://127.0.0.1:3000/clientes/","POST");
+				datosPeticion={
+					"nombre": document.getElementById("nombre").value,
+					"direccion": document.getElementById("direccion").value,
+					"correo": document.getElementById("correo").value,
+					"dirfact": document.getElementById("dirfact").value,
+					"nit": document.getElementById("nit").value,
+					"telefono": document.getElementById("telefono").value,
+					"estado": document.getElementById("estado").value,
+					"tipopago": document.getElementById("tipopago").value,
+					"tiposervicio": document.getElementById("tiposervicio").value,
+					"fecha": document.getElementById("fecha").value,
+					"tipomora": document.getElementById("tipoMora").value,
+					"saldo": document.getElementById("saldo").value,
+					"anticipo": document.getElementById("anticipo").value
+				};
+				_private.peticion("http://127.0.0.1:3000/clientes/","POST",datosPeticion);
 		}
 		if($("#bandera").val()	== "ver"){//vamos actualizar la info
-			_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT");
+			datosPeticion={
+				"nombre": document.getElementById("nombre").value,
+				"direccion": document.getElementById("direccion").value,
+				"correo": document.getElementById("correo").value,
+				"dirfact": document.getElementById("dirfact").value,
+				"nit": document.getElementById("nit").value,
+				"telefono": document.getElementById("telefono").value,
+				"estado": document.getElementById("estado").value,
+				"tipopago": document.getElementById("tipopago").value,
+				"tiposervicio": document.getElementById("tiposervicio").value,
+				"fecha": document.getElementById("fecha").value,
+				"tipomora": document.getElementById("tipoMora").value,
+				"saldo": document.getElementById("saldo").value,
+				"anticipo": document.getElementById("anticipo").value
+			};
+			_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT",datosPeticion);
+		}
+		if($("#bandera").val() == "nuevoVehiculo"){
+			datosPeticion={
+				"clienteId":document.getElementById("id").value,
+				"marca":document.getElementById("marcave").value,
+				"linea":document.getElementById("linea").value,
+				"modelo":document.getElementById("modelove").value,
+				"color":document.getElementById("colorve").value,
+				"tipo":document.getElementById("tipove").value,
+				"placa":document.getElementById("placave").value,
+				"motor":document.getElementById("motor").value,
+				"chasis":document.getElementById("chasis").value,
+				"estado":document.getElementById("estadove").value,
+				"precio_servicio":document.getElementById("precioseve").value,
+				"fecha_instalacion":document.getElementById("fechainstve").value
+			};
+				_private.peticion("http://127.0.0.1:3000/vehiculos/","POST",datosPeticion);
 		}
 		//_private.EnviarDatosDeCliente();
 	}//fin del if
+	else{alert("formulario invalido");}
 }//fin de funcion validar formulario
 
 	_private.EnviarDatosDeCliente=function(){
 
 	}//fin de funcion EnviarDatosDeCliente
 
-	_private.peticion=function(url,type){
+	_private.peticion=function(url,type,datos){
 		$.ajax({
 					url: url,
 					type: type,
-					data: {
-						"nombre": document.getElementById("nombre").value,
-						"direccion": document.getElementById("direccion").value,
-						"correo": document.getElementById("correo").value,
-						"dirfact": document.getElementById("dirfact").value,
-						"nit": document.getElementById("nit").value,
-						"telefono": document.getElementById("telefono").value,
-						"estado": document.getElementById("estado").value,
-						"tipopago": document.getElementById("tipopago").value,
-						"tiposervicio": document.getElementById("tiposervicio").value,
-						"fecha": document.getElementById("fecha").value,
-						"tipomora": document.getElementById("tipoMora").value,
-						"saldo": document.getElementById("saldo").value,
-						"anticipo": document.getElementById("anticipo").value
-					}
+					data: datosPeticion
 				}).done(function(data){
 					$('#modalnuevocliente').modal('hide')
 					alert(data.mensaje);

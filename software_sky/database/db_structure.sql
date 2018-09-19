@@ -229,7 +229,7 @@ create table PermisoFormRoles (
 --modulo de vehiculos
 
 -- crear tabla de vehiculos
-drop table vehiculos
+--drop table vehiculos
 go
 create table vehiculos(
 	id int not null identity primary key,
@@ -240,6 +240,8 @@ create table vehiculos(
 	color varchar (50),
 	tipo varchar(50),
 	placa varchar(15),
+	motor varchar(50),
+	chasis varchar(50),
 	estado varchar(20),
 	precio_servicio float,
 	fecha_instalacion date,

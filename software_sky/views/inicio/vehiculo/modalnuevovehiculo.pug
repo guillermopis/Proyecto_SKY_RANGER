@@ -6,54 +6,96 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevovehiculo" tabindex="-1"
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center" id="formusuario")          
+        form(class="needs-validation" novalidate, style="border: 8px black inset; font-family: bold" align="center" id="formNuevoVehiculo")          
           .form-row
             .form-group.col-md-5
               .form-group(class="container")
-                label ID CLIENTE
-                input(type="text" class="form-control" id="idve" style="border: 2px blue solid" )    
+                label  CLIENTE
+                input(type="text" class="form-control" id="dueñoV" style="border: 2px blue solid" disabled)    
           .form-row
             .form-group.col-md-4
               .form-group(class="container")
                 label MARCA
-                input(type="text" class="form-control" id="marcave" style="border: 2px blue solid" )    
-            .form-group.col-md-4
+                input(type="text" class="form-control" id="marcave" style="border: 2px blue solid" required pattern="[A-Za-z]+")  
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese la marca.!
+                </div>  
+            .form-group.col-md-2
               .form-group(class="container")
                 label MODELO
-                input(type="text" class="form-control" id="modelove" style="border: 2px blue solid" )    
-            .form-group.col-md-4
+                input(type="tel" class="form-control" id="modelove" style="border: 2px blue solid" required pattern="[0-9]{4}")
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese modelo valido.!
+                </div>    
+            .form-group.col-md-3
               .form-group(class="container")
                 label COLOR
-                input(type="text" class="form-control" id="colorve" style="border: 2px blue solid")          
+                input(type="text" class="form-control" id="colorve" style="border: 2px blue solid" required pattern="[A-Za-z]+")          
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese color.!
+                </div>
+            .form-group.col-md-3
+              .form-group(class="container")
+                label PLACA
+                input(type="text" class="form-control" id="placave" style="border: 2px blue solid" required pattern="[A-Za-z0-9]+")                       
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese placa valida.!
+                </div>
           .form-row  
             .form-group.col-md-4
               .form-group(class="container")
                 label TIPO
-                input(type="text" class="form-control" id="tipove" style="border: 2px blue solid")                        
+                input(type="text" class="form-control" id="tipove" style="border: 2px blue solid" required pattern="[A-Za-z]+")                      
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese Tipo.!
+                </div>  
             .form-group.col-md-4
               .form-group(class="container")
-                label PLACA
-                input(type="text" class="form-control" id="placave" style="border: 2px blue solid")                        
+                label LINEA
+                input(type="text" class="form-control" id="linea" style="border: 2px blue solid" required pattern="[A-Za-z0-9]+")
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese linea.!
+                </div>
+            .form-group.col-md-4
+              .form-group(class="container")
+                label CHASIS
+                input(type="text" class="form-control" id="chasis" style="border: 2px blue solid" required pattern="[A-Za-z0-9]+")                   
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese chasis!
+                </div>
+          .form-row
+            .form-group.col-md-4
+              .form-group(class="container")
+                label MOTOR
+                input(type="text" class="form-control" id="motor" style="border: 2px blue solid" required pattern="[A-Za-z0-9]+")                   
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese motor!
+                </div>
+            .form-group.col-md-4           
+              .form-group(class="container")
+                label PRECIO SERVICIO
+                input(type="number" setp="0.01" class="form-control" id="precioseve" style="border: 2px blue solid" required) 
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese precio de servicio.!
+                </div>         
+            .form-group.col-md-4           
+              .form-group(class="container")
+                label FECHA INSTALACION
+                input(type="text" class="form-control" id="fechainstve" style="border: 2px blue solid")
+          .form-row
             .form-group.col-md-4
               .form-group(class="container")
                 label ESTADO
-                input(type="text" class="form-control" id="estadove" style="border: 2px blue solid")                                       
-          .form-row
-              .form-group.col-md-4              
-                .form-group(class="container")
-                  label PRECIO SERVICIO
-                  input(type="text" class="form-control" id="precioseve" style="border: 2px blue solid")          
-              .form-group.col-md-4              
-                .form-group(class="container")
-                  label FECHA INSTALACION
-                  input(type="text" class="form-control" id="fechainstve" style="border: 2px blue solid")          
+                select(id="estadove" class="form-control" style="border: 2px blue outset")
+                  option.select ACTIVO
+                  option.select INACTIVO 
       div(class="modal-footer")
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="check1">
-          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+          <input type="checkbox" class="form-check-input" id="check1V">
+          <label id="cheV" class="form-check-label" for="check1V">MODIFICAR DATOS</label>
         </div>
         <div class="form-group form-check">
           button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
-          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary") GUARDAR          
+          button(button type="button" id="btnGuardarV" class="btn btn-primary") GUARDAR          
         </div>      
         
