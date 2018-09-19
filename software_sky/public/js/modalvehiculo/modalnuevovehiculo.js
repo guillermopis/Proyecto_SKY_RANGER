@@ -52,7 +52,7 @@ var ModuloListado = function(){
 						document.getElementById("anterior").style.display="block";
 						$("#pagina").text(String(n+1));
 						document.getElementById("pagina").value=(n+1);
-						alert("estoy en siguiente n ="+	document.getElementById("pagina").value);
+						//alert("estoy en siguiente n ="+	document.getElementById("pagina").value);
 						_private.hacerFiltro(nu,5);
 
 					}
