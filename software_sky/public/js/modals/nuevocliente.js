@@ -18,8 +18,20 @@ var ModuloListado = function(){
 		_private.agregarEventoAanterior();
 		_private.agregarEventoASiguiente();
 		_private.traerTotal();
-		//_private.agregarEventoAbotonCerrar();
+
 	}// fin de iniciar
+
+	_private.agregarEventoAbotonCerrar=function(){
+		btncerrar = $("#btnCerrar");
+		if(btncerrar.length == 0){
+			console.log("el botn cerrar de cliente no existe")
+		}else{
+			btncerrar[0].addEventListener('click', function(event){
+				_private.limpiar();
+				$("#modalnuevocliente").modal("hide");
+			})//fin del evento
+		}//fin del if
+	}//fin de la funcion btncerrar
 
 	_private.agregarEventoAbotonGuardarV=function(){
 		var btnguardarv =$("#btnGuardarV");

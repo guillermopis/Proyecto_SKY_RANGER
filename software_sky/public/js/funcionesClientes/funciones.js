@@ -29,6 +29,7 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
       	$("#bandera").val("ver");
         $("#id").val(id_registro);
         $('#formcliente').find('input, textarea, button, select').attr('disabled','disabled');
+        document.getElementById("check1").checked=false;
         document.getElementById("check1").style.display="block";
         document.getElementById("che").style.display="block";
         document.getElementById("btnGuardar").disabled=true;
@@ -40,6 +41,7 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
 function nuevoVehiculo(id_cliente, nombre_cliente){ //esta funcion ayuda a registrar un vehiculo nuevo al cliente seleccionado
   //alert("id="+id_cliente+" nombre= "+nombre_cliente);
   document.getElementById("dueñoV").value=nombre_cliente;
+  document.getElementById("check1V").checked=false;
   document.getElementById("check1V").style.display="none";
   document.getElementById("cheV").style.display="none";
   $("#modalnuevovehiculo").modal('show');
