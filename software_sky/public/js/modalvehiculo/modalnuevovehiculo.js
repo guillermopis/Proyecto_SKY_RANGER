@@ -10,7 +10,7 @@ var ModuloListado = function(){
 	_public.iniciar=function(){
 		_private.traerTotal();
 		_private.configuracionDePaginacion();
-		_private.vehiculonuevo();
+	//	_private.vehiculonuevo();
 		_private.asignargps();
 		_private.asignarEventoAbuscarPorCliente();
 		_private.asignarEventoAbuscarPorPlaca();

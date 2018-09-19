@@ -41,7 +41,7 @@ function nuevoVehiculo(id_cliente, nombre_cliente){ //esta funcion ayuda a regis
   //alert("id="+id_cliente+" nombre= "+nombre_cliente);
   document.getElementById("dueñoV").value=nombre_cliente;
   document.getElementById("check1V").style.display="none";
-  document.getElementById("cheV").style.display="none"; 
+  document.getElementById("cheV").style.display="none";
   $("#modalnuevovehiculo").modal('show');
-
+  $("#id").val(id_cliente);
 }//fin de funciono nuevo vehiculo
