@@ -114,7 +114,7 @@ usuario(request,response, next){
 
 vehiculo(request,response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":""}', function(datosV){
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
       response.render('inicio/indexvehiculo',{
         title: "vehiculos",
         datosV
