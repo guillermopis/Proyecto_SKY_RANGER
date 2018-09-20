@@ -1,0 +1,88 @@
+div(class="modal fade bd-example-modal-lg" id="modalnuevolote" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+  div(class="modal-dialog modal-lg" role="document")
+    div(class="modal-content")
+      div(class="modal-header")        
+        form(class="was-validated" style="font-family: bold")                      
+          .form-row
+            .form-group.col-md-6
+              .form-group(class="container")
+                h(class="modal-title" id="exampleModalLabel") NUEVO LOTE
+            .form-group.col-md-3
+              .form-group(class="container")
+                div(class="custom-control custom-checkbox mb-3")            
+                  input(type="checkbox" class="custom-control-input" id="simlote" required)
+                  label(class="custom-control-label" for="simlote") SIM            
+            .form-group.col-md-3
+              .form-group(class="container")
+                div(class="custom-control custom-checkbox mb-3")            
+                  input(type="checkbox" class="custom-control-input" id="gpslote" required)
+                  label(class="custom-control-label" for="gpslote") GPS            
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      div(class="modal-body")
+        form(style="border: 8px black solid; font-family: bold" align="center" id="formnuevolote")          
+          .form-row
+            .form-group.col-md-4
+              .form-group(class="container")
+                br
+                label CODIGO DE LOTE
+                input(type="text" class="form-control" id="codigolote" style="border: 2px blue solid" )                
+            .form-group.col-md-4
+              .form-group(class="container")
+                br  
+                label PROVEEDOR
+                input(type="text" class="form-control" id="proveedorlote" style="border: 2px blue solid")          
+            .form-group.col-md-4
+              .form-group(class="container")              
+                label CANTIDAD DE DISPOSITIVOS
+                input(type="text" class="form-control" id="cantidadlote" style="border: 2px blue solid")                        
+          .form-row
+            .form-group.col-md-4
+              .form-group(class="container")
+                br
+                label FECHA DE COMPRA
+                div(class="input-group date fj-date")
+                  input(type="text" class="form-control" id="fechacompralote" style="border: 2px blue solid" )    
+                  span(class="input-group-addon")
+                  i(class="glyphicon glyphicon-th")                  
+            .form-group.col-md-4
+              .form-group(class="container")
+                br
+                label FECHA DE ACTIVACION
+                div(class="input-group date fj-date")
+                  input(type="text" class="form-control" id="fechaactivacionlote" style="border: 2px blue solid")          
+                  span(class="input-group-addon")
+                  i(class="glyphicon glyphicon-th")                  
+            .form-group.col-md-4
+              .form-group(class="container")
+                label FECHA VENCIMIENTO DE DATOS
+                div(class="input-group date fj-date")
+                  input(type="text" class="form-control" id="fechavencimientolote" style="border: 2px blue solid")                        
+                  span(class="input-group-addon")
+                  i(class="glyphicon glyphicon-th")                  
+          .form-row  
+            .form-group.col-md-4
+              .form-group(class="container")
+                br
+                label PRECIO UNITARIO
+                input(type="text" class="form-control" id="preciounitariolote" style="border: 2px blue solid" )    
+            .form-group.col-md-4
+              .form-group(class="container")
+                br
+                label PRECIO TOTAL
+                input(type="text" class="form-control" id="preciototallote" style="border: 2px blue solid")          
+            .form-group.col-md-4
+              .form-group(class="container")
+                label DURACION PLAN DE DATOS
+                input(type="text" class="form-control" id="duraciondatoslote" style="border: 2px blue solid")                        
+        
+      div(class="modal-footer")
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check1">
+          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+        </div>
+        <div class="form-group form-check">
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" style="border: 2px black solid" data-dismiss="modal" ) CERRAR
+          button(button type="button" id="btnGuardarlote" name="btnGuardar" class="btn btn-primary" style="border: 2px black solid") GUARDAR          
+        </div>      
+      script(src="fecha/js/app.js")
