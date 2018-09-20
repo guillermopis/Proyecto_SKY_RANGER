@@ -11,7 +11,7 @@ var ModuloListado = function(){
 		_private.traerTotal();
 		_private.configuracionDePaginacion();
 	//	_private.vehiculonuevo();
-		_private.asignargps();
+	//	_private.asignargps();
 		_private.asignarEventoAbuscarPorCliente();
 		_private.asignarEventoAbuscarPorPlaca();
 		_private.agregarEventoASiguiente();
@@ -212,6 +212,10 @@ var ModuloListado = function(){
 							'<button type="button" class="buttonsmall hover"'+ 'onClick="verVehiculo('+data.data[a].id+')">'+
 							'<span class="fas fa-user-edit"></span>'+
 							"</button>"+
+							'<button type="button" class="buttonsmall hover"'+ 'onClick="asignarGPS('+data.data[a].id+')">'+
+							'<span class="fas fa-map-marker-alt"></span>'+
+							'<span  class="fas fa-car"></span>'+
+							"</button>"+
 						'</div>'+
 					'</div>'+
 						'</td>'+
@@ -221,12 +225,6 @@ var ModuloListado = function(){
 				})//fin de ajax
 	}//fin de funcion hacer filtro
 
-
-	_private.asignargps=function(){
-		$("#btnasignargps")[0].addEventListener('click', function(event) {
-			$('#modalasignargpsve').modal('show');
-		});
-	}
 	return _public.__construct.apply(this, arguments);
 }
 var listado = new ModuloListado();

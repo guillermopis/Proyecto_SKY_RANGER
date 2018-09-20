@@ -28,3 +28,8 @@ function verVehiculo(id_vehiculo){
     });
 
 }//fin de funcion ver vehiculo
+
+function asignarGPS(id_vehiculo){
+  $("#modalasignargpsve").modal('show');
+
+}//fin de funcion asignarGPS
