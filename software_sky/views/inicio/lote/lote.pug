@@ -23,3 +23,34 @@
               
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     //font(face="Balmoral LET", size="4", color="black")   
+    font(face="Balmoral LET", size="4", color="black")         
+      div(class="table-responsive")
+        table(class="table table-hover" style="text-align: center" id="tablalotes")
+          thead(class="thead-dark")
+            tr
+              th(scope="col") #
+              th(scope="col") CODIGO LOTE
+              th(scope="col") PROVEEDOR
+              th(scope="col") CANTIDAD DISPOSITIVOS
+              th(scope="col") FECHA COMPRA
+              th(scope="col") FECHA ACTIVACION
+              th(scope="col") OPCIONES                      
+          tbody(id="tablitalote")
+            tr
+              th(scope="row")
+              td nose
+              td TIGO
+              td 10
+              td 10/10/10
+              td 10/10/10
+              td
+                div(class="input-group")
+                  div(class="input-group-append")
+                    button(type="button" class="buttonsmall hover" id="btneditarlote")
+                      span(class="fas fa-edit")                
+
+    nav(aria-label="Page navigation example")
+      ul(class="pagination")
+        li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
+        li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
+        li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente

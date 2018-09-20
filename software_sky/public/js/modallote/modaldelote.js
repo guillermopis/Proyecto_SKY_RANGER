@@ -7,11 +7,18 @@ var ModuloListado = function(){
 
 	_public.lote=function(){
 		_private.lotenuevo();
+		_private.loteeditar();
 	}
 
 	_private.lotenuevo=function(){
 		$("#btnnuevolote")[0].addEventListener('click', function(event) {
 			$('#modalnuevolote').modal('show');
+		});
+	}
+
+	_private.loteeditar=function(){
+		$("#btneditarlote")[0].addEventListener('click', function(event) {
+			$('#modaleditarlote').modal('show');
 		});
 	}
 
