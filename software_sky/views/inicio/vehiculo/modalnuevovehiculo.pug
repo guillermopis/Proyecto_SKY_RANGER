@@ -81,7 +81,11 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevovehiculo" tabindex="-1"
             .form-group.col-md-4           
               .form-group(class="container")
                 label FECHA INSTALACION
-                input(type="text" class="form-control" id="fechainstve" style="border: 2px blue solid")
+                div(class="input-group date fj-date")
+                  input(type="text" class="form-control" id="fechainstve" style="border: 2px blue solid")
+                  span(class="input-group-addon")
+                  i(class="glyphicon glyphicon-th")                    
+                    
           .form-row
             .form-group.col-md-4
               .form-group(class="container")
@@ -100,4 +104,4 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevovehiculo" tabindex="-1"
           button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
           button(button type="button" id="btnGuardarV" class="btn btn-primary") GUARDAR          
         </div>      
-        
+        script(src="fecha/js/app.js")        
