@@ -1,7 +1,7 @@
 validarCampos=function(forms,event,callback) {
-  setTimeout(function(){
+  setTimeout(function() {
+  'use strict';
     var validation = Array.prototype.filter.call(forms, function(form) {
-      console.log(form);
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
@@ -11,8 +11,7 @@ validarCampos=function(forms,event,callback) {
         }
         form.classList.add('was-validated');
     });
-  }, 0 | Math.random()*100);
-
+}, 0 | Math.random()*100);
 }// fin de funcion validar campos
 
 
