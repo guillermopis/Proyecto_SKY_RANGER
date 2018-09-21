@@ -5,7 +5,7 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
   //ahora hacemos la peticion get a la api segun el id que venga en id_registro
 
   $.ajax({
-      url: 'http://localhost:3000/proveedores/'+id_registro,
+      url: 'http://localhost:3000/proveedores/{"a":"0", "b":"0","nombre":"",'+id_registro+'"}',
       type: "GET",
       dataType: 'json',
       data: {

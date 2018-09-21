@@ -1,7 +1,9 @@
 var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
-
+	var total=0;
+	var omitir=0;
+	var busque=0;
 	_public.__construct = function() {
 		return _public;
 	};
@@ -13,12 +15,12 @@ var ModuloListado = function(){
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbotonCerrar();
 		//para paginacion
+		_private.asignarEventoAbuscarPorCliente();
 		//_private.asignarEventoAbuscarPornombre();
-		/*_private.asignarEventoAbuscarPornombre();
 		_private.agregarEventoASiguiente();
 		_private.configuracionDePaginacion();
-		_private.traerTotal();*/
-		//_private.agregarEventoAanterior();
+		_private.traerTotal();
+		_private.agregarEventoAanterior();
 	}
 
 	_private.agregarEventoAbotonCerrar=function(){
@@ -50,6 +52,150 @@ var ModuloListado = function(){
 		}
 	}// fin de funcion evento a boton guardar
 
+//aca esta la configuracion inicial de la paginacion
+	_private.traerTotal=function(){
+			$.ajax({
+						url: 'http://127.0.0.1:3000/proveedores/{"a":"0", "b":"0","nombre":""}',
+						type: "GET"
+					}).done(function(data){
+						total = data.data.length;
+						if(total <= 5){
+							document.getElementById("anterior").style.display="none";
+							document.getElementById("siguiente").style.display="none";
+							document.getElementById("pagina").style.display="none";
+
+						}else{
+							document.getElementById("siguiente").style.display="block";
+							document.getElementById("pagina").style.display="block";
+						}
+					})//fin de ajax
+	}//fin de funcion traerTotal
+
+	_private.agregarEventoASiguiente=function(){
+			var siguiente = $("#siguiente");
+			console.log("boton siguiente existe");
+			if(siguiente.length==0){
+				console.log("el boton siguiente no existe");	return;
+			}else{
+				siguiente[0].addEventListener('click', function(event){
+					var n = document.getElementById("pagina").value;
+					var nu = (n*5);
+					//alert("estoy en siguiente total= "+total);
+					if(nu <= total){
+						if((nu+5) > total){ //predecimos si habra otra pagina
+							document.getElementById("siguiente").style.display="none";
+						}
+						document.getElementById("anterior").style.display="block";
+						$("#pagina").text(String(n+1));
+						document.getElementById("pagina").value=(n+1);
+						console.log("vio despues de 5 ahora a tiene otro valor");
+						//alert("estoy en siguiente n ="+	document.getElementById("pagina").value);
+						_private.hacerFiltro(nu, 5);
+
+					}
+				});//fin de evento
+			}//fin de if
+	}// fin de funcion siguiente
+
+_private.agregarEventoAanterior=function(){
+		document.getElementById("anterior").style.display="none";
+		var anterior = $("#anterior");
+		if(anterior.length==0){
+			console.log("el boton anterior no existe");
+			return;
+		}else{
+			anterior[0].addEventListener('click', function(event){
+			var n = document.getElementById("pagina").value;
+			//alert("estoy en anterior n= "+n);
+			if(n != 1){
+				if(n == 2){document.getElementById("anterior").style.display="none";}
+				document.getElementById("siguiente").style.display="block";
+				$("#pagina").text(String(n-1));
+				document.getElementById("pagina").value=(n-1);
+				var nu = ((n-2)*5);
+
+				_private.hacerFiltro(omitir, busque);
+			}else{
+				_private.hacerFiltro(omitir, busque);
+			}//fin de if = 0
+			});//fin de evento
+		}//fin de if
+	}// fin de funcion anterior
+
+
+	//aca configuramos los botones para la paginacion
+	_private.configuracionDePaginacion=function(total){
+		if(total<= 5){
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="none";
+			document.getElementById("pagina").value=(1);
+			$("#pagina").text("1");
+		}else{
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="block";
+		}
+	}// fin de funcion configuracionDePaginacion
+
+_private.asignarEventoAbuscarPorCliente=function(){
+		var buscarC = $("#buscarnombre");
+		if(buscarC.length==0){
+			console.log("el campo buscar por cliente no existe");
+		}else{
+			buscarC[0].addEventListener('keyup',function(event){
+				document.getElementById("anterior").style.display="none";
+				$("#pagina").text("1");
+			_private.hacerFiltro(omitir,busque);
+		});//fin de evento keyup
+		}//fin de if
+	}//fin de funcioi buscar por nombre de cliente*/
+
+
+_private.hacerFiltro=function(omitir, busque){
+		$.ajax({
+					url:  'http://localhost:3000/proveedores/{"a":"'+omitir+'", "b":"'+busque+'","nombre":"'+document.getElementById("buscarnombre").value+'"}',
+					type: "GET"
+				}).done(function(data,message){ //cargamos a la tabla
+					//alert("AJAX ESTA RESPONDIENDO");
+					var total = data.data.length;
+					//alert("respondiendo");
+					console.log("entro a hacerfiltro");
+					if(total<=5){
+						document.getElementById("siguiente").style.display="none";
+					}else{
+						document.getElementById("siguiente").style.display="block";
+					}
+					//alert("estoy en hacerFiltro total= "+total);
+					$("#tablita").remove();
+					var b = '<tbody id="tablita" '+
+								"</tbody>";
+					$("#tablaProveedores").append(b);
+					var respuestaTotal=data.data.length;
+					if(respuestaTotal>5){respuestaTotal=5}
+					for (var a = 0; a<respuestaTotal; a++){
+						//alert("respondiendo2");
+					var fila=
+					"<tr>"+
+						'<th scope="row"></th>'+
+						"<td>"+data.data[a].nombre+"</td>"+
+						"<td>"+data.data[a].direccion+"</td>"+
+						"<td>"+data.data[a].telefono+"</td>"+
+						"<td>"+data.data[a].extension+"</td>"+
+						"<td>"+data.data[a].correo_empresa+"</td>"+
+						"<td>"+data.data[a].estado+"</td>"+
+						"<td>"+
+						'<div class="input-group">'+
+						'<div class="input-group-append" id="btnver">'+
+							'<button type="button" class="buttonsmall hover"'+ 'onClick="ver(#{proveedore.id})">'+
+							'<span class="fas fa-user-edit"></span>'+
+							"</button>"+
+						'</div>'+
+					'</div>'+
+						'</td>'+
+					"</tr>";
+						$("#tablita").append(fila);
+					}//fin del for
+				})//fin de ajax
+	}//fin de funcion hacer filtro*/
 
 
 

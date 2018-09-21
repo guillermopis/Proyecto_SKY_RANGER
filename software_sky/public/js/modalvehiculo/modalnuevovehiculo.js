@@ -2,7 +2,7 @@ var ModuloListado = function(){
 	var _private = {}, _public = {};
 	var total=0;
 	var omitir=0;
-	var busque=0;
+	var busque=1;
 	_public.__construct = function() {
 		return _public;
 	};
