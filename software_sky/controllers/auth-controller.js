@@ -112,6 +112,17 @@ usuario(request,response, next){
   }
 }//fin de usuarios
 
+lote(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexlote',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de lotess
+
+
 vehiculo(request,response, next){
   if(request.session.username){
     peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
