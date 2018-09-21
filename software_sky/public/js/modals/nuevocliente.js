@@ -3,12 +3,15 @@ var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
 	var total =0;
+	var omitir=0;
+	var busque=0;
 	var datosPeticion="";
 	_public.__construct = function() {
 		return _public;
 	};
 
 	_public.iniciar=function(){
+		_private.traerTotal();
 		_private.agregarEventoAbotonNuevo();
 		_private.agregarEventoAbotonGuardar();
 		_private.agregarEventoAbotonGuardarV();
@@ -16,7 +19,7 @@ var ModuloListado = function(){
 		_private.agregarEventoAbuscarNombre();
 		_private.agregarEventoAanterior();
 		_private.agregarEventoASiguiente();
-		_private.traerTotal();
+		_private.configuracionDePaginacion();
 
 	}// fin de iniciar
 
@@ -55,6 +58,7 @@ var ModuloListado = function(){
 					}).done(function(data){
 						total = data.data.length;
 						if(total <= 5){
+							document.getElementById("anterior").style.display="none";
 							document.getElementById("siguiente").style.display="none";
 							document.getElementById("pagina").style.display="none";
 						}else{
@@ -79,13 +83,8 @@ var ModuloListado = function(){
 						document.getElementById("anterior").style.display="block";
 						$("#pagina").text(String(n+1));
 						document.getElementById("pagina").value=(n+1);
-						_private.hacerFiltro(nu);
-					}/*else{
-						_private.hacerFiltro(nu);
-						document.getElementById("pagina").value=(n+1);
-						$("#pagina").text(String(n+1));
-					}*/
-
+						_private.hacerFiltro(nu,busque);
+					}
 				});//fin de evento
 			}//fin de if
 	}// fin de funcion siguiente
@@ -105,13 +104,25 @@ var ModuloListado = function(){
 				document.getElementById("siguiente").style.display="block";
 				document.getElementById("pagina").value=(n-1);
 				var nu = ((n-2)*5);
-				_private.hacerFiltro(nu);
+				_private.hacerFiltro(anterior,busque);
 			}else{
-				_private.hacerFiltro(0);
+				_private.hacerFiltro(omitir,busque);
 			}//fin de if = 0
 			});//fin de evento
 		}//fin de if
 	}// fin de funcion anterior
+
+	_private.configuracionDePaginacion=function(total){
+		if(total<= 5){
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="none";
+			document.getElementById("pagina").value=(1);
+			$("#pagina").text("1");
+		}else{
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="block";
+		}
+	}// fin de funcion configuracionDePaginacion
 
 	_private.agregarEventoAbuscarNombre= function(a){
 			var buscarn = $("#buscarnombre");
@@ -120,32 +131,37 @@ var ModuloListado = function(){
 				return;
 			}else{
 				buscarn[0].addEventListener('keyup', function(event){
-				//	alert('presiono una tecla');
 					//aca ira una llamada ajax a la base de datos
 					document.getElementById("anterior").style.display="none";
-					if(total>5){
 					document.getElementById("siguiente").style.display="block";
-					}
-					document.getElementById("pagina").style.display="block";
-					document.getElementById("pagina").value=(1);
 					$("#pagina").text("1");
-					_private.hacerFiltro(0);
+					$("#pagina").val(1);
+					//_private.hacerFiltro(omitir,busque);
+					_private.hacerFiltro(omitir,busque);
 				});//fin de evento
 			}
 		}// fin de funcion agregarEventoAbuscarNombre
 
-		_private.hacerFiltro=function(a){
-				//alert("estoy en AJAX");
+		_private.hacerFiltro=function(omitir,busque){
 				$.ajax({
-							url: 'http://localhost:3000/clientes/{"id":"null","a":"'+a+'", "b":"5","texto":"'+document.getElementById("buscarnombre").value+'"}',
+							url: 'http://localhost:3000/clientes/{"id":"null","a":"'+omitir+'", "b":"'+busque+'","texto":"'+document.getElementById("buscarnombre").value+'"}',
 							type: "GET"
 						}).done(function(data,message){ //cargamos a la tabla
-							//alert("AJAX ESTA RESPONDIENDO");
+
+								var total = (data.data.length);
+								if(total<=5){
+									document.getElementById("siguiente").style.display="none";
+								}else{
+									document.getElementById("siguiente").style.display="block";
+								}
+
 							$("#tablita").remove();
 							var b = '<tbody id="tablita" '+
 										"</tbody>";
 							$("#tablaCliente").append(b);
-							for (var a = 0; a<data.data.length; a++){
+							var respuestaTotal=data.data.length;
+							if(respuestaTotal>5){respuestaTotal=5}
+							for (var a = 0; a<respuestaTotal; a++){
 								var nomC=("'"+data.data[a].nombre+"'");
 								//console.log(a);
 							var fila=
