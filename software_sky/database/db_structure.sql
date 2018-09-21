@@ -22,6 +22,8 @@ create table usuarios(
 	contraseña varchar(100)
 );
 go
+alter table usuarios add puesto varchar(50),
+alter table usuarios add estado varchar(50)
 
 --drop table proveedores
 --select *from proveedores
