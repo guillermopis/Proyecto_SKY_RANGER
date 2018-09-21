@@ -61,6 +61,7 @@ var ModuloListado = function(){
 				if($('#check1V').prop('checked')){
 					$('#formNuevoVehiculo').find('input, button, select').attr('disabled', false);
 					document.getElementById("btnGuardarV").disabled=false;
+					document.getElementById("dueñoV").disabled=true;
 				}else{
 					$('#formNuevoVehiculo').find('input, button, select').attr('disabled','disabled');
 					document.getElementById("btnGuardarV").disabled=true;

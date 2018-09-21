@@ -3,21 +3,23 @@ var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
 	var total =0;
+	var omitir=0;
+	var busque=0;
 	var datosPeticion="";
 	_public.__construct = function() {
 		return _public;
 	};
 
 	_public.iniciar=function(){
+		_private.traerTotal();
 		_private.agregarEventoAbotonNuevo();
-		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
 		_private.agregarEventoAbotonGuardarV();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
 		_private.agregarEventoAanterior();
 		_private.agregarEventoASiguiente();
-		_private.traerTotal();
+		_private.configuracionDePaginacion();
 
 	}// fin de iniciar
 
@@ -33,14 +35,18 @@ var ModuloListado = function(){
 		}//fin del if
 	}//fin de la funcion btncerrar
 
+	//funcion para guardar un vehiculo a ese cliente.
 	_private.agregarEventoAbotonGuardarV=function(){
 		var btnguardarv =$("#btnGuardarV");
 		if(btnguardarv.length == 0){
 			console.log("el botn guardar vehiculo no existe")
 		}else{
 			btnguardarv[0].addEventListener('click', function(event){
+				var forms = document.getElementsByClassName('needs-validation');
 				$("#bandera").val("nuevoVehiculo");
-				_private.validarCampos();
+				validarCampos(forms,event,function(estado){
+					_private.validarFormulario(estado);
+				})//fin de llamado a valida campos
 			})//fin del evento
 		}
 	}//fin de funcion agregar evento a boton guardar vehiculo
@@ -52,6 +58,7 @@ var ModuloListado = function(){
 					}).done(function(data){
 						total = data.data.length;
 						if(total <= 5){
+							document.getElementById("anterior").style.display="none";
 							document.getElementById("siguiente").style.display="none";
 							document.getElementById("pagina").style.display="none";
 						}else{
@@ -76,13 +83,8 @@ var ModuloListado = function(){
 						document.getElementById("anterior").style.display="block";
 						$("#pagina").text(String(n+1));
 						document.getElementById("pagina").value=(n+1);
-						_private.hacerFiltro(nu);
-					}/*else{
-						_private.hacerFiltro(nu);
-						document.getElementById("pagina").value=(n+1);
-						$("#pagina").text(String(n+1));
-					}*/
-
+						_private.hacerFiltro(nu,busque);
+					}
 				});//fin de evento
 			}//fin de if
 	}// fin de funcion siguiente
@@ -102,13 +104,25 @@ var ModuloListado = function(){
 				document.getElementById("siguiente").style.display="block";
 				document.getElementById("pagina").value=(n-1);
 				var nu = ((n-2)*5);
-				_private.hacerFiltro(nu);
+				_private.hacerFiltro(anterior,busque);
 			}else{
-				_private.hacerFiltro(0);
+				_private.hacerFiltro(omitir,busque);
 			}//fin de if = 0
 			});//fin de evento
 		}//fin de if
 	}// fin de funcion anterior
+
+	_private.configuracionDePaginacion=function(total){
+		if(total<= 5){
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="none";
+			document.getElementById("pagina").value=(1);
+			$("#pagina").text("1");
+		}else{
+			document.getElementById("anterior").style.display="none";
+			document.getElementById("siguiente").style.display="block";
+		}
+	}// fin de funcion configuracionDePaginacion
 
 	_private.agregarEventoAbuscarNombre= function(a){
 			var buscarn = $("#buscarnombre");
@@ -117,32 +131,37 @@ var ModuloListado = function(){
 				return;
 			}else{
 				buscarn[0].addEventListener('keyup', function(event){
-				//	alert('presiono una tecla');
 					//aca ira una llamada ajax a la base de datos
 					document.getElementById("anterior").style.display="none";
-					if(total>5){
 					document.getElementById("siguiente").style.display="block";
-					}
-					document.getElementById("pagina").style.display="block";
-					document.getElementById("pagina").value=(1);
 					$("#pagina").text("1");
-					_private.hacerFiltro(0);
+					$("#pagina").val(1);
+					//_private.hacerFiltro(omitir,busque);
+					_private.hacerFiltro(omitir,busque);
 				});//fin de evento
 			}
 		}// fin de funcion agregarEventoAbuscarNombre
 
-		_private.hacerFiltro=function(a){
-				//alert("estoy en AJAX");
+		_private.hacerFiltro=function(omitir,busque){
 				$.ajax({
-							url: 'http://localhost:3000/clientes/{"id":"null","a":"'+a+'", "b":"5","texto":"'+document.getElementById("buscarnombre").value+'"}',
+							url: 'http://localhost:3000/clientes/{"id":"null","a":"'+omitir+'", "b":"'+busque+'","texto":"'+document.getElementById("buscarnombre").value+'"}',
 							type: "GET"
 						}).done(function(data,message){ //cargamos a la tabla
-							//alert("AJAX ESTA RESPONDIENDO");
+
+								var total = (data.data.length);
+								if(total<=5){
+									document.getElementById("siguiente").style.display="none";
+								}else{
+									document.getElementById("siguiente").style.display="block";
+								}
+
 							$("#tablita").remove();
 							var b = '<tbody id="tablita" '+
 										"</tbody>";
 							$("#tablaCliente").append(b);
-							for (var a = 0; a<data.data.length; a++){
+							var respuestaTotal=data.data.length;
+							if(respuestaTotal>5){respuestaTotal=5}
+							for (var a = 0; a<respuestaTotal; a++){
 								var nomC=("'"+data.data[a].nombre+"'");
 								//console.log(a);
 							var fila=
@@ -195,27 +214,9 @@ var ModuloListado = function(){
 				document.getElementById("formcliente").reset();
 		}//fin de limpiar
 
-	_private.validarCampos=function() {
-	    var forms = document.getElementsByClassName('needs-validation');
-			//var forms=document.getElementById("formNuevoVehiculo");
-	    var validation = Array.prototype.filter.call(forms, function(form) {
-	        if (form.checkValidity() === false) {
-						//alert("el formulario es invalido");
-	          event.preventDefault();
-	          event.stopPropagation();
-						//return;
-	        }else{
-						//alert(form.checkValidity());
-						_private.validarFormulario("true");
-					}
-	        form.classList.add('was-validated');
-	    });
-}// fin de funcion validar campos
 
 _private.validarFormulario=function(esvalido){
-	//var esvalido = _private.formulario.checkValidity();
-	//alert("es valido= "+esvalido);
-	if(esvalido == "true"){
+	if(esvalido == true){
 		console.log("todo listo, guardemos la info");
 		if($("#bandera").val()	== "crear"){
 				datosPeticion={
@@ -233,7 +234,7 @@ _private.validarFormulario=function(esvalido){
 					"saldo": document.getElementById("saldo").value,
 					"anticipo": document.getElementById("anticipo").value
 				};
-				_private.peticion("http://127.0.0.1:3000/clientes/","POST",datosPeticion);
+				peticion("http://127.0.0.1:3000/clientes/","POST",datosPeticion,"modalnuevocliente","http://localhost:8000/clientes");
 		}
 		if($("#bandera").val()	== "ver"){//vamos actualizar la info
 			datosPeticion={
@@ -251,7 +252,7 @@ _private.validarFormulario=function(esvalido){
 				"saldo": document.getElementById("saldo").value,
 				"anticipo": document.getElementById("anticipo").value
 			};
-			_private.peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT",datosPeticion);
+			peticion("http://127.0.0.1:3000/clientes/"+$('#id').val(),"PUT",datosPeticion,"modalnuevocliente","http://localhost:8000/clientes");
 		}
 		if($("#bandera").val() == "nuevoVehiculo"){
 			datosPeticion={
@@ -268,28 +269,12 @@ _private.validarFormulario=function(esvalido){
 				"precio_servicio":document.getElementById("precioseve").value,
 				"fecha_instalacion":document.getElementById("fechainstve").value
 			};
-				_private.peticion("http://127.0.0.1:3000/vehiculos/","POST",datosPeticion);
+				peticion("http://127.0.0.1:3000/vehiculos/","POST",datosPeticion,"modalnuevocliente","http://localhost:8000/clientes");
 		}
-		//_private.EnviarDatosDeCliente();
 	}//fin del if
 	else{alert("formulario invalido");}
 }//fin de funcion validar formulario
 
-	_private.EnviarDatosDeCliente=function(){
-
-	}//fin de funcion EnviarDatosDeCliente
-
-	_private.peticion=function(url,type,datos){
-		$.ajax({
-					url: url,
-					type: type,
-					data: datosPeticion
-				}).done(function(data){
-					$('#modalnuevocliente').modal('hide')
-					alert(data.mensaje);
-					location.href = "http://localhost:8000/clientes";
-				})//fin de ajax
-	}//fnin de funcino peticion
 
 	_private.agregarEventoAbotonGuardar = function(){
 		var botonGuardar = $("#btnGuardar");
@@ -298,20 +283,14 @@ _private.validarFormulario=function(esvalido){
 			return;
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
-			//	_private.validarFormulario();
-				_private.validarCampos();
+				var forms = document.getElementsByClassName('needs-validation');
+				validarCampos(forms,event,function(estado){
+					_private.validarFormulario(estado);
+				})//sin fe funcion llamado a funcion validar camposº
 			});//fin de evento
 		}
 	}// fin de funcion evento a boton guardar
 
-	_private.asignarFormulario= function(){
-		var elementos = $("form");
-		if(elementos.length ==0){
-			console.log("formulario nuevo no encontado")
-		}else{
-			_private.formulario=elementos[0];
-		}
-	}// fin de funcion  asignarFormulario
 
 	//este boton es para abrir el modal de nuevo cliente
 	_private.agregarEventoAbotonNuevo=function(){
