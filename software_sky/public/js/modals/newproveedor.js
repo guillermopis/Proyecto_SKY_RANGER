@@ -4,6 +4,7 @@ var ModuloListado = function(){
 	var total=0;
 	var omitir=0;
 	var busque=0;
+	var datos="";
 	_public.__construct = function() {
 		return _public;
 	};
@@ -15,7 +16,7 @@ var ModuloListado = function(){
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbotonCerrar();
 		//para paginacion
-		_private.asignarEventoAbuscarPorCliente();
+		_private.asignarEventoAbuscarproveedor();
 		//_private.asignarEventoAbuscarPornombre();
 		_private.agregarEventoASiguiente();
 		_private.configuracionDePaginacion();
@@ -47,7 +48,6 @@ var ModuloListado = function(){
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
 				_private.validarFormulario();
-
 			});//fin de evento
 		}
 	}// fin de funcion evento a boton guardar
@@ -55,7 +55,7 @@ var ModuloListado = function(){
 //aca esta la configuracion inicial de la paginacion
 	_private.traerTotal=function(){
 			$.ajax({
-						url: 'http://127.0.0.1:3000/proveedores/{"a":"0", "b":"0","nombre":""}',
+						url: 'http://127.0.0.1:3000/proveedores/{"id":"null","a":"0", "b":"0","nombre":""}',
 						type: "GET"
 					}).done(function(data){
 						total = data.data.length;
@@ -90,7 +90,7 @@ var ModuloListado = function(){
 						document.getElementById("pagina").value=(n+1);
 						console.log("vio despues de 5 ahora a tiene otro valor");
 						//alert("estoy en siguiente n ="+	document.getElementById("pagina").value);
-						_private.hacerFiltro(nu, 5);
+						_private.hacerFiltro(nu, busque);
 
 					}
 				});//fin de evento
@@ -136,7 +136,7 @@ _private.agregarEventoAanterior=function(){
 		}
 	}// fin de funcion configuracionDePaginacion
 
-_private.asignarEventoAbuscarPorCliente=function(){
+_private.asignarEventoAbuscarproveedor=function(){
 		var buscarC = $("#buscarnombre");
 		if(buscarC.length==0){
 			console.log("el campo buscar por cliente no existe");
@@ -144,6 +144,7 @@ _private.asignarEventoAbuscarPorCliente=function(){
 			buscarC[0].addEventListener('keyup',function(event){
 				document.getElementById("anterior").style.display="none";
 				$("#pagina").text("1");
+				$("#pagina").val(1);
 			_private.hacerFiltro(omitir,busque);
 		});//fin de evento keyup
 		}//fin de if
@@ -152,7 +153,7 @@ _private.asignarEventoAbuscarPorCliente=function(){
 
 _private.hacerFiltro=function(omitir, busque){
 		$.ajax({
-					url:  'http://localhost:3000/proveedores/{"a":"'+omitir+'", "b":"'+busque+'","nombre":"'+document.getElementById("buscarnombre").value+'"}',
+					url:  'http://localhost:3000/proveedores/{"id":"null","a":"'+omitir+'", "b":"'+busque+'","nombre":"'+document.getElementById("buscarnombre").value+'"}',
 					type: "GET"
 				}).done(function(data,message){ //cargamos a la tabla
 					//alert("AJAX ESTA RESPONDIENDO");
@@ -172,7 +173,7 @@ _private.hacerFiltro=function(omitir, busque){
 					var respuestaTotal=data.data.length;
 					if(respuestaTotal>5){respuestaTotal=5}
 					for (var a = 0; a<respuestaTotal; a++){
-						//alert("respondiendo2");
+						var nomC=("'"+data.data[a].nombre+"'");
 					var fila=
 					"<tr>"+
 						'<th scope="row"></th>'+
@@ -185,7 +186,7 @@ _private.hacerFiltro=function(omitir, busque){
 						"<td>"+
 						'<div class="input-group">'+
 						'<div class="input-group-append" id="btnver">'+
-							'<button type="button" class="buttonsmall hover"'+ 'onClick="ver(#{proveedore.id})">'+
+							'<button type="button" class="buttonsmall hover"'+ 'onClick="ver('+data.data[a].id+')">'+
 							'<span class="fas fa-user-edit"></span>'+
 							"</button>"+
 						'</div>'+
@@ -245,23 +246,7 @@ _private.hacerFiltro=function(omitir, busque){
 			console.log("todo listo para guardar");
 			if($("#bandera").val()	== "crear"){
 			console.log('aquillego');
-				_private.peticion("http://127.0.0.1:3000/proveedores/","POST");
-			}
-			if($("#bandera").val()	== "ver"){//vamos actualizar la info
-			_private.peticion("http://127.0.0.1:3000/proveedores/"+$('#id').val(),"PUT");
-			}
-			else {
-				console.log('no se ejecuto la peticion put ni post');
-			}//fin del else
-		}//fin del if
-	}//fin de funcion validar formulario
-
-	_private.peticion=function(url,type){
-		//console.log('entraste a la peticion post');
-		$.ajax({
-					url: url,
-					type: type,
-					data: {
+				datos: {
 						"nombre": document.getElementById("nombre").value,
 						"nit": document.getElementById("nit").value,
 						"direccion": document.getElementById("direccion").value,
@@ -271,15 +256,29 @@ _private.hacerFiltro=function(omitir, busque){
 						"estado": document.getElementById("estado").value,
 						"contacto": document.getElementById("contacto").value,
 						"fecha_relacion": document.getElementById("fecha_relacion").value,
-						"correo_contacto": document.getElementById("correo_contacto").value						
-					}
-				}).done(function(data){
-					$('#modalnuevoproveedor').modal('hide');
-					alert("Datos Guardados");
-					//volvemos a la pagina 
-					location.href = "http://localhost:8000/proveedores";
-				})//fin de ajax
-	}//fnin de funcino peticion
+						"correo_contacto": document.getElementById("correo_contacto").value
+					};//fin de datos
+				peticion("http://127.0.0.1:3000/proveedores/","POST",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
+			}
+			if($("#bandera").val()	== "ver"){//vamos actualizar la info
+				datos: {
+						"nombre": document.getElementById("nombre").value,
+						"nit": document.getElementById("nit").value,
+						"direccion": document.getElementById("direccion").value,
+						"telefono": document.getElementById("telefono").value,
+						"extension": document.getElementById("extension").value,
+						"correo_empresa": document.getElementById("correo_empresa").value,
+						"estado": document.getElementById("estado").value,
+						"contacto": document.getElementById("contacto").value,
+						"fecha_relacion": document.getElementById("fecha_relacion").value,
+						"correo_contacto": document.getElementById("correo_contacto").value
+					};//fin de datos 
+			peticion("http://127.0.0.1:3000/proveedores/"+$('#id').val(),"PUT",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
+			}else {
+				console.log("no se ejecuto la peticion put ni post");
+			}//fin del else
+		}//fin del if
+	}//fin de funcion validar formulario
 
 	
 	_private.asignarFormulario= function(){
@@ -294,23 +293,24 @@ _private.hacerFiltro=function(omitir, busque){
 
 	//este boton es para abrir el modal de nuevoprovedor
 	_private.agregarEventoAbotonNuevo=function(){
-		console.log('si exist btnnuevo');
+		document.getElementById("bandera").style.display="none"
+		document.getElementById("id").style.display="none"
 		var btnnuevo = $("#btnnuevoproveedor");
-		if(btnnuevo.length ==0){
-			console.log('el btnnuevoproveedor no existe');
+		if(btnuevo.length == 0){
+			console.log("boton nuevo no existe");
 		}else{
-			btnnuevo[0].addEventListener('click', function(event){
-			$('#modalnuevoproveedor').modal('show');
-			_private.limpiar();
+		btnnuevo[0].addEventListener('click', function(event) {
+			$('#modalnuevoproveedor').modal('show')
+			_private.limpiar()
 			document.getElementById("btnguardarproveedor").disabled=false;
 			document.getElementById("check1").style.display="none";
 			document.getElementById("che").style.display="none";
 			$('#formproveedor').find('input, button, select').attr('disabled', false);
 					document.getElementById("btnguardarproveedor").disabled=false;
 			$("#bandera").val("crear");
-			});//fin del evento del boton	
+		});
 		}
-	}//fin de funcion de evento nuevo 
+	}//fin de boton nuevo
 
 	return _public.__construct.apply(this, arguments);
 }
