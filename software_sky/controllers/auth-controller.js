@@ -117,6 +117,16 @@ lote(request,response, next){
   }
 }//fin de lotess
 
+gps(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexgps',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de gps
+
 
 vehiculo(request,response, next){
   if(request.session.username){
