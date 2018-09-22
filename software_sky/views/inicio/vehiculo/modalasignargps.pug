@@ -11,7 +11,7 @@ div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" 
             .form-group.col-md-4
               .form-group(class="container")
                 label PLACA DEL VEHICULO
-                input(type="text" class="form-control" id="idve" style="border: 2px blue solid" )    
+                input(type="text" class="form-control" id="placave2" style="border: 2px blue solid" )    
             .form-group.col-md-4
               .form-group(class="container")
                 label FECHA
@@ -20,6 +20,8 @@ div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" 
               .form-group(class="container")
                 label TECNICO
                 select(id="tecnico" class="form-control" style="border: 2px blue outset")
+                  for tecnico2 in tecnicos.data
+                    <option value=#{tecnico2.id}>#{tecnico2.usuario}</option>
           .form-row  
             .form-group.col-md-4
               .form-group(class="container")

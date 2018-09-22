@@ -29,7 +29,11 @@ function verVehiculo(id_vehiculo){
 
 }//fin de funcion ver vehiculo
 
-function asignarGPS(id_vehiculo){
+function asignarGPS(id_vehiculo,placa){
   $("#modalasignargpsve").modal('show');
+  $("#placave2").val(placa);
+  document.getElementById("placave2").disabled=true;
+
+
 
 }//fin de funcion asignarGPS
