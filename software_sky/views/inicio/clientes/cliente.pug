@@ -65,9 +65,17 @@
             </tr>
           </tbody>     
         </div>
-
     nav(aria-label="Page navigation example")
       ul(class="pagination")
         li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
         li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
         li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente
+        
+    nav(aria-label="Page navigation example")
+      ul(class="pagination")
+        li(style="size:4")
+          | &nbsp;&nbsp;  REGISTROS EN CADA  PAGINA:      &nbsp;&nbsp;
+        li(class="page-item" id="5").a(class="page-link" href="#") 5
+        li(class="page-item" id="10" value="1").a(class="page-link" href="#") 10        
+        li(class="page-item" id="25").a(class="page-link" href="#") 25
+            
