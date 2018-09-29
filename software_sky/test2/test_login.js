@@ -9,7 +9,7 @@ let chai = require('chai'),
 describe('PRUEBAS DEL LOGIN',function(){
 	//prueba1
 	it('PRUEBA1, PROBANDO QUE SOLO DEVUELVA UN REGISTRO', function(done){
-    var url='http://127.0.0.1:3000/usuario/{"user":"prueba2","pass":"abc","puesto":"TECNICO"}'
+    var url='http://127.0.0.1:3000/usuario/{"user":"guillermo","pass":"abc","puesto":"TECNICO"}'
     peti.peticion(url,function(data){
       assert.equal(data.data.length,1);
       done();
