@@ -11,15 +11,15 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
-		_private.traerTotal();
+		//_private.traerTotal();
 		_private.agregarEventoAbotonNuevo();
 		_private.agregarEventoAbotonGuardar();
 		_private.agregarEventoAbotonGuardarV();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
-		_private.agregarEventoAanterior();
-		_private.agregarEventoASiguiente();
-		_private.configuracionDePaginacion();
+	//	_private.agregarEventoAanterior();
+	//	_private.agregarEventoASiguiente();
+	//	_private.configuracionDePaginacion();
 
 	}// fin de iniciar
 
