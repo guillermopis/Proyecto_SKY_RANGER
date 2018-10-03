@@ -1,3 +1,4 @@
+
 var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
@@ -10,9 +11,9 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
-		_private.agregarEventoAbotonNuevo();
 		_private.asignarFormulario();
 		_private.agregarEventoAbotonGuardar();
+		_private.agregarEventoAbotonNuevo();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbotonCerrar();
 		//para paginacion
@@ -25,10 +26,11 @@ var ModuloListado = function(){
 	}
 
 	_private.agregarEventoAbotonCerrar=function(){
+		console.log("boton cerrar si existe");
 		document.getElementById("bandera").style.display="none";
 		document.getElementById("id").style.display="none";
 		btncerrar = $("#btnCerrar");
-		console.log("boton cerrar si existe");
+		
 		if(btncerrar.length == 0){
 			console.log("el boton cerrar de cliente no existe");
 		}else{
@@ -246,7 +248,7 @@ _private.hacerFiltro=function(omitir, busque){
 			console.log("todo listo para guardar");
 			if($("#bandera").val()	== "crear"){
 			console.log('aquillego');
-				datos: {
+				datos= {
 						"nombre": document.getElementById("nombre").value,
 						"nit": document.getElementById("nit").value,
 						"direccion": document.getElementById("direccion").value,
@@ -261,7 +263,7 @@ _private.hacerFiltro=function(omitir, busque){
 				peticion("http://127.0.0.1:3000/proveedores/","POST",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
 			}
 			if($("#bandera").val()	== "ver"){//vamos actualizar la info
-				datos: {
+				datos= {
 						"nombre": document.getElementById("nombre").value,
 						"nit": document.getElementById("nit").value,
 						"direccion": document.getElementById("direccion").value,
@@ -292,14 +294,15 @@ _private.hacerFiltro=function(omitir, busque){
 	}// fin de funcion  asignarFormulario
 
 	//este boton es para abrir el modal de nuevoprovedor
-	_private.agregarEventoAbotonNuevo=function(){
+	_private.agregarEventoAbotonNuevo= function(){
 		document.getElementById("bandera").style.display="none"
 		document.getElementById("id").style.display="none"
 		var btnnuevo = $("#btnnuevoproveedor");
-		if(btnuevo.length == 0){
+
+		if(btnnuevo.length == 0){
 			console.log("boton nuevo no existe");
 		}else{
-		btnnuevo[0].addEventListener('click', function(event) {
+			btnnuevo[0].addEventListener('click', function(event) {
 			$('#modalnuevoproveedor').modal('show')
 			_private.limpiar()
 			document.getElementById("btnguardarproveedor").disabled=false;
