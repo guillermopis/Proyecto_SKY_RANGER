@@ -84,7 +84,7 @@ clientes(request, response, next){
 //para responder a las peticiones de proveedores
 proveedores(request, response, next){
   if(request.session.username){
-    peti.peticion("http://localhost:3000/proveedores/null", function(data){
+    peti.peticion('http://localhost:3000/proveedores/{"id":"null","a":"0", "b":"5","nombre":""}', function(data){
           response.render('inicio/indexproveedores',{
               title: 'Proveedores',
               data
