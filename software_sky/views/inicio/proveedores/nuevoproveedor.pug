@@ -11,7 +11,10 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevoproveedor" tabindex="-1
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE DE LA EMPRESA
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" )    
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese nombre.!
+                </div>
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
@@ -49,7 +52,7 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevoproveedor" tabindex="-1
                 .form-group(class="container")
                   label ESTADO
                   select(id="estado" class="form-control" style="border: 2px blue solid")
-                    option.select seleccionar
+                    
                     option.select ACTIVO
                     option.select INACTIVO    
           .form-row
