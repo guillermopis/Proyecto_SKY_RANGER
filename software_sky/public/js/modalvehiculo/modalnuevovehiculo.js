@@ -8,14 +8,14 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
-		_private.traerTotal();
-		_private.configuracionDePaginacion();
+		//_private.traerTotal();
+		//_private.configuracionDePaginacion();
 	//	_private.vehiculonuevo();
 	//	_private.asignargps();
-		_private.asignarEventoAbuscarPorCliente();
-		_private.asignarEventoAbuscarPorPlaca();
-		_private.agregarEventoASiguiente();
-		_private.agregarEventoAanterior();
+		//_private.asignarEventoAbuscarPorCliente();
+		//_private.asignarEventoAbuscarPorPlaca();
+		//_private.agregarEventoASiguiente();
+		//_private.agregarEventoAanterior();
 		_private.agregarEventoAcheckV();
 		_private.agregarEventoAbotonGuardarV();
 	}
