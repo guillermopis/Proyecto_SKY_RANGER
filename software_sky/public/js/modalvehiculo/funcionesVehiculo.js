@@ -30,10 +30,28 @@ function verVehiculo(id_vehiculo){
 }//fin de funcion ver vehiculo
 
 function asignarGPS(id_vehiculo,placa){
+  listado.guardarV(id_vehiculo);
+
   $("#modalasignargpsve").modal('show');
   $("#placave2").val(placa);
   document.getElementById("placave2").disabled=true;
+//consultamos cual es el actual gps de este vehiculo.
+$.ajax({
+  url:'http://127.0.0.1:3000/historialVehiculo/{"id":"'+id_vehiculo +'","a":"0", "b":"0","texto":""}',
+  type:"GET",
+  dataType: 'json',
+  data:{}
+}).then(function(data){
+  if(data.data.length==0){
+    alert("Se le asignara GPS a este vehiculo por primera vez");
+    document.getElementById("idgpssalida").value='NULL';
+    document.getElementById("comentariove").value='Se asigno GPS a vehiculo por primera vez.'
+  }else{
+    document.getElementById("idgpssalida").value=data.data[0].id_gps_entrada;
+  }
+  //si no hay data, sera el primer movimiento con este vehiculos
 
+})//fin de funcion ajax
 
 
 }//fin de funcion asignarGPS

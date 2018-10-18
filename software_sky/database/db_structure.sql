@@ -204,12 +204,14 @@ create table vehiculos(
 );
 go
 
+
+
 --aca estoy trabajando
-create table historialVehiculo(
+create table historialVehiculos(
 	id int not  null identity primary key,
 	fecha date,
 	id_gps_entrada int not null,
-	id_gps_salida int not null,
+	id_gps_salida int,
 	id_vehiculo int not null,
 	id_tecnico int not null,
 	comentario varchar(max),

@@ -132,10 +132,12 @@ vehiculo(request,response, next){
   if(request.session.username){
     peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"0","texto":"","placa":"","id":""}', function(datosV){
       peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
-        response.render('inicio/indexvehiculo',{
-          title: "vehiculos",
-          datosV, tecnicos
-        });//fin del response
+        peti.peticion('http://127.0.0.1:3000/gps/{"id":"null","a":"0", "b":"0","estado":"STOCK"}', function(gpsentrada){
+          response.render('inicio/indexvehiculo',{
+            title: "vehiculos",
+            datosV, tecnicos, gpsentrada
+          });//fin del response
+        });
       })
     });//fin de peticion oa vehiculo
   }else {
