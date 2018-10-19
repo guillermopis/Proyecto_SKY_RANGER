@@ -17,6 +17,7 @@ router
     .get('/vehiculo', direcciones.vehiculo)
     .get('/lote', direcciones.lote)
     .get('/gps', direcciones.gps)
+    .get('/sims', direcciones.sims)
 //peticiones POST
     .post('/login', direcciones.login)
 
