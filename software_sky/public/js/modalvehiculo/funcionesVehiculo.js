@@ -47,7 +47,14 @@ $.ajax({
     document.getElementById("idgpssalida").value='NULL';
     document.getElementById("comentariove").value='Se asigno GPS a vehiculo por primera vez.'
   }else{
-    document.getElementById("idgpssalida").value=data.data[0].id_gps_entrada;
+    listado.guardaridgpssalida(data.data[0].id_gps_entrada);
+    $.ajax({
+      url:'http://127.0.0.1:3000/gps/{"id":"'+data.data[0].id_gps_entrada+'","a":"0", "b":"5","estado":""}',
+      type:"GET",
+      data:{}
+    }).then(function(data){
+      document.getElementById("idgpssalida").value=data.data[0].imei;
+    })//fin de AJAX
   }
   //si no hay data, sera el primer movimiento con este vehiculos
 
