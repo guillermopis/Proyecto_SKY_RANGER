@@ -205,11 +205,11 @@ create table vehiculos(
 go
 
 
-
+--drop table historialVehiculos
 --aca estoy trabajando
 create table historialVehiculos(
 	id int not  null identity primary key,
-	fecha date,
+	fecha datetime not null,
 	id_gps_entrada int not null,
 	id_gps_salida int,
 	id_vehiculo int not null,

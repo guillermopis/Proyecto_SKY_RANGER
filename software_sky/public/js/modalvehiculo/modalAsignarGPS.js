@@ -1,10 +1,15 @@
 var ModuloListado = function(){
   var idVehiculo2;
+  var idgpsSalida;
 	var _private = {};
   var _public = {};
 	_public.__construct = function() {
 		return _public;
 	};
+  _public.guardaridgpssalida=function(gpsSalida){
+    idgpsSalida=gpsSalida;
+  }
+
   _public.guardarV=function(idve){
     idVehiculo2=idve
   }
@@ -23,24 +28,31 @@ var ModuloListado = function(){
       btnGuardarAs[0].addEventListener('click',function(event){
         var combo = document.getElementById("gpsentrada");
         var seleccionado = combo.options[combo.selectedIndex].text;
+        var gp = document.getElementById("idgpssalida").value;
 
+        if(gp=='NULL'){
+          idgpsSalida='NULL';
+        }
         //guardarmos el registro en la tabla de historialVehiculo
-alert(document.getElementById("comentariove").value);
         $.ajax({
           url:"http://127.0.0.1:3000/historialVehiculo/",
           type:"POST",
           dataType: 'json',
           data:{
-            fecha:document.getElementById("fechave").value,
+            //fecha:document.getElementById("fechave").value,
             id_gps_entrada:document.getElementById("gpsentrada").value,
-            id_gps_salida:document.getElementById("idgpssalida").value,
+            id_gps_salida:idgpsSalida,
             idVehiculo:idVehiculo2,
             id_tecnico:document.getElementById("tecnico").value,
-            comentario:document.getElementById("comentariove").value,
-            id_gps:document.getElementById("idgpssalida").value
+            comentario:document.getElementById("comentariove").value
+            //id_gps:document.getElementById("idgpssalida").value
           }
         }).done(function(data){
-          alert(data.error);
+          var error= data.error;
+          if(error==false){
+            alert("GPS asignado correctamente");
+            location.href="http://localhost:8000/vehiculo";
+          }
         })//fin de ajax
       });
     }
