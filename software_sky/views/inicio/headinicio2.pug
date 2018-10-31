@@ -1,0 +1,83 @@
+doctype html
+html(lang="es")
+  head
+    title SKY RANGER
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/icono.jpg" />
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="css/sweet-alert.css">
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css"> <!--nos muestra los iconos del menu y de arriba-->   
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"> <!--nos permite desplazarnos de arriba a abajo en el menu-->        
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script> <!--permite mostrar un menu en una opcion-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+  body
+  //barra del menu vertical
+  .navbar-lateral.full-reset
+    .visible-xs.font-movile-menu.mobile-menu-button
+    .full-reset.container-menu-movile.custom-scroll-containers
+      .logo.full-reset.all-tittles(style='background-color: #021528')
+        i.visible-xs.zmdi.zmdi-close.pull-left.mobile-menu-button(style='line-height: 55px; cursor: pointer; padding: 0 10px; margin-left: 7px;')
+        |                 FERRETERIA
+      .full-reset(style='background-color:#021528; padding: 10px 0; color:#fff;')
+        figure
+          img.img-responsive.center-box(src='assets/img/logo.jpg', style='width:90%;')
+        p.text-center(style='padding-top: 15px;') Sistema Ferreteria
+      .full-reset.nav-lateral-list-menu(style='background-color: #021528')
+        ul.list-unstyled
+          // sirve para alinear la liesta
+          // &nbsp significa espacio
+          li
+            a(href='inicio.php')
+              i.zmdi.zmdi-home.zmdi-hc-fw
+              | &nbsp;&nbsp; Inicio
+          li
+            .dropdown-menu-button
+              i.zmdi.zmdi-account.zmdi-hc-fw
+              | &nbsp;&nbsp; Trabajador 
+              i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw
+            ul.list-unstyled(style='background-color: #2874A6')
+              li
+                a(href='trabajador-nuevo.php')
+                  i.zmdi.zmdi-account-add.zmdi-hc-fw
+                  | &nbsp;&nbsp; Nuevo Trabajador
+              li
+                a(href='trabajador-reporte.php')
+                  i.zmdi.zmdi-accounts.zmdi-hc-fw
+                  | &nbsp;&nbsp; Reporte Trabajador
+          li
+            .dropdown-menu-button
+              i.zmdi.zmdi-account.zmdi-hc-fw
+              | &nbsp;&nbsp; Trabajador 
+              i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw
+  
+            ul.list-unstyled(style='background-color: #2874A6')
+              li
+                a(href='trabajador-nuevo.php')
+                  i.zmdi.zmdi-account-add.zmdi-hc-fw
+                  | &nbsp;&nbsp; Nuevo Trabajador
+              li
+                a(href='trabajador-reporte.php')
+                  i.zmdi.zmdi-accounts.zmdi-hc-fw
+                  | &nbsp;&nbsp; Reporte Trabajador
+          li
+            .dropdown-menu-button
+              i.zmdi.zmdi-account.zmdi-hc-fw
+              | &nbsp;&nbsp; Trabajador 
+              i.zmdi.zmdi-chevron-down.pull-right.zmdi-hc-fw        
+            ul.list-unstyled(style='background-color: #2874A6')
+              li
+                a(href='trabajador-nuevo.php')
+                  i.zmdi.zmdi-account-add.zmdi-hc-fw
+                  | &nbsp;&nbsp; Nuevo Trabajador
+              li
+                a(href='trabajador-reporte.php')
+                  i.zmdi.zmdi-accounts.zmdi-hc-fw
+                  | &nbsp;&nbsp; Reporte Trabajador
+  
+
+block content
