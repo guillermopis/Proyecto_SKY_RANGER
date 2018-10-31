@@ -19,10 +19,10 @@ var ModuloListado = function(){
 		//para paginacion
 		_private.asignarEventoAbuscarproveedor();
 		//_private.asignarEventoAbuscarPornombre();
-		_private.agregarEventoASiguiente();
-		_private.configuracionDePaginacion();
-		_private.traerTotal();
-		_private.agregarEventoAanterior();
+		//_private.agregarEventoASiguiente();
+		//_private.configuracionDePaginacion();
+		//_private.traerTotal();
+		//_private.agregarEventoAanterior();
 	}
 
 	_private.agregarEventoAbotonCerrar=function(){
@@ -174,7 +174,7 @@ _private.hacerFiltro=function(omitir, busque){
 					$("#tablita").remove();
 					var b = '<tbody id="tablita" '+
 								"</tbody>";
-					$("#tablaProveedores").append(b);
+					$("#tablaProveedor").append(b);
 					var respuestaTotal=data.data.length;
 					if(respuestaTotal>5){respuestaTotal=5}
 					for (var a = 0; a<respuestaTotal; a++){
@@ -301,7 +301,7 @@ _private.hacerFiltro=function(omitir, busque){
 		document.getElementById("bandera").style.display="none"
 		document.getElementById("id").style.display="none"
 		var btnnuevo = $("#btnnuevoproveedor");
-
+		_private.limpiar()
 		if(btnnuevo.length == 0){
 			console.log("boton nuevo no existe");
 		}else{
