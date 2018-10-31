@@ -21,8 +21,10 @@ peticion=function(url,type,datos,modal,redireccion){
         type: type,
         data: datos
       }).done(function(data){
-        $(modal).modal('hide')
-        alert(data.mensaje);
-        location.href = redireccion;
+        if(data.error == false){
+          $(modal).modal('hide')
+          alert(data.mensaje);
+          location.href = redireccion;
+        }
       })//fin de ajax
 }//fnin de funcino peticion

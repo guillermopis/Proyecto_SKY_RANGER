@@ -32,17 +32,17 @@ var ModuloListado = function(){
 						var redireccion="http://localhost:8000/vehiculo"
 						var url="http://127.0.0.1:3000/vehiculos/"+$("#idV").val();
 						var datos={
-							marca: document.getElementById("marcave").value,
-							linea: document.getElementById("linea").value,
-							modelo: document.getElementById("modelove").value,
-							color: document.getElementById("colorve").value,
-							tipo:   document.getElementById("tipove").value,
-							placa:document.getElementById("placave").value,
-							motor: document.getElementById("motor").value,
-							chasis: document.getElementById("chasis").value,
-							estado: document.getElementById("estadove").value,
-							precio_servicio: document.getElementById("precioseve").value,
-							fecha_instalacion: document.getElementById("fechainstve").value
+							"marca": document.getElementById("marcave").value,
+							"linea": document.getElementById("linea").value,
+							"modelo": document.getElementById("modelove").value,
+							"color": document.getElementById("colorve").value,
+							"tipo": document.getElementById("tipove").value,
+							"placa":document.getElementById("placave").value,
+							"motor": document.getElementById("motor").value,
+							"chasis": document.getElementById("chasis").value,
+							"estado": document.getElementById("estadove").value,
+							"precio_servicio": document.getElementById("precioseve").value,
+							"fecha_instalacion": document.getElementById("fechainstve").value
 						}; //acca van los datos de api
 						peticion(url,"PUT",datos,"modalnuevovehiculo",redireccion);
 					}//fi de if estado

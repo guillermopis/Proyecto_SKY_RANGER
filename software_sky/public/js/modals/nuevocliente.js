@@ -39,7 +39,7 @@ var ModuloListado = function(){
 	_private.agregarEventoAbotonGuardarV=function(){
 		var btnguardarv =$("#btnGuardarV");
 		if(btnguardarv.length == 0){
-			console.log("el botn guardar vehiculo no existe")
+			console.log("el boton guardar vehiculo no existe")
 		}else{
 			btnguardarv[0].addEventListener('click', function(event){
 				var forms = document.getElementsByClassName('needs-validation');

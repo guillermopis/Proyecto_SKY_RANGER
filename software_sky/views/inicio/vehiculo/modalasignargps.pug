@@ -6,7 +6,7 @@ div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center" id="formusuario")          
+        form(class="needs-validation" novalidate ,style="border: 8px black inset; font-family: bold" align="center" id="formasignargps")          
           .form-row
             .form-group.col-md-4
               .form-group(class="container")
@@ -33,7 +33,10 @@ div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" 
             .form-group.col-md-12
               .form-group(class="container")
                 label COMENTARIO
-                textarea(type="text" class="form-control" id="comentariove" style="border: 2px blue solid"  requerid )                                       
+                input(type="text" class="form-control" id="comentariove" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")
+                <div class="invalid-feedback">
+                loo  Por favor ingrese un comentario
+                </div>
       div(class="modal-footer")
         <div class="form-group form-check">
           button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
