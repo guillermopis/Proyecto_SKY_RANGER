@@ -1,40 +1,42 @@
 doctype html
 html(lang="es")
   head
-    title SKY RANGER
+    // inicio funciones principales-----------------------------------------------------------------------------------------------
+    title SKY RANGER    
     meta(charset='UTF-8')
     meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    script(src="fecha/libs/jquery.js")
     link(rel='Shortcut Icon', type='image/x-icon', href='assets/icons/skyranger.jpg')
     script(src='js/sweet-alert.min.js')
     link(rel='stylesheet', href='css/sweet-alert.css')
     link(rel='stylesheet', href='css/material-design-iconic-font.min.css')    
-    // permite mostrar un menu en una opcion
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script> <!--permite mostrar un menu en una opcion-->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"> <!--nos permite desplazarnos de arriba a abajo en el menu-->
-    // nos muestra los iconos del menu y de arriba
     link(rel='stylesheet', href='css/bootstrap.min.css')
-    link(rel='stylesheet', href='css/jquery.dataTables.min.css')
-    //link(rel='stylesheet', href='css/dataTables.bootstrap4.min.css')
-    link(rel="stylesheet", href="css/estilos2.css")
     link(rel='stylesheet', href='css/style.css')
-    link(rel='stylesheet', href='css/jquery.mCustomScrollbar.css')
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"> <!--nos permite desplazarnos de arriba a abajo en el menu-->
+    script.
+      window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\\/script>')
+    // permite mostrar un menu en una opcion    
+    //fin funciones principales-----------------------------------------------------------------------------------------------
+    
+    //funcones creados, agregar todo dentro de este bloque ------------------------------------------------------------     
+    script(src="fecha/libs/jquery.js")         
+    link(rel='stylesheet', href='css/jquery.dataTables.min.css')    
+    link(rel="stylesheet", href="css/estilos2.css")    
     link(rel="stylesheet", href="css/diseño.css")
-    script(src="js/jquery-3.3.1.js")
     script(src="js/jquery.dataTables.min.js")
-    script(src="fecha/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js")
     script(src="fecha/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js")
     script(src="fecha/libs/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js")
     link(rel="stylesheet" href="fecha/libs/bootstrap-datepicker/css/bootstrap-datepicker.css")
     //llamamos a las librerias de fontawesome para poder aplicarles los iconos
     link(rel='stylesheet', href='fontawesome-free-5.3.1-web/css/all.min.css')
-    script(src="fontawesome-free-5.3.1-web/js/all.min.js")            
-    // nos permite desplazarnos de arriba a abajo en el menu
-    //<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>        
-    script(src='js/bootstrap.min.js')
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    script(src='js/main.js')    
+    script(src="fontawesome-free-5.3.1-web/js/all.min.js")        
+        
+    //fin de funciones creados, agregar todo dentro de este bloque------------------------------------------------------------
+  
+    script(src='js/bootstrap.min.js')    
+    script(src='js/jquery.mCustomScrollbar.concat.min.js')
+    script(src='js/main.js')
+
 
   body
   //barra del menu vertical
@@ -42,12 +44,12 @@ html(lang="es")
     .visible-xs.font-movile-menu.mobile-menu-button
     .full-reset.container-menu-movile.custom-scroll-containers
       .logo.full-reset.all-tittles(style='background-color: #021528')
-        | SKY-RANGER
+        
       .full-reset(style='background-color:#021528; padding: 5px 0; color:#fff;')
-        figure(class="container" align="middle")
+        figure(class="containers" align="middle")
           img.img-responsive.center-box(src='assets/img/skyranger2.jpeg', style='width: 60%')
-        p.text-center(style='padding-top: 10px;') 
-          |Sistema de GPS
+        p.text-center(style='padding-top: 5px;') 
+          |SISTEMA DE GPS
       .full-reset.nav-lateral-list-menu(style='background-color: #021528')        
         ul.list-unstyled
           // sirve para alinear la liesta
