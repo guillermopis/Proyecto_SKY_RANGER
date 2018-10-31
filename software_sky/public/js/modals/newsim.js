@@ -35,20 +35,23 @@ var ModuloListado = function(){
 		}else{
 			btncerrar[0].addEventListener('click', function(event){
 				_private.limpiar();
-				$("#modalnuevoproveedor").modal("hide");
+				$("#modalnuevasim").modal("hide");
 			})//fin del evento
 		}//fin del if
 	}//fin de la funcion btncerrar
 
 	_private.agregarEventoAbotonGuardar = function(){
-		var botonGuardar = $("#btnguardarproveedor");
+		var botonGuardar = $("#btnguardarsim");
 		console.log('el btnguardar si existe');
 		if(botonGuardar.length==0){
 			console.log("el boton guardar no existe");
 			return;
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
-				_private.validarFormulario();
+				var forms = document.getElementsByClassName('needs-validation');
+				validarCampos(forms,event,function(estado){
+					_private.validarFormulario(estado);
+				})//sin fe funcion llamado a funcion validar camposº
 			});//fin de evento
 		}
 	}// fin de funcion evento a boton guardar
@@ -56,7 +59,7 @@ var ModuloListado = function(){
 //aca esta la configuracion inicial de la paginacion
 	_private.traerTotal=function(){
 			$.ajax({
-						url: 'http://127.0.0.1:3000/proveedores/{"id":"null","a":"0", "b":"0","nombre":""}',
+						url: 'http://127.0.0.1:3000/sims/{"id":"null","a":"0", "b":"0","compania_telefonica":""}',
 						type: "GET"
 					}).done(function(data){
 						total = data.data.length;
@@ -154,7 +157,7 @@ _private.asignarEventoAbuscarproveedor=function(){
 
 _private.hacerFiltro=function(omitir, busque){
 		$.ajax({
-					url:  'http://localhost:3000/proveedores/{"id":"null","a":"'+omitir+'", "b":"'+busque+'","nombre":"'+document.getElementById("buscarnombre").value+'"}',
+					url:  'http://localhost:3000/sims/{"id":"null","a":"'+omitir+'", "b":"'+busque+'","compania_telefonica":"'+document.getElementById("buscarnombre").value+'"}',
 					type: "GET"
 				}).done(function(data,message){ //cargamos a la tabla
 					//alert("AJAX ESTA RESPONDIENDO");
@@ -170,19 +173,18 @@ _private.hacerFiltro=function(omitir, busque){
 					$("#tablita").remove();
 					var b = '<tbody id="tablita" '+
 								"</tbody>";
-					$("#tablaProveedores").append(b);
+					$("#tablaSims").append(b);
 					var respuestaTotal=data.data.length;
 					if(respuestaTotal>5){respuestaTotal=5}
 					for (var a = 0; a<respuestaTotal; a++){
-						var nomC=("'"+data.data[a].nombre+"'");
+						var nomC=("'"+data.data[a].compania_telefonica+"'");
 					var fila=
 					"<tr>"+
 						'<th scope="row"></th>'+
-						"<td>"+data.data[a].nombre+"</td>"+
-						"<td>"+data.data[a].direccion+"</td>"+
-						"<td>"+data.data[a].telefono+"</td>"+
-						"<td>"+data.data[a].extension+"</td>"+
-						"<td>"+data.data[a].correo_empresa+"</td>"+
+						"<td>"+data.data[a].compania_telefonica+"</td>"+
+						"<td>"+data.data[a].numero_telefono+"</td>"+
+						"<td>"+data.data[a].plan_de_datos+"</td>"+
+						"<td>"+data.data[a].id_lote+"</td>"+
 						"<td>"+data.data[a].estado+"</td>"+
 						"<td>"+
 						'<div class="input-group">'+
@@ -209,18 +211,18 @@ _private.hacerFiltro=function(omitir, busque){
 				}else{
 					check[0].addEventListener('click', function(event){
 						if($('#check1').prop('checked')){
-							$('#formproveedor').find('input, button, select').attr('disabled', false);
-							document.getElementById("btnguardarproveedor").disabled=false;
+							$('#formsim').find('input, button, select').attr('disabled', false);
+							document.getElementById("btnguardarsim").disabled=false;
 						}else{
-							$('#formproveedor').find('input, button, select').attr('disabled','disabled');
-							document.getElementById("btnguardarproveedor").disabled=true;
+							$('#formsim').find('input, button, select').attr('disabled','disabled');
+							document.getElementById("btnguardarsim").disabled=true;
 						}
 					});//fin de evento
 				}
 		}//fin de funcion agregarEventoACheck1
 
 		_private.limpiar=function(){
-			document.getElementById("formproveedor").reset();
+			document.getElementById("formsim").reset();
 		}//fin de limpiar
 
 	/*_private.validarCampos=function() {
@@ -259,7 +261,7 @@ _private.hacerFiltro=function(omitir, busque){
 						"fecha_relacion": document.getElementById("fecha_relacion").value,
 						"correo_contacto": document.getElementById("correo_contacto").value
 					};//fin de datos
-				peticion("http://127.0.0.1:3000/proveedores/","POST",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
+				peticion("http://127.0.0.1:3000/sims/","POST",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
 			}
 			if($("#bandera").val()	== "ver"){//vamos actualizar la info
 				datos= {
@@ -274,7 +276,7 @@ _private.hacerFiltro=function(omitir, busque){
 						"fecha_relacion": document.getElementById("fecha_relacion").value,
 						"correo_contacto": document.getElementById("correo_contacto").value
 					};//fin de datos 
-			peticion("http://127.0.0.1:3000/proveedores/"+$('#id').val(),"PUT",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
+			peticion("http://127.0.0.1:3000/sims/"+$('#id').val(),"PUT",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
 			}else {
 				console.log("no se ejecuto la peticion put ni post");
 			}//fin del else
@@ -296,19 +298,19 @@ _private.hacerFiltro=function(omitir, busque){
 	_private.agregarEventoAbotonNuevo= function(){
 		document.getElementById("bandera").style.display="none"
 		document.getElementById("id").style.display="none"
-		var btnnuevo = $("#btnnuevoproveedor");
+		var btnnuevo = $("#btnnuevasim");
 
 		if(btnnuevo.length == 0){
 			console.log("boton nuevo no existe");
 		}else{
 			btnnuevo[0].addEventListener('click', function(event) {
-			$('#modalnuevoproveedor').modal('show')
+			$('#modalnuevasim').modal('show')
 			_private.limpiar()
-			document.getElementById("btnguardarproveedor").disabled=false;
+			document.getElementById("btnguardarsim").disabled=false;
 			document.getElementById("check1").style.display="none";
 			document.getElementById("che").style.display="none";
-			$('#formproveedor').find('input, button, select').attr('disabled', false);
-					document.getElementById("btnguardarproveedor").disabled=false;
+			$('#formsim').find('input, button, select').attr('disabled', false);
+					document.getElementById("btnguardarsim").disabled=false;
 			$("#bandera").val("crear");
 		});
 		}

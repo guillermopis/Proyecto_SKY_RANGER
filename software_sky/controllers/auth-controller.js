@@ -143,19 +143,21 @@ vehiculo(request,response, next){
   }//fin de if
 }//fin de vehiculos
 
-//para responder a las peticiones de proveedores
+//para responder a las peticiones de sims
 sims(request, response, next){
   if(request.session.username){
     peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"5","compania_telefonica":""}', function(dataSim){
+      peti.peticion("http://localhost:3000/lotes/", function(datoslotes){
           response.render('inicio/indexsim',{
               title: 'sim',
-              dataSim
-            });//fin  del response
-          });// fin de peticion a moras
+              dataSim, datoslotes
+            });
+            });//fin  de la peticion a sim
+          });// fin de peticion a proveedores
 
   }else{//si no tiene sesion activa
       errors.http401(request, response, next);
   }
-}//fin de funcion proveedores
+}//fin de funcion sims
 
 }module.exports = AuthController;
