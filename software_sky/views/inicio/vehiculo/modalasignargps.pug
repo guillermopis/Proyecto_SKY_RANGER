@@ -6,41 +6,40 @@ div(class="modal fade bd-example-modal-lg" id="modalasignargpsve" tabindex="-1" 
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center" id="formusuario")          
+        form(class="needs-validation" novalidate ,style="border: 8px black inset; font-family: bold" align="center" id="formasignargps")          
           .form-row
             .form-group.col-md-4
               .form-group(class="container")
-                label ID DEL VEHICULO
-                input(type="text" class="form-control" id="idve" style="border: 2px blue solid" )    
-            .form-group.col-md-4
-              .form-group(class="container")
-                label FECHA
-                input(type="text" class="form-control" id="fechave" style="border: 2px blue solid" )    
+                label PLACA DEL VEHICULO
+                input(type="text" class="form-control" id="placave2" style="border: 2px blue solid" )     
             .form-group.col-md-4
               .form-group(class="container")
                 label TECNICO
-                input(type="text" class="form-control" id="tecnicove" style="border: 2px blue solid")          
+                select(id="tecnico" class="form-control" style="border: 2px blue outset")
+                  for tecnico2 in tecnicos.data
+                    <option value=#{tecnico2.id}>#{tecnico2.usuario}</option>
           .form-row  
             .form-group.col-md-4
               .form-group(class="container")
-                label ID GPS DE ENTRADA
-                input(type="text" class="form-control" id="idgpsenve" style="border: 2px blue solid")                        
+                label  GPS DE ENTRADA
+                select(id="gpsentrada" class="form-control" style="border: 2px blue outset" autocomplete="cc-number")
+                  for gpsint in gpsentrada.data
+                    <option value=#{gpsint.id}>#{gpsint.imei}</option> 
             .form-group.col-md-4
               .form-group(class="container")
                 label ID GPS DE SALIDA
-                input(type="text" class="form-control" id="idgpssave" style="border: 2px blue solid")                        
+                input(type="text" class="form-control" id="idgpssalida"  style="border: 2px blue solid" disabled)                     
           .form-row
             .form-group.col-md-12
               .form-group(class="container")
                 label COMENTARIO
-                textarea(type="text" class="form-control" id="comentariove" style="border: 2px blue solid")                                       
+                input(type="text" class="form-control" id="comentariove" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")
+                <div class="invalid-feedback">
+                loo  Por favor ingrese un comentario
+                </div>
       div(class="modal-footer")
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="check1">
-          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
-        </div>
-        <div class="form-group form-check">
           button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" ) CERRAR
-          button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary") GUARDAR          
+          button(button type="button" id="btnGuardarAsignacion" name="btnGuardarAsignacion" class="btn btn-primary") GUARDAR          
         </div>      
         

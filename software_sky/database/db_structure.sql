@@ -19,12 +19,15 @@ go
 create table usuarios(
 	id int primary key not null identity,
 	usuario varchar(50),
-	contraseña varchar(100)
+	contraseña varchar(100),
+	puesto varchar(50),
+	estado varchar(50),
+	rol int not null,
+	constraint id_rol foreign key(rol) references roles(id)
 );
 go
 
---drop table proveedores
---select *from proveedores
+
 --five step tabla proveedores
 create table proveedores(
 	id int primary key not null identity,
@@ -41,16 +44,6 @@ create table proveedores(
 );
 go
 
---five step
-create table proveedores(
-	id int primary key not null identity,
-	nombre varchar(50),
-	nit varchar(30),
-	direccion varchar(60),
-	telefono varchar(50),
-	estado varchar(25)
-);
-go
 
 create table tipo_de_pagos(
 	id int primary key not null identity,
@@ -101,19 +94,6 @@ create table marcas(
 	descripcion varchar(100)
 );go
 
---tabla lote
-create table lotes(
-	id int primary key not null identity,
-	codigo_lote varchar(40),
-	fecha_compra date,
-	precio_total float,
-	precio_unitario float,
-	id_proveedor int,
-	numero_dispositivos int,
-	duracion_plan_datos varchar(50),
-	fecha_vencimiento_plan date
-);
-go 
 
 
 --eleven step tabla sims
@@ -138,47 +118,26 @@ go
 
 
 --ten step tabla marcas
-create table marcas(
-	id int primary key not null identity,
-	nombre varchar(50),
-	descripcion varchar(100)
-);go
+
 
 --tabla lote
 create table lotes(
 	id int primary key not null identity,
 	codigo_lote varchar(40),
 	fecha_compra date,
+	fecha_activacion date,
 	precio_total float,
 	precio_unitario float,
 	id_proveedor int,
 	numero_dispositivos int,
 	duracion_plan_datos varchar(50),
-	fecha_vencimiento_plan date
+	fecha_vencimiento_plan date,
+	constraint id_proveedor foreign key(id_proveedor) references proveedores(id) 
 );
 go
 
 
 --eleven step tabla sims
-create table sims(
-	id int primary key not null identity,
-	id_marca int,
-	compania_telefonica varchar(70),
-	plan_de_datos varchar(50),
-	fecha_vencimiento_plan date,
-	fecha_inicio_plan date,
-	precio_del_plan float,
-	numero_telefono varchar(25),
-	iccid varchar(50),
-	apn varchar(60),
-	imei varchar(60),
-	id_lote varchar(30),
-	estado varchar(35)
-
-);
-go
-
-select *from usuarios
 
 
 -- Modulo de seguridad
@@ -204,12 +163,6 @@ create table Permisos (
   descripcion	varchar(30)	not null	unique
 )
 
-alter table usuarios
-add rol int
-
-alter table usuarios
-add foreign key (rol) references Roles(id)
-
 
 create table FormRoles (
   id		int	not null	identity	primary key,
@@ -231,6 +184,8 @@ create table PermisoFormRoles (
 -- crear tabla de vehiculos
 --drop table vehiculos
 go
+
+--tabla de vehiculos
 create table vehiculos(
 	id int not null identity primary key,
 	clienteId	int,
@@ -248,3 +203,35 @@ create table vehiculos(
 	constraint fk_idcliente foreign key(clienteId) references clientes(id)
 );
 go
+
+
+--drop table historialVehiculos
+--aca estoy trabajando
+create table historialVehiculos(
+	id int not  null identity primary key,
+	fecha datetime not null,
+	id_gps_entrada int not null,
+	id_gps_salida int,
+	id_vehiculo int not null,
+	id_tecnico int not null,
+	comentario varchar(max),
+	constraint fk_idVehiculo foreign key(id_vehiculo) references vehiculos(id),
+	constraint fk_idTecnico foreign key(id_tecnico) references usuarios(id),
+	constraint fk_gpsSalida foreign key(id_gps_salida) references gps(id),
+	constraint fk_gpsEntrada foreign key(id_gps_entrada) references gps(id)
+);
+
+--tabla de GPS
+create table gps(
+	id int not null identity primary key,
+	id_lote int not null,
+	id_marca int not null,
+	modelo varchar(50),
+	idsis varchar(50),
+	imei varchar(50),
+	numero_carcaza int not null,
+	version_firmware varchar(50),
+	estado varchar(30),
+	constraint fk_idMarca_marcas foreign key(id_marca) references marcas(id),
+	constraint fk_idLote_lotes foreign key(id_lote) references lotes(id)
+);

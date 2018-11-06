@@ -23,11 +23,11 @@ var ModuloListado = function(){
 	}*/
 
 	//evento abrir el modal de editar proveedor 
-	_private.editarproveedor=function(){
+	/*_private.editarproveedor=function(){
 		$("#btneditarproveedor")[0].addEventListener('click', function(event) {
 			$('#modalnuevoproveedor').modal('show');
 		});
-	}
+	}*/
 
 	return _public.__construct.apply(this, arguments);
 }

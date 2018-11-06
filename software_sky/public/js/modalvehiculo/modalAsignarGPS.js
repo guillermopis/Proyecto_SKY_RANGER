@@ -55,7 +55,6 @@ var ModuloListado = function(){
       redireccion="http://localhost:8000/vehiculo";
       peticion(url,type,data,"modalasignargpsve",redireccion);
     }else{
-
     }
   }//fin de funcion validar campos
 

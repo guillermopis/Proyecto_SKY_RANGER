@@ -26,6 +26,9 @@ function ver(id_registro){ //con esta funcion abrimos el formulario modal, y mos
       	$("#bandera").val("ver");
         $("#id").val(id_registro);
         $('#formproveedor').find('input, textarea, button, select').attr('disabled','disabled');
+        document.getElementById("check1").checked=false;
         document.getElementById("check1").style.display="block";
+        document.getElementById("che").style.display="block";
+        document.getElementById("btnguardarproveedor").disabled=true;
     });
 }//fin de funcion actualizar
