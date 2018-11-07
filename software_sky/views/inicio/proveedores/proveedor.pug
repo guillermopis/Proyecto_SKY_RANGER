@@ -23,50 +23,43 @@
           | PROVEEDORES    
 
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
+
     font(face="Balmoral LET", size="2.5", color="black")   
     <h1 align="center"></H1>
     <div class="table-responsive">
-      table(class="table table-hover" style="text-align: center")
-        thead(class="thead-dark")
+      table(class="display" id="tablaProveedor")
+        thead()
           <tr>
             <th scope="col">#</th>
             <th scope="col">NOMBRE EMPRESA
-            <br>
-            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
-            </th>
-            <th scope="col">NIT</th>
             <th scope="col">DIRECCION</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">EXTENSION</th>
             <th scope="col">CORREO</th>
-            <th scope="col">FECHA RELACION COMERCIAL</th>
             <th scope="col">ESTADO
-            <input class="form-control form-control-sm" id="buscarestado" type="text" placeholder="Buscar...">
             </th>
             <th scope="col">OPCIONES</th>
           </tr>
         </thead> 
-        <tbody>
+        <tbody id="tablita" >
         for proveedore in data.data
           <tr>
             <th scope="row"></th>
             <td>#{proveedore.nombre}</td>
-            <td>#{proveedore.nit}</td>
             <td>#{proveedore.direccion}</td>
             <td>#{proveedore.telefono}</td>
             <td>#{proveedore.extension}</td>
             <td>#{proveedore.correo_empresa}</td>
-            <td>#{proveedore.fecha_relacion}</td>
             <td>#{proveedore.estado}</td>
             <td>
             <div class="input-group">
-            <div class="input-group-append" id="btnver">
-            <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
+              <div class="input-group-append" id="btnver">
+              <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
               span(class="fas fa-user-edit")
               </button>      
+              </div>
             </div>
-          </div>
             </td>
           </tr>
         </tbody>     
-      </div>          
+      </div> 

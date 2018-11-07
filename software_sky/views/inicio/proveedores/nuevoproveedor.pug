@@ -11,52 +11,78 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevoproveedor" tabindex="-1
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE DE LA EMPRESA
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" )    
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                <div class="invalid-feedback">
+                loo  Por favor ingrese nombre.!
+                </div>
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
-                input(type="text" class="form-control" id="direccion" style="border: 2px blue solid")          
+                input(type="text" class="form-control" id="direccion" style="border: 2px blue solid" required pattern="([A-Za-z0-9]+).+")
+                <div class="invalid-feedback">
+                loo  Por favor ingrese direccion.!
+                </div>          
           .form-row
               .form-group.col-md-3              
                 .form-group(class="container")
                   label NIT
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue solid")          
+                  input(type="text" class="form-control" id="nit" style="border: 2px blue solid" required pattern="[0-9]{7}-[0-9]{1}") 
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese NIT valido!
+                  </div>          
               .form-group.col-md-3              
                 .form-group(class="container")
                   label TELEFONO
-                  input(type="text" class="form-control" id="telefono" style="border: 2px blue solid")              
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue solid" required pattern="[0-9]{4}-[0-9]{4}")
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese TELEFONO valido.!
+                  </div>              
               .form-group.col-md-2
                 .form-group(class="container")
                   label EXTENSION
-                  input(type="text" class="form-control" id="extension" style="border: 2px blue solid")                        
+                  input(type="text" class="form-control" id="extension" style="border: 2px blue solid" required pattern="[0-9]{3}")
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese EXTENSION valida.!
+                  </div>                       
               .form-group.col-md-4
                 .form-group(class="container")
                   label CORREO ELECTRONICO
-                  input(type="text" class="form-control" id="correo_empresa" style="border: 2px blue solid")                        
+                  input(type="text" class="form-control" id="correo_empresa" style="border: 2px blue solid" required pattern="*.")
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese Email valido!
+                  </div>                        
           .form-row
               .form-group.col-md-3
                 .form-group(class="container")
                   label CONTACTO
-                  input(type="text" class="form-control" id="contacto" style="border: 2px blue solid")                        
+                  input(type="text" class="form-control" id="contacto" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese nombre.!
+                  </div>                        
               .form-group.col-md-5              
                 .form-group(class="container")
                   label FECHA RELACION COMERCIAL
                   div(class="input-group date fj-date")
-                    input(type="text" class="form-control" id="fecha_relacion" style="border: 2px blue solid")          
+                    input(type="text" class="form-control" id="fecha_relacion" style="border: 2px blue solid" required)          
                     span(class="input-group-addon")
-                    i(class="glyphicon glyphicon-th")                    
+                    i(class="glyphicon glyphicon-th")
+                    <div class="invalid-feedback">
+                    loo  Por favor ingrese Fecha!
+                    </div>                    
               .form-group.col-md-3              
                 .form-group(class="container")
                   label ESTADO
-                  select(id="estado" class="form-control" style="border: 2px blue solid")
-                    option.select seleccionar
+                  select(id="estado" class="form-control" style="border:2px blue solid")
                     option.select ACTIVO
                     option.select INACTIVO    
           .form-row
               .form-group.col-md-5
                 .form-group(class="container")
                   label CORREO ELECTRONICO
-                  input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue solid") 
+                  input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue solid" required pattern="*.")
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese Email valido!
+                  </div> 
                   <input type="text" id="bandera" name="bandera">
                   <input type="text" id="id" name="id">
       div(class="modal-footer")

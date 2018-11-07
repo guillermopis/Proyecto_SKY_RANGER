@@ -1,0 +1,54 @@
+// barra principal de arriba para mostrar los clientes
+.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
+  nav.navbar-user-top.full-reset(style='background-color: #021528')
+    ul.list-unstyled.full-reset
+      li(style='color:#fff; cursor:default;')
+        span.all-tittles
+      li.tooltips-general.exit-system-button(data-href='/', data-placement='bottom', title='Salir del sistema')
+        i.zmdi.zmdi-power
+      li
+        font(face='Balmoral LET', size='6', color='white' )
+          | SKY RANGER GUATEMALA
+  
+  //body page --------------------------------------------------------------------------------------------------------------
+  nav(class="navbar navbar-light bg-light")  
+    span
+      button(type="button" id="btnnuevolote" name="btnnuevolote" class="button blue radius hover" style="border: 2px black solid")            
+        span(class="fas fa-plus-circle fa-lg")
+        span(class="fas fa-calendar-alt fa-lg")        
+
+    form(class="form-inline")
+      font(face="Balmoral LET", size="6", color="black")
+        | LOTES    
+              
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+    //font(face="Balmoral LET", size="4", color="black")   
+    font(face="Balmoral LET", size="4", color="black")         
+      div(class="table-responsive")
+        table(class="table table-hover" style="text-align: center" id="tablaLote")
+          thead(class="thead-dark")
+            tr
+              th(scope="col") #
+              th(scope="col") CODIGO LOTE
+              th(scope="col") PROVEEDOR
+              th(scope="col") CANTIDAD DISPOSITIVOS
+              th(scope="col") FECHA COMPRA
+              th(scope="col") FECHA ACTIVACION
+              th(scope="col") OPCIONES                      
+          <tbody id="tablita" >
+          for provee in dataLote.data
+            <tr>
+            <th scope="row"></th>
+            <td>#{provee.codigo_lote}</td>
+            <td>#{provee.id_proveedor}</td>
+            <td>#{provee.numero_dispositivos}</td>
+            <td>#{provee.fecha_compra}</td>
+            <td>#{provee.fecha_activacion}</td>
+            <td>
+            <div class="input-group">      
+              </div>
+            </div>
+            </td>
+          </tr>
+        </tbody>     
+      </div> 
