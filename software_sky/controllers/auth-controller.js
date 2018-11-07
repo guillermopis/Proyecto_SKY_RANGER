@@ -107,6 +107,7 @@ usuario(request,response, next){
   }
 }//fin de usuarios
 
+/*
 lote(request,response, next){
   if(request.session.username){
     response.render('inicio/indexlote',
@@ -115,7 +116,7 @@ lote(request,response, next){
   }else {
     errors.http401(request, response, next);
   }
-}//fin de lotess
+}//fin de lotess*/
 
 gps(request,response, next){
   if(request.session.username){
@@ -146,11 +147,11 @@ vehiculo(request,response, next){
 //para responder a las peticiones de sims
 sims(request, response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"5","compania_telefonica":""}', function(dataSim){
-      peti.peticion("http://localhost:3000/lotes/", function(datoslotes){
+    peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"0","compania_telefonica":""}', function(dataSim){
+      peti.peticion('http://localhost:3000/lotes/{"id":"null","a":"0", "b":"0","codigo_lote":""}', function(datosLotes){
           response.render('inicio/indexsim',{
               title: 'sim',
-              dataSim, datoslotes
+              dataSim, datosLotes
             });
             });//fin  de la peticion a sim
           });// fin de peticion a proveedores
@@ -159,5 +160,23 @@ sims(request, response, next){
       errors.http401(request, response, next);
   }
 }//fin de funcion sims
+
+//para responder a las peticiones de lotes
+lotes(request, response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/lotes/{"id":"null","a":"0", "b":"0","codigo_lote":""}', function(dataLote){
+      peti.peticion('http://localhost:3000/proveedores/{"id":"null","a":"0", "b":"0","nombre":""}', function(datospro){
+          response.render('inicio/indexlote',{
+              title: 'lote',
+              dataLote, datospro
+            });
+            });//fin  de la peticion a sim
+          });// fin de peticion a proveedores
+
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion sims*/
+
 
 }module.exports = AuthController;

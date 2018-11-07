@@ -6,31 +6,38 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevasim" tabindex="-1" role
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(class="needs-validation" novalidate ,style="border: 8px black solid; font-family: bold" align="center" id="formsim")
+        form(class="needs-validation" novalidate ,style="border: 10px black solid; font-family: bold" align="center" id="formsim")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
                 label MARCA
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
-                <div class="invalid-tooltip">
+                input(type="text" class="form-control" id="marca" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                <div class="invalid-feedback">
                 loo  Ingrese nombre.!
                 </div>
             .form-group.col-md-6
               .form-group(class="container")
                 label COMPAÑIA TELEFONICA
-                input(type="text" class="form-control" id="direccion" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
-                <div class="invalid-tooltip">
+                input(type="text" class="form-control" id="compania" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                <div class="invalid-feedback">
                 loo  Ingrese compania.!
                 </div>          
           .form-row
-              .form-group.col-md-3              
+              .form-group.col-md-4              
                 .form-group(class="container")
                   label PlAN DE DATOS
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
-                  <div class="invalid-tooltip">
+                  input(type="text" class="form-control" id="plandatos" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")  
+                  <div class="invalid-feedback">
                   loo  Ingrese Plan de datos.!
+                  </div>
+              .form-group.col-md-4              
+                .form-group(class="container")
+                  label PRECIO PLAN
+                  input(type="text" class="form-control" id="precioplan" style="border: 2px blue solid" required pattern="[0-9]")    
+                  <div class="invalid-feedback">
+                  loo  Ingrese Precio de datos.!
                   </div>          
-              .form-group.col-md-3              
+              .form-group.col-md-4              
                 .form-group(class="container")
                   label FECHA INICIO PLAN
                   div(class="input-group date fj-date")
@@ -39,39 +46,57 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevasim" tabindex="-1" role
                     i(class="glyphicon glyphicon-th")
                     <div class="invalid-feedback">
                     loo  Por favor ingrese Fecha!
-                    </div>              
-              .form-group.col-md-2
-                .form-group(class="container")
-                  label FECHA FINALIZACION PLAN
-                  input(type="text" class="form-control" id="finplan" style="border: 2px blue solid")                        
+                    </div>                
+          .form-row                      
               .form-group.col-md-4
                 .form-group(class="container")
                   label NUMERO TELEFONICO
-                  input(type="text" class="form-control" id="numtelefono" style="border: 2px blue solid")                        
-          .form-row
-              .form-group.col-md-3
+                  input(type="text" class="form-control" id="numerotelefono" style="border: 2px blue solid" required pattern="[0-9]{4}-[0-9]{4}")
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese TELEFONO valido.!
+                  </div>
+              .form-group.col-md-4
+                .form-group(class="container")
+                  label FECHA FINAL PLAN
+                  div(class="input-group date fj-date")
+                    input(type="text" class="form-control" id="finplan" style="border: 2px blue solid" required)          
+                    span(class="input-group-addon")
+                    i(class="glyphicon glyphicon-th")
+                    <div class="invalid-feedback">
+                    loo  Por favor ingrese Fecha!
+                    </div>                        
+              .form-group.col-md-4
                 .form-group(class="container")
                   label ICCID
-                  input(type="text" class="form-control" id="iccid" style="border: 2px blue solid")                        
-              .form-group.col-md-5              
+                  input(type="text" class="form-control" id="iccid" style="border: 2px blue solid" required)
+                  <div class="invalid-feedback">
+                  loo  Por favor ingrese ICCID!
+                  </div>                                                
+          .form-row
+              .form-group.col-md-4              
                 .form-group(class="container")
                   label APN
-                  div(class="input-group date fj-date")
-                    input(type="text" class="form-control" id="apn" style="border: 2px blue solid")          
-                    span(class="input-group-addon")
-                    i(class="glyphicon glyphicon-th")                    
-              .form-group.col-md-3              
+                  input(type="text" class="form-control" id="apn" style="border: 2px blue solid" required)          
+                  <div class="invalid-feedback">
+                    loo  Por favor ingrese APN.!
+                  </div>
+              .form-group.col-md-4             
                 .form-group(class="container")                
                   label ID_LOTE
-                  <select id="idlote" class="form-control" style="border: 2px blue solid">
-                  for lotes in datoslotes.data
+                  <select id="idlote" class="form-control" style="border: 2px blue solid" required>
+                  for lotes in datosLotes.data
                     <option value=#{lotes.id}>#{lotes.codigo_lote}</option>  
-                  </select>    
-          .form-row
-              .form-group.col-md-5
+                  </select>
+              .form-group.col-md-4
                 .form-group(class="container")
-                  label CORREO ELECTRONICO
-                  input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue solid") 
+                  label ESTADO
+                  select(id="estado" class="form-control" style="border:2px blue solid" required)
+                    option.select EN STOCK
+                    option.select ACTIVA
+                    option.select INACTIVA
+                  <div class="invalid-feedback">
+                  loo  Seleccione ESTADO.!
+                  </div> 
                   <input type="text" id="bandera" name="bandera">
                   <input type="text" id="id" name="id">
       div(class="modal-footer")

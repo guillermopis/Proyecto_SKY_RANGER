@@ -141,6 +141,7 @@ _private.agregarEventoAanterior=function(){
 		}
 	}// fin de funcion configuracionDePaginacion
 
+/*
 _private.asignarEventoAbuscarproveedor=function(){
 		var buscarC = $("#buscarnombre");
 		if(buscarC.length==0){
@@ -226,31 +227,15 @@ _private.hacerFiltro=function(omitir, busque){
 		_private.limpiar=function(){
 			document.getElementById("formproveedor").reset();
 		}//fin de limpiar
-
-	/*_private.validarCampos=function() {
-	    var forms = document.getElementsByClassName('needs-validation');
-	    var validation = Array.prototype.filter.call(forms, function(form) {
-	        if (form.checkValidity() === false) {
-	          event.preventDefault();
-	          event.stopPropagation();
-	        }else{
-						__private.validarFormulario();
-					}
-	        form.classList.add('was-validated');
-	    });
-	}// fin de funcion validar campos*/
-
-
-
 	
 
 	//validamos el formulario junto con la informacion de la api
-	_private.validarFormulario=function(){
-		var valido = _private.formulario.checkValidity();
-		if(valido == true){
+	_private.validarFormulario=function(esvalido){
+		//var valido = _private.formulario.checkValidity();
+		if(esvalido == true){
 			console.log("todo listo para guardar");
 			if($("#bandera").val()	== "crear"){
-			console.log('aquillego');
+			//console.log('aquillego');
 				datos= {
 						"nombre": document.getElementById("nombre").value,
 						"nit": document.getElementById("nit").value,
@@ -279,8 +264,8 @@ _private.hacerFiltro=function(omitir, busque){
 						"correo_contacto": document.getElementById("correo_contacto").value
 					};//fin de datos 
 			peticion("http://127.0.0.1:3000/proveedores/"+$('#id').val(),"PUT",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
-			}else {
-				console.log("no se ejecuto la peticion put ni post");
+			}else {alert('formulario invalido');
+				//console.log("no se ejecuto la peticion put ni post");
 			}//fin del else
 		}//fin del if
 	}//fin de funcion validar formulario
@@ -301,7 +286,7 @@ _private.hacerFiltro=function(omitir, busque){
 		document.getElementById("bandera").style.display="none"
 		document.getElementById("id").style.display="none"
 		var btnnuevo = $("#btnnuevoproveedor");
-		_private.limpiar()
+
 		if(btnnuevo.length == 0){
 			console.log("boton nuevo no existe");
 		}else{

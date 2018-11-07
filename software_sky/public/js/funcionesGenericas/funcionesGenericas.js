@@ -6,7 +6,7 @@ validarCampos=function(forms,event,callback) {
           event.preventDefault();
           event.stopPropagation();
         }else{
-          var estado=form.checkValidity();
+          var estado = form.checkValidity();
           callback(estado);
         }
         form.classList.add('was-validated');
