@@ -1,5 +1,5 @@
 $(document).ready( function () {
-  $('#tablaCliente').DataTable();
+  $('#tabla').DataTable();
 } );
 
 $(document).ready( function () {

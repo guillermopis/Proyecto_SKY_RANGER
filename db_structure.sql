@@ -26,8 +26,6 @@ create table usuarios(
 	constraint id_rol foreign key(rol) references roles(id)
 );
 go
-alter table usuarios add puesto varchar(50),
-alter table usuarios add estado varchar(50)
 
 
 --five step tabla proveedores
@@ -97,7 +95,7 @@ create table marcas(
 );go
 
 
-
+--drop table sims
 --eleven step tabla sims
 create table sims(
 	id int primary key not null identity,
@@ -122,6 +120,7 @@ go
 --ten step tabla marcas
 
 
+--drop table lotes
 --tabla lote
 create table lotes(
 	id int primary key not null identity,
@@ -206,14 +205,12 @@ create table vehiculos(
 );
 go
 
-
---drop table historialVehiculos
 --aca estoy trabajando
-create table historialVehiculos(
+create table historialVehiculo(
 	id int not  null identity primary key,
-	fecha datetime not null,
+	fecha date,
 	id_gps_entrada int not null,
-	id_gps_salida int,
+	id_gps_salida int not null,
 	id_vehiculo int not null,
 	id_tecnico int not null,
 	comentario varchar(max),

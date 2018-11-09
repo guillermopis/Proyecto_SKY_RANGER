@@ -11,15 +11,25 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
+<<<<<<< HEAD
+		_private.traerTotal();
+=======
 		//_private.traerTotal();
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 		_private.agregarEventoAbotonNuevo();
 		_private.agregarEventoAbotonGuardar();
 		_private.agregarEventoAbotonGuardarV();
 		_private.agregarEventoACheck1();
 		_private.agregarEventoAbuscarNombre();
+<<<<<<< HEAD
+		_private.agregarEventoAanterior();
+		_private.agregarEventoASiguiente();
+		_private.configuracionDePaginacion();
+=======
 	//	_private.agregarEventoAanterior();
 	//	_private.agregarEventoASiguiente();
 	//	_private.configuracionDePaginacion();
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 
 	}// fin de iniciar
 
@@ -39,7 +49,11 @@ var ModuloListado = function(){
 	_private.agregarEventoAbotonGuardarV=function(){
 		var btnguardarv =$("#btnGuardarV");
 		if(btnguardarv.length == 0){
+<<<<<<< HEAD
 			console.log("el botn guardar vehiculo no existe")
+=======
+			console.log("el boton guardar vehiculo no existe")
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 		}else{
 			btnguardarv[0].addEventListener('click', function(event){
 				var forms = document.getElementsByClassName('needs-validation');

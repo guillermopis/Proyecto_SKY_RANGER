@@ -90,12 +90,24 @@ proveedores(request, response, next){
               data
             });//fin  del response
           });// fin de peticion a moras
-
   }else{//si no tiene sesion activa
       errors.http401(request, response, next);
   }
 }//fin de funcion proveedores
 
+//para responder a las peticiones de proveedores
+proveedores(request, response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"5","nombre":""}', function(data){
+          response.render('inicio/indexproveedores',{
+              title: 'Proveedores',
+              data
+            });//fin  del response
+          });// fin de peticion a moras
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion proveedores
 
 usuario(request,response, next){
   if(request.session.username){
@@ -118,6 +130,17 @@ lote(request,response, next){
   }
 }//fin de lotess*/
 
+<<<<<<< HEAD
+
+vehiculo(request,response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
+      peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
+        response.render('inicio/indexvehiculo',{
+          title: "vehiculos",
+          datosV, tecnicos
+        });//fin del response
+=======
 gps(request,response, next){
   if(request.session.username){
     response.render('inicio/indexgps',
@@ -131,12 +154,15 @@ gps(request,response, next){
 
 vehiculo(request,response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"0","texto":"","placa":"","id":""}', function(datosV){
       peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
-        response.render('inicio/indexvehiculo',{
-          title: "vehiculos",
-          datosV, tecnicos
-        });//fin del response
+        peti.peticion('http://127.0.0.1:3000/gps/{"id":"null","a":"0", "b":"0","estado":"STOCK"}', function(gpsentrada){
+          response.render('inicio/indexvehiculo',{
+            title: "vehiculos",
+            datosV, tecnicos, gpsentrada
+          });//fin del response
+        });
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
       })
     });//fin de peticion oa vehiculo
   }else {
