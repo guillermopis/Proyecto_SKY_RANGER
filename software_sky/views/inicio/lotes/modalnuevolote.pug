@@ -28,30 +28,16 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevolote" tabindex="-1" rol
               .form-group(class="container")
                 br
                 label CODIGO DE LOTE
-<<<<<<< HEAD
-                input(type="text" class="form-control" id="codigolote" style="border: 2px blue solid" )                
-=======
                 input(type="text" class="form-control" id="codigolote" style="border: 2px blue solid" disabled required)
                     
->>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
             .form-group.col-md-4
               .form-group(class="container")
                 br  
                 label PROVEEDOR
-<<<<<<< HEAD:software_sky/views/inicio/lote/modalnuevolote.pug
-<<<<<<< HEAD
-                input(type="text" class="form-control" id="proveedorlote" style="border: 2px blue solid")          
-=======
-                select(id="estadove" class="custom-select" style="border: 2px blue outset")
-                  <option selected>Choose...</option>                  
-                  <option>nose</option>
->>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
-=======
                 <select id="idproveedor" class="form-control" style="border: 2px blue solid">
                   for tipo in datospro.data
                     <option value=#{tipo.id}>#{tipo.nombre}</option>  
                   </select>
->>>>>>> version5:software_sky/views/inicio/lotes/modalnuevolote.pug
             .form-group.col-md-4
               .form-group(class="container")              
                 label CANTIDAD DE DISPOSITIVOS
@@ -118,4 +104,4 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevolote" tabindex="-1" rol
           button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" style="border: 2px black solid" data-dismiss="modal" ) CERRAR
           button(button type="button" id="btnGuardarlote" name="btnGuardarlote" class="btn btn-primary" style="border: 2px black solid") GUARDAR          
       //mandamos a llamar a la funcion de la fecha para que la muestre
-      script(src="fecha/js/app.js")
+script(src="fecha/js/app.js")

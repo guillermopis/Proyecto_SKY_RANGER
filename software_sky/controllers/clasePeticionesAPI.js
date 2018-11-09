@@ -1,11 +1,7 @@
 var requestt = require('request');
 let errors  = require('../middlewares/errors'),
     express = require('express');
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> version5
 //clase generica para peticiones GET a la API
 class peticiones {
   peticion(url,callback) {
@@ -22,10 +18,6 @@ class peticiones {
     }, 0 | Math.random() * 100);
   }
 
-<<<<<<< HEAD
-
-
-=======
   peticionPOST(url,body,metodo,callback){
     setTimeout(function(){
       requestt({method:metodo,headers: {'Content-Type': 'application/JSON'},
@@ -39,6 +31,5 @@ class peticiones {
       });
     }, 0 | Math.random() * 100);
   }
->>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 
 }module.exports = peticiones;

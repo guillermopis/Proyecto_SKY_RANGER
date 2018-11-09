@@ -98,7 +98,7 @@ proveedores(request, response, next){
 //para responder a las peticiones de proveedores
 proveedores(request, response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"5","nombre":""}', function(data){
+    peti.peticion('http://localhost:3000/proveedores/{"id":"null","a":"0", "b":"0","nombre":""}', function(data){
           response.render('inicio/indexproveedores',{
               title: 'Proveedores',
               data
@@ -130,17 +130,8 @@ lote(request,response, next){
   }
 }//fin de lotess*/
 
-<<<<<<< HEAD
 
-vehiculo(request,response, next){
-  if(request.session.username){
-    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
-      peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
-        response.render('inicio/indexvehiculo',{
-          title: "vehiculos",
-          datosV, tecnicos
-        });//fin del response
-=======
+
 gps(request,response, next){
   if(request.session.username){
     response.render('inicio/indexgps',
@@ -162,7 +153,6 @@ vehiculo(request,response, next){
             datosV, tecnicos, gpsentrada
           });//fin del response
         });
->>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
       })
     });//fin de peticion oa vehiculo
   }else {

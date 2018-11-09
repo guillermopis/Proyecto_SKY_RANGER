@@ -30,14 +30,11 @@ function verVehiculo(id_vehiculo){
 }//fin de funcion ver vehiculo
 
 function asignarGPS(id_vehiculo,placa){
-<<<<<<< HEAD
+
   $("#modalasignargpsve").modal('show');
   $("#placave2").val(placa);
   document.getElementById("placave2").disabled=true;
 
-
-
-=======
   //primero se comprueba que existan gps en stock
   if(gpsentrada.length == 0){
     alert("ERROR: no se puede asignar gps a vehiculo debido a que no hay GPS en stock, COMUNIQUESE CON EL ADMINISTRADOR");
@@ -70,5 +67,4 @@ function asignarGPS(id_vehiculo,placa){
     }//fin de if
   })//fin de funcion ajax
   }//fin de if para comprobar gps en stock
->>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 }//fin de funcion asignarGPS
