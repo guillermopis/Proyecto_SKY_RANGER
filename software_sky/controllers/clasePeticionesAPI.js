@@ -1,7 +1,11 @@
 var requestt = require('request');
 let errors  = require('../middlewares/errors'),
     express = require('express');
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> version5
 //clase generica para peticiones GET a la API
 class peticiones {
   peticion(url,callback) {
