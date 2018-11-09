@@ -12,14 +12,7 @@
   
   //body page --------------------------------------------------------------------------------------------------------------
   nav(class="navbar navbar-light bg-light")  
-    span
-      button(type="button" id="btnnuevovehiculo" name="btnnuevovehiculo" class="button blue radius hover")            
-        span(class="fas fa-user-plus")
-      button(type="button" id="btnasignargps" name="btnasignargps" class="button blue radius hover")            
-        span(class="fas fa-map-marker-alt")
-        | 
-        span(class="fas fa-car")
-      
+    span           
       //li: a(href="/index") Nuevo
     form(class="form-inline")      
       font(face="Balmoral LET", size="6", color="black")
@@ -30,6 +23,7 @@
       | ADMINISTRADOR DE VEHICULOS
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="3", color="black")         
+    <input id="total" type="text" value=#{datosV.data.length}>
       <div class="table-responsive">
         table(id="tablaVehiculos" class="table table-hover" style="text-align: center")
           thead(class="thead-dark")
@@ -50,7 +44,7 @@
           <tbody id="tablita">
           for vehiculo in datosV.data
             tr
-              th(scope="row")
+              <th scope="row"></th>
               <td>#{vehiculo.cliente.nombre}</td>
               <td>#{vehiculo.marca}</td>
               <td>#{vehiculo.linea}</td>
@@ -60,7 +54,16 @@
               <td>#{vehiculo.estado}</td>
               <td>
               <div class="input-group">
-              <div class="input-group-append" id="btnver">
+              <div class="input-group-append" id="btnverVehiculo">
                 <button type="button" class="buttonsmall hover" onClick="verVehiculo(#{vehiculo.id})">
                 span(class="fas fa-user-edit")
+                <button type="button" class="buttonsmall hover" onClick="asignarGPS(#{vehiculo.id},'#{vehiculo.placa}')">
+                span(class="fas fa-map-marker-alt")
+                | 
+                span(class="fas fa-car")  
+    nav(aria-label="Page navigation example")
+      ul(class="pagination")
+        li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
+        li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
+        li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente
           

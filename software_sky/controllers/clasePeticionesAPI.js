@@ -1,6 +1,7 @@
 var requestt = require('request');
 let errors  = require('../middlewares/errors'),
     express = require('express');
+
 //clase generica para peticiones GET a la API
 class peticiones {
   peticion(url,callback) {
@@ -16,4 +17,8 @@ class peticiones {
       });
     }, 0 | Math.random() * 100);
   }
+
+
+
+
 }module.exports = peticiones;

@@ -4,7 +4,7 @@ let authModel = require('../models/auth-model'),
     errors  = require('../middlewares/errors'),
     express = require('express'),
     crypto = require('crypto'),
-    peticiones     = require('../controllers/clasePeticionesAPI'),
+    peticiones = require('../controllers/clasePeticionesAPI'),
     peti = new peticiones();
 
 
@@ -39,31 +39,26 @@ class AuthController{
 //peticion get para autenticacion
     login(request,response,next){
       //aca se va hacer la petion a la API
-      requestt.post('http://127.0.0.1:3000/usuario/',
-      { json: { usuario: request.body.usuario, contraseña: request.body.contraseña}},
-      function (error,responsee, body,) {
-            if(body.error == false){
-              if(body.data.length == 1){
-                  //los datos son correctos
-                    request.session.username=request.body.usuario;
-                    if(request.session.username){
-                      response.render('inicio/indexinicio',{ //renderizamos el formulario de login
-                              title: 'Sky Ranger'
-                          });
-                    }
-              }else{ //los datos son incorrectos
-                  if(!request.session.username){
-var html='<script type="text/javascript">alert("Error en la autenticacion, intente de nuevo"); location.href = "http://localhost:8000/"; </script>';
-                    response.writeHead(200,{"Content-Type":"text/html"})
-                    response.write(html);
-                    response.end();
-                  }
-              }//fin del if del length
-            }else{
-              //con esto podemos reaccionar un error de la API
-              console.log("datos incorrectos o ha ocurrido un error interno");
-            }//fin del if de comprobacion de errorr
-      });
+      var url='http://127.0.0.1:3000/usuario/{"user":"'+request.body.usuario+'","pass":"'+request.body.contraseña+'","puesto":""}';
+      peti.peticion(url, function(data){
+        if(data.data.length == 1){
+            //los datos son correctos
+              request.session.username=request.body.usuario;
+              if(request.session.username){
+                response.render('inicio/indexinicio',{ //renderizamos el formulario de login
+                        title: 'Sky Ranger'
+                    });
+              }
+        }else{ //los datos son incorrectos
+            if(!request.session.username){
+              var html='<script type="text/javascript">alert("Error en la autenticacion, intente de nuevo"); location.href = "http://localhost:8000/"; </script>';
+              response.writeHead(200,{"Content-Type":"text/html"})
+              response.write(html);
+              response.end();
+            }
+        }//fin del if del length
+      });//fin de llamada a peticion
+
     }//fi de login
 
 //para responder a /clientes
@@ -89,18 +84,30 @@ clientes(request, response, next){
 //para responder a las peticiones de proveedores
 proveedores(request, response, next){
   if(request.session.username){
-    peti.peticion("http://localhost:3000/proveedores/null", function(data){
+    peti.peticion('http://localhost:3000/proveedores/{"id":"null","a":"0", "b":"5","nombre":""}', function(data){
           response.render('inicio/indexproveedores',{
               title: 'Proveedores',
               data
             });//fin  del response
           });// fin de peticion a moras
-
   }else{//si no tiene sesion activa
       errors.http401(request, response, next);
   }
 }//fin de funcion proveedores
 
+//para responder a las peticiones de proveedores
+proveedores(request, response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/sims/{"id":"null","a":"0", "b":"5","nombre":""}', function(data){
+          response.render('inicio/indexproveedores',{
+              title: 'Proveedores',
+              data
+            });//fin  del response
+          });// fin de peticion a moras
+  }else{//si no tiene sesion activa
+      errors.http401(request, response, next);
+  }
+}//fin de funcion proveedores
 
 usuario(request,response, next){
   if(request.session.username){
@@ -112,13 +119,26 @@ usuario(request,response, next){
   }
 }//fin de usuarios
 
+lote(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexlote',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de lotess
+
+
 vehiculo(request,response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":""}', function(datosV){
-      response.render('inicio/indexvehiculo',{
-        title: "vehiculos",
-        datosV
-      });//fin del response
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"5","texto":"","placa":"","id":""}', function(datosV){
+      peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
+        response.render('inicio/indexvehiculo',{
+          title: "vehiculos",
+          datosV, tecnicos
+        });//fin del response
+      })
     });//fin de peticion oa vehiculo
   }else {
     errors.http401(request, response, next);

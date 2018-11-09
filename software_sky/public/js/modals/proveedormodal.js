@@ -7,7 +7,7 @@ var ModuloListado = function(){
 	};
 
 	_public.iniciar=function(){
-		_private.proveedornuevo();
+		//_private.proveedornuevo();
 		_private.editarproveedor();
 	}
 
@@ -23,11 +23,11 @@ var ModuloListado = function(){
 	}*/
 
 	//evento abrir el modal de editar proveedor 
-	_private.editarproveedor=function(){
-		$("#btneditarprov")[0].addEventListener('click', function(event) {
-			$('#modaleditarproveedor').modal('show');
+	/*_private.editarproveedor=function(){
+		$("#btneditarproveedor")[0].addEventListener('click', function(event) {
+			$('#modalnuevoproveedor').modal('show');
 		});
-	}
+	}*/
 
 	return _public.__construct.apply(this, arguments);
 }

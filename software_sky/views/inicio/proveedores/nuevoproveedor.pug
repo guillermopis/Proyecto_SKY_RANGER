@@ -2,57 +2,73 @@ div(class="modal fade bd-example-modal-lg" id="modalnuevoproveedor" tabindex="-1
   div(class="modal-dialog modal-lg" role="document")
     div(class="modal-content")
       div(class="modal-header")
-        h5(class="modal-title" id="exampleModalLabel") NUEVO PROVEEDOR1
+        h5(class="modal-title" id="exampleModalLabel") NUEVO PROVEEDOR
         button(type="button" class="close" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") &times;
       div(class="modal-body")
-        form(style="border: 8px black inset; font-family: bold" align="center")
+        form(class="needs-validation" novalidate ,style="border: 8px black solid; font-family: bold" align="center" id="formproveedor")
           .form-row
             .form-group.col-md-6
               .form-group(class="container")
                 label NOMBRE DE LA EMPRESA
-                input(type="text" class="form-control" id="nombre" style="border: 2px blue outset" )    
+                input(type="text" class="form-control" id="nombre" style="border: 2px blue solid" required pattern="([A-Za-z]+).+")    
+                <div class="invalid-tooltip">
+                loo  Por favor ingrese nombre.!
+                </div>
             .form-group.col-md-6
               .form-group(class="container")
                 label DIRECCION
-                input(type="text" class="form-control" id="direccion" style="border: 2px blue outset")          
+                input(type="text" class="form-control" id="direccion" style="border: 2px blue solid")          
           .form-row
               .form-group.col-md-3              
                 .form-group(class="container")
                   label NIT
-                  input(type="text" class="form-control" id="nit" style="border: 2px blue outset")          
+                  input(type="text" class="form-control" id="nit" style="border: 2px blue solid")          
               .form-group.col-md-3              
                 .form-group(class="container")
-                  label TEL EMPRESA
-                  input(type="text" class="form-control" id="telefono" style="border: 2px blue outset")          
+                  label TELEFONO
+                  input(type="text" class="form-control" id="telefono" style="border: 2px blue solid")              
               .form-group.col-md-2
                 .form-group(class="container")
                   label EXTENSION
-                  input(type="text" class="form-control" id="extension" style="border: 2px blue outset")                        
+                  input(type="text" class="form-control" id="extension" style="border: 2px blue solid")                        
               .form-group.col-md-4
                 .form-group(class="container")
                   label CORREO ELECTRONICO
-                  input(type="text" class="form-control" id="correo_empresa" style="border: 2px blue outset")                        
+                  input(type="text" class="form-control" id="correo_empresa" style="border: 2px blue solid")                        
           .form-row
               .form-group.col-md-3
                 .form-group(class="container")
                   label CONTACTO
-                  input(type="text" class="form-control" id="contacto" style="border: 2px blue outset")                        
+                  input(type="text" class="form-control" id="contacto" style="border: 2px blue solid")                        
               .form-group.col-md-5              
                 .form-group(class="container")
                   label FECHA RELACION COMERCIAL
-                  input(type="text" class="form-control" id="fecha_relacion" style="border: 2px blue outset")          
+                  div(class="input-group date fj-date")
+                    input(type="text" class="form-control" id="fecha_relacion" style="border: 2px blue solid")          
+                    span(class="input-group-addon")
+                    i(class="glyphicon glyphicon-th")                    
               .form-group.col-md-3              
                 .form-group(class="container")
                   label ESTADO
-                  select(id="estado" class="form-control" style="border: 2px blue outset")
-                    option.select seleccionar
+                  select(id="estado" class="form-control" style="border: 2px blue solid")
+                    
                     option.select ACTIVO
                     option.select INACTIVO    
-          .form-group.col-md-5
-              .form-group
-                label CORREO ELECTRONICO
-                input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue outset") 
+          .form-row
+              .form-group.col-md-5
+                .form-group(class="container")
+                  label CORREO ELECTRONICO
+                  input(type="text" class="form-control" id="correo_contacto" style="border: 2px blue solid") 
+                  <input type="text" id="bandera" name="bandera">
+                  <input type="text" id="id" name="id">
       div(class="modal-footer")
-            button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black outset") CERRAR
-              button(button type="button" id="btnGuardar" name="btnGuardar" class="btn btn-primary" style="border: 2px black outset") GUARDAR   
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check1">
+          <label id="che" class="form-check-label" for="check1">MODIFICAR DATOS</label>
+        </div>
+        <div class="form-group form-check">
+          button(type="button" id="btnCerrar" name="btnCerrar" class="btn btn-secondary" data-dismiss="modal" style="border: 2px black solid") CERRAR
+          button(button type="button" id="btnguardarproveedor" name="btnguardarproveedor" class="btn btn-primary" style="border: 2px black solid") GUARDAR
+      </div>   
+      script(src="fecha/js/app.js")

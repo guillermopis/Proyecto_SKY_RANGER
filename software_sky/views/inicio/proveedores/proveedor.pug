@@ -1,0 +1,76 @@
+// barra principal de arriba para mostrar los proveedores 
+.content-page-container.full-reset.custom-scroll-containers(style='background-color:   #f8f9f9 ;')
+  nav.navbar-user-top.full-reset(style='background-color: #021528')
+    ul.list-unstyled.full-reset
+      li(style='color:#fff; cursor:default;')
+        span.all-tittles
+      li.tooltips-general.exit-system-button(data-href='/', data-placement='bottom', title='Salir del sistema')
+        i.zmdi.zmdi-power
+      li
+        font(face='Balmoral LET', size='6', color='white' )
+          | SKY RANGER GUATEMALA
+  
+  //body
+  nav(class="navbar navbar-light bg-light")  
+    
+    span
+      button(type="button" id="btnnuevoproveedor" name="btnnuevoproveedor" class="button blue radius hover" style="border: 2px black solid")         
+        span(class="fas fa-user-plus")      
+
+    form(class="form-inline")
+      h(align="center" style="text:center" text="center")
+        font(face="Balmoral LET", size="6", color="black")
+          | PROVEEDORES    
+
+  section.full-reset(style="padding: 10px; background-color: #ffffff")  
+
+    font(face="Balmoral LET", size="2.5", color="black")   
+    <h1 align="center"></H1>
+    <input id="total" type="text" value=#{data.data.length}>
+    <div class="table-responsive">
+      table(id="tablaProveedores" class="table table-hover" style="text-align: center")
+        thead(class="thead-dark")
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">NOMBRE EMPRESA
+            <br>
+            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
+            </th>
+            <th scope="col">DIRECCION</th>
+            <th scope="col">TELEFONO</th>
+            <th scope="col">EXTENSION</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">ESTADO
+            </th>
+            <th scope="col">OPCIONES</th>
+          </tr>
+        </thead> 
+        <tbody id="tablita" >
+        for proveedore in data.data
+          <tr>
+            <th scope="row"></th>
+            <td>#{proveedore.nombre}</td>
+            <td>#{proveedore.direccion}</td>
+            <td>#{proveedore.telefono}</td>
+            <td>#{proveedore.extension}</td>
+            <td>#{proveedore.correo_empresa}</td>
+            <td>#{proveedore.estado}</td>
+            <td>
+            <div class="input-group">
+            <div class="input-group-append" id="btnver">
+            <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
+              span(class="fas fa-user-edit")
+              </button>      
+            </div>
+          </div>
+            </td>
+          </tr>
+        </tbody>     
+      </div>     
+
+    nav(aria-label="Page navigation example")
+      ul(class="pagination")
+        li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
+        li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
+        li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente
+    font(face="Balmoral LET", size="4", color="black")   
