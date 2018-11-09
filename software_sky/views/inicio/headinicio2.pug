@@ -1,0 +1,76 @@
+doctype html
+html(lang="es")
+  head
+    //funciones principales
+    title SKY RANGER
+    <meta charset="UTF-8">
+    meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    link(rel='Shortcut Icon', type='image/x-icon', href='assets/icons/skyranger.jpg')    
+    script(src='js/sweet-alert.min.js')
+    link(rel='stylesheet', href='css/sweet-alert.css')
+    link(rel='stylesheet', href='css/material-design-iconic-font.min.css')
+    // nos muestra los iconos del menu y de arriba
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/style.css')
+    link(rel='stylesheet', href='css/jquery.mCustomScrollbar.css')
+    // nos permite desplazarnos de arriba a abajo en el menu
+    script.
+      window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\\/script>')
+    // permite mostrar un menu en una opcion
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.mCustomScrollbar.concat.min.js')
+    script(src='js/main.js')
+    
+    
+  body
+  //barra del menu vertical
+  .navbar-lateral.full-reset
+    .visible-xs.font-movile-menu.mobile-menu-button
+    .full-reset.container-menu-movile.custom-scroll-containers
+      .logo.full-reset.all-tittles(style='background-color: #021528')
+        | SKY RANGER
+      .full-reset(style='background-color:#021528; padding: 5px 0; color:#fff;')
+        figure(class="container" align="middle")
+          img.img-responsive.center-box(src='assets/img/skyranger2.jpeg', style='width: 60%')
+        p.text-center(style='padding-top: 10px;') SISTEMA DE GPS
+      .full-reset.nav-lateral-list-menu(style='background-color: #021528')
+        ul.list-unstyled
+          font(face="Balmoral LET", size="5")
+            // sirve para alinear la liesta
+            // &nbsp significa espacio
+            li
+              a(href='/clientes')
+                i(class="fas fa-users fa-2x")
+                | &nbsp;&nbsp; CLIENTES
+            li
+              a(href='/proveedores')
+                i(class="fas fa-users fa-2x")
+                | &nbsp;&nbsp; PROVEEDORES
+            li
+              a(href="/usuario")
+                i(class="fas fa-user-tie fa-2x")
+                | &nbsp;&nbsp; ADMINISTRADOR
+            li
+              a(href="/vehiculo")
+                i(class="fas fa-car fa-2x")
+                | &nbsp;&nbsp; VEHICULOS
+            li
+              a(href="/lote")
+                i(class="fas fa-calendar-alt fa-2x")
+                | &nbsp;&nbsp; LOTES
+            li
+              a(href="/gps")
+                i(class="fas fa-map-marked-alt fa-2x")
+                | &nbsp;&nbsp; GPS
+            li
+              a(href="/gps")
+                i(class="fas fa-map-marked-alt fa-2x")
+                | &nbsp;&nbsp; nose
+            li
+              a(href="/gps")
+                i(class="fas fa-map-marked-alt fa-2x")
+                | &nbsp;&nbsp; nose 
+
+
+block content

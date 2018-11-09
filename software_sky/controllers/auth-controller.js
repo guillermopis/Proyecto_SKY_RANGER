@@ -64,7 +64,7 @@ class AuthController{
 //para responder a /clientes
 clientes(request, response, next){
   if(request.session.username){
-    peti.peticion('http://localhost:3000/clientes/{"id":"null","a":"0", "b":"5","texto":""}', function(data){
+    peti.peticion('http://localhost:3000/clientes/{"id":"null","a":"0", "b":"0","texto":""}', function(data){
       peti.peticion("http://localhost:3000/tipopago/", function(datos){
         peti.peticion("http://localhost:3000/tiposervicio/", function(servicios){
           peti.peticion("http://localhost:3000/tipomora/", function(moras){
@@ -129,6 +129,7 @@ lote(request,response, next){
   }
 }//fin de lotess
 
+<<<<<<< HEAD
 
 vehiculo(request,response, next){
   if(request.session.username){
@@ -138,6 +139,29 @@ vehiculo(request,response, next){
           title: "vehiculos",
           datosV, tecnicos
         });//fin del response
+=======
+gps(request,response, next){
+  if(request.session.username){
+    response.render('inicio/indexgps',
+    {
+    });
+  }else {
+    errors.http401(request, response, next);
+  }
+}//fin de gps
+
+
+vehiculo(request,response, next){
+  if(request.session.username){
+    peti.peticion('http://localhost:3000/vehiculos/{"a":"0", "b":"0","texto":"","placa":"","id":""}', function(datosV){
+      peti.peticion('http://127.0.0.1:3000/usuario/{"user":"null","pass":"null","puesto":"TECNICO"}', function(tecnicos){
+        peti.peticion('http://127.0.0.1:3000/gps/{"id":"null","a":"0", "b":"0","estado":"STOCK"}', function(gpsentrada){
+          response.render('inicio/indexvehiculo',{
+            title: "vehiculos",
+            datosV, tecnicos, gpsentrada
+          });//fin del response
+        });
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
       })
     });//fin de peticion oa vehiculo
   }else {

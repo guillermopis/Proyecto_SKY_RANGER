@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha || true",
     "start": "nodemon server.js"
   },
   "author": "",
@@ -12,12 +12,18 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",
+<<<<<<< HEAD
     "chai-http": "^4.2.0",
+=======
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+<<<<<<< HEAD
     "log": "^1.4.0",
+=======
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
     "mocha": "^5.2.0",
     "moment": "^2.22.2",
     "nodemon": "^1.18.3",

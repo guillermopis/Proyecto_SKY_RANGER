@@ -20,25 +20,20 @@
           
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="6", color="black")
-      | ADMINISTRADOR DE VEHICULOS
   section.full-reset(style="padding: 10px; background-color: #ffffff")  
     font(face="Balmoral LET", size="3", color="black")         
     <input id="total" type="text" value=#{datosV.data.length}>
       <div class="table-responsive">
-        table(id="tablaVehiculos" class="table table-hover" style="text-align: center")
+        table(id="tabla" class="display" style="text-align: center")
           thead(class="thead-dark")
             tr
               th(scope="col") #
               th(scope="col") CLIENTE
-                <br>
-                <input class="form-control form-control-sm" id="buscarPorCliente" type="text" placeholder="Buscar...">
               th(scope="col") MARCA
               th(scope="col") LINEA
               th(scope="col") MODELO
               th(scope="col") COLOR
               th(scope="col") PLACA
-                <br>
-                <input class="form-control form-control-sm" id="buscarPorPlaca" type="text" placeholder="Buscar...">
               th(scope="col") ESTADO
               th(scope="col") OPCIONES
           <tbody id="tablita">
@@ -58,6 +53,7 @@
                 <button type="button" class="buttonsmall hover" onClick="verVehiculo(#{vehiculo.id})">
                 span(class="fas fa-user-edit")
                 <button type="button" class="buttonsmall hover" onClick="asignarGPS(#{vehiculo.id},'#{vehiculo.placa}')">
+<<<<<<< HEAD
                 span(class="fas fa-map-marker-alt")
                 | 
                 span(class="fas fa-car")  
@@ -67,3 +63,10 @@
         li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
         li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente
           
+=======
+                span(class="fas fa-map-marker-alt")              
+                span(class="fas fa-car")  
+                button(type="button" class="buttonsmall hover" id="historialvehiculo" onClick="")
+                  span(class="fas fa-book")
+    
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425

@@ -16,6 +16,10 @@ router
     .get('/usuario', direcciones.usuario)
     .get('/vehiculo', direcciones.vehiculo)
     .get('/lote', direcciones.lote)
+<<<<<<< HEAD
+=======
+    .get('/gps', direcciones.gps)
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 //peticiones POST
     .post('/login', direcciones.login)
 

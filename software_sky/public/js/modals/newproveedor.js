@@ -49,7 +49,14 @@ var ModuloListado = function(){
 			return;
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
+<<<<<<< HEAD
 				_private.validarFormulario();
+=======
+			 var forms = document.getElementsByClassName('needs-validation');
+				validarCampos(forms,event,function(estado){
+					_private.validarFormulario(estado);
+				})//sin fe funcion llamado a funcion validar camposº
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 			});//fin de evento
 		}
 	}// fin de funcion evento a boton guardar

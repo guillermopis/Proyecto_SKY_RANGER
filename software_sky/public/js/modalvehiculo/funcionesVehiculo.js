@@ -30,10 +30,45 @@ function verVehiculo(id_vehiculo){
 }//fin de funcion ver vehiculo
 
 function asignarGPS(id_vehiculo,placa){
+<<<<<<< HEAD
   $("#modalasignargpsve").modal('show');
   $("#placave2").val(placa);
   document.getElementById("placave2").disabled=true;
 
 
 
+=======
+  //primero se comprueba que existan gps en stock
+  if(gpsentrada.length == 0){
+    alert("ERROR: no se puede asignar gps a vehiculo debido a que no hay GPS en stock, COMUNIQUESE CON EL ADMINISTRADOR");
+    $(modal).modal('hide');
+  }else{
+    listado.guardarV(id_vehiculo);
+    $("#modalasignargpsve").modal('show');
+    $("#placave2").val(placa);
+    document.getElementById("placave2").disabled=true;
+  //consultamos cual es el actual gps de este vehiculo.
+  $.ajax({
+    url:'http://127.0.0.1:3000/historialVehiculo/{"id":"'+id_vehiculo +'","a":"0", "b":"0","texto":""}',
+    type:"GET",
+    dataType: 'json',
+    data:{}
+  }).then(function(data){
+    if(data.data.length==0){
+      alert("Se le asignara GPS a este vehiculo por primera vez");
+      document.getElementById("idgpssalida").value='NULL';
+      document.getElementById("comentariove").value='Se asigno GPS a vehiculo por primera vez.'
+    }else{
+      listado.guardaridgpssalida(data.data[0].id_gps_entrada);
+      $.ajax({
+        url:'http://127.0.0.1:3000/gps/{"id":"'+data.data[0].id_gps_entrada+'","a":"0", "b":"5","estado":""}',
+        type:"GET",
+        data:{}
+      }).then(function(data){
+        document.getElementById("idgpssalida").value=data.data[0].imei;
+      })//fin de AJAX
+    }//fin de if
+  })//fin de funcion ajax
+  }//fin de if para comprobar gps en stock
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
 }//fin de funcion asignarGPS
