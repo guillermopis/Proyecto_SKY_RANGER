@@ -26,16 +26,12 @@
 
     font(face="Balmoral LET", size="2.5", color="black")   
     <h1 align="center"></H1>
-    <input id="total" type="text" value=#{data.data.length}>
     <div class="table-responsive">
-      table(id="tablaProveedores" class="table table-hover" style="text-align: center")
-        thead(class="thead-dark")
+      table(class="display" id="tablaProveedor")
+        thead()
           <tr>
             <th scope="col">#</th>
             <th scope="col">NOMBRE EMPRESA
-            <br>
-            <input class="form-control form-control-sm" id="buscarnombre" type="text" placeholder="Buscar...">
-            </th>
             <th scope="col">DIRECCION</th>
             <th scope="col">TELEFONO</th>
             <th scope="col">EXTENSION</th>
@@ -57,20 +53,13 @@
             <td>#{proveedore.estado}</td>
             <td>
             <div class="input-group">
-            <div class="input-group-append" id="btnver">
-            <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
+              <div class="input-group-append" id="btnver">
+              <button type="button"class="buttonsmall hover"onClick="ver(#{proveedore.id})">
               span(class="fas fa-user-edit")
               </button>      
+              </div>
             </div>
-          </div>
             </td>
           </tr>
         </tbody>     
-      </div>     
-
-    nav(aria-label="Page navigation example")
-      ul(class="pagination")
-        li(class="page-item" id="anterior").a(class="page-link" href="#") Anterior
-        li(class="page-item" id="pagina" value="1").a(class="page-link" href="#") 1        
-        li(class="page-item" id="siguiente").a(class="page-link" href="#") Siguiente
-    font(face="Balmoral LET", size="4", color="black")   
+      </div> 

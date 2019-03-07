@@ -1,0 +1,1 @@
+insert into usuarios(usuario, contaseña) values('prueba','prueba');

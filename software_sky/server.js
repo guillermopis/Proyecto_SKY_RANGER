@@ -18,6 +18,7 @@ const   express         = require('express'),
 
         viewDir         = `${__dirname}/views`, //directorio de las vistas
 
+        
         sessionMiddleware = session({
                 secret : 'shhhhhhh',
                 resave: true,

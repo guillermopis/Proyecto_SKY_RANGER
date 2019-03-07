@@ -1,4 +1,3 @@
-
 var ModuloListado = function(){
 	var _private = {}, _public = {};
 	_private.formulario=null;
@@ -19,10 +18,10 @@ var ModuloListado = function(){
 		//para paginacion
 		_private.asignarEventoAbuscarproveedor();
 		//_private.asignarEventoAbuscarPornombre();
-		_private.agregarEventoASiguiente();
-		_private.configuracionDePaginacion();
-		_private.traerTotal();
-		_private.agregarEventoAanterior();
+		//_private.agregarEventoASiguiente();
+		//_private.configuracionDePaginacion();
+		//_private.traerTotal();
+		//_private.agregarEventoAanterior();
 	}
 
 	_private.agregarEventoAbotonCerrar=function(){
@@ -49,7 +48,7 @@ var ModuloListado = function(){
 			return;
 		}else{
 			botonGuardar[0].addEventListener('click', function(event){
-			 var forms = document.getElementsByClassName('needs-validation');
+				var forms = document.getElementsByClassName('needs-validation');
 				validarCampos(forms,event,function(estado){
 					_private.validarFormulario(estado);
 				})//sin fe funcion llamado a funcion validar camposº
@@ -141,6 +140,7 @@ _private.agregarEventoAanterior=function(){
 		}
 	}// fin de funcion configuracionDePaginacion
 
+/*
 _private.asignarEventoAbuscarproveedor=function(){
 		var buscarC = $("#buscarnombre");
 		if(buscarC.length==0){
@@ -174,7 +174,7 @@ _private.hacerFiltro=function(omitir, busque){
 					$("#tablita").remove();
 					var b = '<tbody id="tablita" '+
 								"</tbody>";
-					$("#tablaProveedores").append(b);
+					$("#tablaProveedor").append(b);
 					var respuestaTotal=data.data.length;
 					if(respuestaTotal>5){respuestaTotal=5}
 					for (var a = 0; a<respuestaTotal; a++){
@@ -226,31 +226,15 @@ _private.hacerFiltro=function(omitir, busque){
 		_private.limpiar=function(){
 			document.getElementById("formproveedor").reset();
 		}//fin de limpiar
-
-	/*_private.validarCampos=function() {
-	    var forms = document.getElementsByClassName('needs-validation');
-	    var validation = Array.prototype.filter.call(forms, function(form) {
-	        if (form.checkValidity() === false) {
-	          event.preventDefault();
-	          event.stopPropagation();
-	        }else{
-						__private.validarFormulario();
-					}
-	        form.classList.add('was-validated');
-	    });
-	}// fin de funcion validar campos*/
-
-
-
 	
 
 	//validamos el formulario junto con la informacion de la api
-	_private.validarFormulario=function(){
-		var valido = _private.formulario.checkValidity();
-		if(valido == true){
+	_private.validarFormulario=function(esvalido){
+		//var valido = _private.formulario.checkValidity();
+		if(esvalido == true){
 			console.log("todo listo para guardar");
 			if($("#bandera").val()	== "crear"){
-			console.log('aquillego');
+			//console.log('aquillego');
 				datos= {
 						"nombre": document.getElementById("nombre").value,
 						"nit": document.getElementById("nit").value,
@@ -279,8 +263,8 @@ _private.hacerFiltro=function(omitir, busque){
 						"correo_contacto": document.getElementById("correo_contacto").value
 					};//fin de datos 
 			peticion("http://127.0.0.1:3000/proveedores/"+$('#id').val(),"PUT",datos,"modalnuevoproveedor","http://localhost:8000/proveedores");
-			}else {
-				console.log("no se ejecuto la peticion put ni post");
+			}else {alert('formulario invalido');
+				//console.log("no se ejecuto la peticion put ni post");
 			}//fin del else
 		}//fin del if
 	}//fin de funcion validar formulario

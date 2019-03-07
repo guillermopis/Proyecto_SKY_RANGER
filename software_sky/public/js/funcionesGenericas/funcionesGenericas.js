@@ -6,7 +6,7 @@ validarCampos=function(forms,event,callback) {
           event.preventDefault();
           event.stopPropagation();
         }else{
-          var estado=form.checkValidity();
+          var estado = form.checkValidity();
           callback(estado);
         }
         form.classList.add('was-validated');
@@ -21,10 +21,16 @@ peticion=function(url,type,datos,modal,redireccion){
         type: type,
         data: datos
       }).done(function(data){
+<<<<<<< HEAD
+        $(modal).modal('hide')
+        alert(data.mensaje);
+        location.href = redireccion;
+=======
         if(data.error == false){
           $(modal).modal('hide')
           alert(data.mensaje);
           location.href = redireccion;
         }
+>>>>>>> c051f5eaf453d82d994403c7c7547b9fa6e93425
       })//fin de ajax
 }//fnin de funcino peticion
