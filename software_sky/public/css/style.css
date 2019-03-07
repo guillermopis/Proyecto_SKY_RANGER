@@ -113,7 +113,7 @@ span.label-mhover{
     line-height: 55px;
 }
 .navbar-user-top > ul > li:hover{
-  color: #FFD559;  
+  color: #FFD559;
 }
 .navbar-user-top > ul > li:hover span.badge{
     background-color: #E34724;
@@ -193,7 +193,7 @@ span.label-mhover{
     outline: none;
 }
 .nav-lateral-list-menu ul li:first-child{
-   border-top: 1px solid rgba(230,233,238,.1); 
+   border-top: 1px solid rgba(230,233,238,.1);
 }
 .nav-lateral-list-menu ul li a span{
     transition: .3s all ease-in-out;
@@ -231,10 +231,10 @@ span.label-mhover{
 }
 .footer-social{
     cursor: pointer;
-    margin: 0 2px; 
+    margin: 0 2px;
     transition: all .3s ease-in-out;
 }
-.footer-social:hover{ 
+.footer-social:hover{
     color: #FFD054;
     transform: scale(1.7);
 }
@@ -264,9 +264,9 @@ span.label-mhover{
    background-color: #3598D9;
 }
 /*Controles de formularios material desing ================*/
-.group-material{ 
-  position:relative; 
-  margin-bottom:45px; 
+.group-material{
+  position:relative;
+  margin-bottom:45px;
 }
 input.material-control,
 select.material-control{
@@ -290,25 +290,25 @@ select.no-style{
 }
 /*Estado activo*/
 input.material-control:focus,
-select.material-control{ 
+select.material-control{
     outline:none;
     border-bottom:1px solid #5264AE;
 }
 /*Label de formularios material desing ================*/
 .group-material label{
-  color:#999; 
+  color:#999;
   font-size:18px;
   font-weight:normal;
   position:absolute;
   pointer-events:none;
   left:5px;
   top:10px;
-  transition: all 0.2s ease; 
-  -moz-transition: all 0.2s ease; 
+  transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
 }
 /* Estado activo */
-input.material-control:focus ~ label, 
+input.material-control:focus ~ label,
 input.material-control:valid ~ label{
   top:-20px;
   font-size:17px;
@@ -345,13 +345,13 @@ input.material-control:invalid:required{
 .bar{ position:relative; display:block; width:100%; }
 .bar:before, .bar:after     {
   content:'';
-  height:2px; 
+  height:2px;
   width:0;
-  bottom:1px; 
+  bottom:1px;
   position:absolute;
-  background:#5264AE; 
-  transition: all 0.2s ease; 
-  -moz-transition: all 0.2s ease; 
+  background:#5264AE;
+  transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
   -webkit-transition: all 0.2s ease;
 }
 .bar:before { left:50%; }
@@ -362,9 +362,9 @@ input.material-control:focus ~ .bar:before, input.material-control:focus ~ .bar:
 /* HIGHLIGHTER ================================== */
 .highlight {
   position:absolute;
-  height:60%; 
-  width:100px; 
-  top:25%; 
+  height:60%;
+  width:100px;
+  top:25%;
   left:0;
   pointer-events:none;
   opacity:0.5;
@@ -441,7 +441,7 @@ input.material-control:focus ~ .highlight {
     border-radius: 4px;
     position: relative;
 }
-.report-content,.report-content p i{ transition: all .4s ease-in-out; } 
+.report-content,.report-content p i{ transition: all .4s ease-in-out; }
 .report-content p i:hover{
     color:#F57C00;
     cursor: pointer;
@@ -511,7 +511,7 @@ input.material-control:focus ~ .highlight {
         height: 100%;
         width: 100%;
     }
-    .form-container{ width: 97%; max-width: 370px;}  
+    .form-container{ width: 97%; max-width: 370px;}
     .content-page-container{ width: 100%; }
     .navbar-user-top > ul > li{ margin: 0 10px; }
     form.form_SRCB{ padding: 7px;}
