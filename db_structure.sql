@@ -92,7 +92,8 @@ create table marcas(
 	id int primary key not null identity,
 	nombre varchar(50),
 	descripcion varchar(100)
-);go
+);
+go
 
 
 --drop table sims

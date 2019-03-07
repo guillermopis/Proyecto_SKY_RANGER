@@ -1,4 +1,5 @@
-insert into usuarios(usuario, contraseña) values('david','abc');
+use SkyrangerDB;
+insert into usuarios(usuario, contraseña, rol, puesto,estado) values('guillermo','123',1,'TECNICO','ACTIVO');
 insert into usuarios(usuario, contraseña) values('pancho','abc');
 insert into usuarios(usuario, contraseña) values('daniel','abc');
 insert into usuarios(usuario, contraseña) values('guillermo','abc');
@@ -13,3 +14,4 @@ select * from usuarios
 select * from roles
 
 insert into roles(nombre)values('admin')
+

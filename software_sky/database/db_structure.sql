@@ -97,9 +97,10 @@ create table marcas(
 
 
 --eleven step tabla sims
+select *from sims
 create table sims(
 	id int primary key not null identity,
-	id_marca int,
+	id_marca varchar(40),
 	compania_telefonica varchar(70),
 	plan_de_datos varchar(50),
 	fecha_vencimiento_plan date,
@@ -110,8 +111,7 @@ create table sims(
 	apn varchar(60),
 	id_lote int,
 	estado varchar(35),
-	constraint fk_idlote foreign key(id_lote) references lotes(id),
-	constraint fk_idmarca foreign key(id_marca)	references marcas(id)
+	constraint fk_idlote foreign key(id_lote) references lotes(id)
 );
 go
 

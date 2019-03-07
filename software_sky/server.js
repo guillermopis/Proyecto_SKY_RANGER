@@ -23,7 +23,7 @@ const   express         = require('express'),
                 resave: true,
                 saveUninitialized: false
         }),
-        port = (process.env.PORT || 8000);
+        port = (process.env.PORT || 88);
 
 let app = express();
 let server = http.createServer(app);

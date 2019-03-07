@@ -51,7 +51,7 @@ class AuthController{
               }
         }else{ //los datos son incorrectos
             if(!request.session.username){
-              var html='<script type="text/javascript">alert("Error en la autenticacion, intente de nuevo"); location.href = "http://localhost:8000/"; </script>';
+              var html='<script type="text/javascript">alert("Error en la autenticacion, intente de nuevo"); location.href = "http://localhost:88/"; </script>';
               response.writeHead(200,{"Content-Type":"text/html"})
               response.write(html);
               response.end();
